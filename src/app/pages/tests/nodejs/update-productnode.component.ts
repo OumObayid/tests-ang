@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from '../../../services/http/apinodejs/product.service';
@@ -65,19 +64,21 @@ import { ProductService } from '../../../services/http/apinodejs/product.service
 })
 export class UpdateProductnodeComponent implements OnInit {
   product: any = {};
-
+  productId: string | null = null;
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private http: HttpClient,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    const productId = this.route.snapshot.paramMap.get('id');
-    if (productId) {
+    // Récupération de l'identifiant du produit
+    this.productId = this.route.snapshot.paramMap.get('id');
+    if (this.productId) {
       this.productService.getProducts().subscribe((products) => {
-        const foundProduct = products.find((prod) => prod._id === productId);
+        const foundProduct = products.find(
+          (prod) => prod._id === this.productId
+        );
         if (foundProduct) {
           this.product = foundProduct;
         }
@@ -86,9 +87,9 @@ export class UpdateProductnodeComponent implements OnInit {
   }
 
   updateProduct(): void {
-    if (this.product._id) {
+    if (this.productId) {
       this.productService
-        .updateProduct(this.product._id, this.product)
+        .updateProduct(this.productId, this.product)
         .subscribe({
           next: () => {
             alert('Produit mis à jour avec succès !');

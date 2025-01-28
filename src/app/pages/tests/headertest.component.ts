@@ -171,8 +171,19 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
         routerLink="/products-firebase"
         >crud-firebase</a
       >
-      <a [ngClass]="{ active: router.url === '/rxjs1' }" routerLink="/rxjs1"
-        >rxjs1</a
+      <a
+        [ngClass]="{ active: router.url === '/products-json' }"
+        routerLink="/products-json"
+        >crud-json</a
+      >
+      <a [ngClass]="{ active: router.url === '/rxjs-observable' }" routerLink="/rxjs-observable"
+        >rxjs Observable</a
+      >
+      <a [ngClass]="{ active: router.url === '/rxjs-creation' }" routerLink="/rxjs-creation"
+        >rxjs Creation</a
+      >
+      <a [ngClass]="{ active: router.url === '/rxjs-transformation' }" routerLink="/rxjs-transformation"
+        >rxjs Transformation</a
       >
     </nav>
   `,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-rxjs1',
+  selector: 'app-observable',
   template: `
     <div class="container">
       <h1>
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   `,
   styles: [],
 })
-export class Rxjs1Component {
+export class RxjsbservableComponent {
   compteur: number = 0;
 
 

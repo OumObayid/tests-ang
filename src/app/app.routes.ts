@@ -1,7 +1,11 @@
+import { RxjsTransformationComponent } from './pages/tests/rxjs/rxjstransformer.component';
+import { RxjscreationComponent } from './pages/tests/rxjs/rxjscreation.component';
+import { JsonUpdateProductComponent } from './pages/tests/json/jsonupdateproduct.component';
+import { JsonProductsComponent } from './pages/tests/json/jsonproducts.component';
 import { ProductsnodeComponent } from './pages/tests/nodejs/productsnode.component';
 import { ProductsfireComponent } from './pages/tests/firebase/productsfire.component';
 import { UpdateProductnodeComponent } from './pages/tests/nodejs/update-productnode.component';
-import { Rxjs1Component } from './pages/tests/rxjs/rxjs1.component';
+import { RxjsbservableComponent } from './pages/tests/rxjs/rxjsobservable.component';
 import { ProductsResolver } from './services/resolvers/products.resolver';
 import { ResolverComponent } from './pages/tests/resolver/resolver.component';
 import { GuardComponent } from './pages/tests/guard/guard.component';
@@ -108,11 +112,16 @@ export const routes: Routes = [
     },
   },
   //rxjs
-  { path: 'rxjs1', component: Rxjs1Component },
+  { path: 'rxjs-observable', component: RxjsbservableComponent },
+  { path: 'rxjs-creation', component: RxjscreationComponent },
+  { path: 'rxjs-transformation', component: RxjsTransformationComponent },
 //nodejs
 { path: 'products-node', component: ProductsnodeComponent },
 { path: 'update-node/:id', component:UpdateProductnodeComponent },
 //firebase
 { path: 'products-firebase', component: ProductsfireComponent },
+//json
+{ path: 'products-json', component: JsonProductsComponent },
+{ path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
 
 ];
