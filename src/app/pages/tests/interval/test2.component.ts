@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, viewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { interval, Subscription } from 'rxjs';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -218,13 +218,12 @@ export class AppComponent &#123;
 })
 export class Test2Component {
   time: number = 0;
-  private timerSubscription: Subscription | null = null;
-
+  // private timerSubscription: Subscription | null = null;
+  timerSubscription:any;
   startTimer() {
     this.stopTimer();
-    const timer$ = interval(1000);
-    this.timerSubscription = timer$.subscribe(
-      (value) => (this.time = value)
+    this.timerSubscription = interval(1000).subscribe(
+      value => this.time = value
     );
   }
 

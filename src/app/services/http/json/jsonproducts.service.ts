@@ -14,16 +14,18 @@ export interface Product {
   providedIn: 'root',
 })
 export class JsonProductsService {
+  // URL de l'API
   private baseURL = 'http://localhost:3000/products';
 
+  // Injecter le service HttpClient
   constructor(private http: HttpClient) {}
 
   // Récupérer tous les produits
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseURL);
   }
-   // Récupérer un produit par ID
-   getProductById(id: number): Observable<Product> {
+  // Récupérer un produit par ID
+  getProductById(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.baseURL}/${id}`);
   }
 

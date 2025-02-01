@@ -1,7 +1,7 @@
 import { ProductsService } from '../http/apiphp/products/products.service';
 import { map } from 'rxjs/operators';
-import { inject, Injectable } from '@angular/core';
-import { Resolve, ResolveFn } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Product } from '../../interfaces/product';
 
@@ -19,7 +19,7 @@ export class ProductsResolver implements Resolve<Product[]> {
 
         if (response.success && response.dataProd) {
           console.log('Products extracted:', response.dataProd); // Affiche les produits extraits
-          return response.dataProd; // Retourne les produits extraits
+          return response.dataProd; // Retourne les produits extraits comme étant la valeur de l'observable
         } else {
           console.warn('No products found or API returned an error.');
           return []; // Retourne un tableau vide si la réponse n'est pas valide

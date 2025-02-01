@@ -72,6 +72,20 @@ import { ActivatedRoute } from '@angular/router';
           resolver
           </button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="c3-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#c3"
+            type="button"
+            role="tab"
+            aria-controls="c3"
+            aria-selected="true"
+          >
+          demarche à suivre
+          </button>
+        </li>
       </ul>
 
       <!-- Tab Content -->
@@ -194,6 +208,42 @@ export class ProductsResolver implements Resolve&#60;Product[]&#62; &#123;
   &#125;
 &#125;</pre>
         </div>
+        <!-- Composant C3 -->
+        <div
+          class="tab-pane fade show active "
+          id="c3"
+          role="tabpanel"
+          aria-labelledby="c3-tab"
+          style="position: relative;"
+        >
+          <!-- Bouton de copie pour C3 -->
+          <i (click)="copy3()" class="fas fa-copy"></i>
+          <span class="confirm" *ngIf="clicked"
+            >copied <i class="fas fa-check"></i>
+          </span>
+          <pre #tab3 class="tab fw-bold" ngNonBindable>
+<strong>1. Générer le Resolver:</strong><span class="text-danger">ng generate resolver services/nom-du-resolver</span>
+Cela crée un fichier TypeScript avec une classe implémentant Resolve.
+
+<strong>2. Implémenter la logique de récupération des données dans le resolver:</strong>
+(voir code du resolver)
+
+<strong>3. Déclarer le Resolver dans le Routing Module :</strong> Ajouter le Resolver dans la configuration des routes:
+<span class="text-danger">const routes: Routes = [
+  &#123;
+    path: 'chemin',
+    component: NomComponent,
+    resolve: &#123;
+      nomData: NomResolver
+    &#125;
+  &#125;
+];</span>
+
+<strong>4. Récupérer les données dans le Composant :</strong> Utiliser ActivatedRoute pour accéder aux données résolues :
+<span class="text-danger">this.route.data.subscribe(data => &#123;
+  console.log(data.nomData);
+&#125;);</span></pre>
+        </div>
       </div>
 <!-- --------------------Fin Template pour afficher le code source---------------- -->
 
@@ -239,7 +289,7 @@ import &#123; Product &#125; from './product.interface';
 export const userResolver: ResolveFn&#60;Product&#62; = (
   route,
   state
-): Observable&#60;Product> => &#123;
+): Observable&#60;Product&#62; => &#123;
   const userService = inject(UserService);
   return userService.get(route.params['userId']);
 &#125;;</span>
@@ -325,6 +375,7 @@ export class ResolverComponent implements OnInit {
   // ----------------------ts pour afficher le code source--------------------
   infoTab1 = viewChild<ElementRef>('tab1');
   infoTab2 = viewChild<ElementRef>('tab2');
+  infoTab3 = viewChild<ElementRef>('tab3');
   clicked: boolean = false;
   copy1() {
     const element = this.infoTab1()?.nativeElement;
@@ -336,6 +387,15 @@ export class ResolverComponent implements OnInit {
   }
   copy2() {
     const element = this.infoTab2()?.nativeElement;
+    if (element) navigator.clipboard.writeText(element.textContent);
+    this.clicked = true;
+    setTimeout(() => {
+      this.clicked = false;
+    }, 1500);
+  }
+
+  copy3() {
+    const element = this.infoTab3()?.nativeElement;
     if (element) navigator.clipboard.writeText(element.textContent);
     this.clicked = true;
     setTimeout(() => {

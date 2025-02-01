@@ -1,3 +1,5 @@
+import { UpdateProductFireComponent } from './pages/tests/firebase/updateproductfire.component';
+import { LoginComponent } from './pages/tests/login/login.component';
 import { RxjsTransformationComponent } from './pages/tests/rxjs/rxjstransformer.component';
 import { RxjscreationComponent } from './pages/tests/rxjs/rxjscreation.component';
 import { JsonUpdateProductComponent } from './pages/tests/json/jsonupdateproduct.component';
@@ -9,7 +11,6 @@ import { RxjsbservableComponent } from './pages/tests/rxjs/rxjsobservable.compon
 import { ProductsResolver } from './services/resolvers/products.resolver';
 import { ResolverComponent } from './pages/tests/resolver/resolver.component';
 import { GuardComponent } from './pages/tests/guard/guard.component';
-import { LoginComponent } from './pages/tests/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormcontrolgroupComponent } from './pages/tests/formControl-formGroup/formcontrolgroup.component';
 import { ViewchildNgFormComponent } from './pages/tests/ngForm/viewChild-ngForm.component';
@@ -52,6 +53,7 @@ import { Test2Component } from './pages/tests/interval/test2.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
+import { authGuard2 } from './guards/auth2.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -96,14 +98,20 @@ export const routes: Routes = [
   { path: 'ngform1', component: NgFormComponent },
   { path: 'ngform2', component: ViewchildNgFormComponent },
   { path: 'form-control-group', component: FormcontrolgroupComponent },
-  { path: 'login', component: LoginComponent },
   //guard
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [authGuard],
   },
-  //resolver
+  {
+    path: 'login',
+    canActivate: [authGuard2],
+    component: LoginComponent,
+  },
+ 
+
+  // Resolver : Récupérer des données avant d'afficher une route (ex: liste de produits)
   {
     path: 'resolver',
     component: ResolverComponent,
@@ -120,6 +128,7 @@ export const routes: Routes = [
 { path: 'update-node/:id', component:UpdateProductnodeComponent },
 //firebase
 { path: 'products-firebase', component: ProductsfireComponent },
+{ path: 'update-product-firebase/:id', component: UpdateProductFireComponent },
 //json
 { path: 'products-json', component: JsonProductsComponent },
 { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },

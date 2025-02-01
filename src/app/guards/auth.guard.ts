@@ -11,14 +11,20 @@ export const authGuard: CanActivateFn = () => {
   // Vérifiez si l'utilisateur est connecté (par exemple, via un token)
   // const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
   let isLoggedIn :boolean=false;
-  store.select(selectIsLoggedIn).subscribe(islog=>isLoggedIn=islog)
-  if (isLoggedIn) {
-    return true; // Autorise l'accès
-  } else {
-    // Redirige l'utilisateur vers la page de connexion
-    router.navigate(['/login']);
-    return false; // Bloque l'accès
+  store.select(selectIsLoggedIn).subscribe(
+    islog=>{
+      isLoggedIn=islog
+      if (isLoggedIn) {
+        return true; // Autorise l'accès
+      } else {
+        // Redirige l'utilisateur vers la page de connexion
+        router.navigate(['/login']);
+        return false; // Bloque l'accès
+      }
 
-  }
+    }
+
+  )
+  return true;
 };
 

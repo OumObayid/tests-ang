@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, effect, OnInit, signal } from '@angular/core';
 import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
 
 @Component({
@@ -206,15 +206,28 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
       }
 
       .active {
-        color: rgb(182, 180, 180) !important; /* Couleur du texte actif */
+        color: rgb(40, 54, 45) !important; /* Couleur du texte actif */
         font-weight: 600 !important;
+        background-color:rgb(155, 240, 191)
       }
     `,
   ],
 })
 export class HeadertestComponent implements OnInit {
-  constructor(public router: Router, private store: Store) {}
+  // constructor(public router: Router, private store: Store) {}
   isloggedIn = signal(false);
+  constructor(
+    public router: Router, private store: Store
+
+  ) {
+    // Déclaration d'un effet qui observe les changements du signal `count`
+    effect((
+    ) => {
+      this.store
+      .select(selectIsLoggedIn)
+      .subscribe((islog) => this.isloggedIn.set(islog));
+    });
+  }
   ngOnInit() {
     this.store
       .select(selectIsLoggedIn)

@@ -1,12 +1,14 @@
+import {
+  FirestoreService,
+  Product,
+} from './../../../services/firebase/firestore.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JsonProductsService } from '../../../services/http/json/jsonproducts.service';
-import { Product } from '../../../services/http/json/jsonproducts.service';
 
 @Component({
-  selector: 'app-update-product',
+  selector: 'app-update-product-fire',
   imports: [CommonModule, FormsModule],
   template: `
     <div class="container mt-4">
@@ -19,7 +21,7 @@ import { Product } from '../../../services/http/json/jsonproducts.service';
               type="text"
               id="name"
               class="form-control"
-              [(ngModel)]="product.name"
+              [(ngModel)]="product.nom"
               name="name"
               required
             />
@@ -30,7 +32,7 @@ import { Product } from '../../../services/http/json/jsonproducts.service';
               type="number"
               id="price"
               class="form-control"
-              [(ngModel)]="product.price"
+              [(ngModel)]="product.prix"
               name="price"
               required
             />
@@ -41,7 +43,7 @@ import { Product } from '../../../services/http/json/jsonproducts.service';
               type="text"
               id="categoryName"
               class="form-control"
-              [(ngModel)]="product.categoryName"
+              [(ngModel)]="product.categorie_nom"
               name="categoryName"
               required
             />
@@ -66,36 +68,39 @@ import { Product } from '../../../services/http/json/jsonproducts.service';
   `,
   styles: [],
 })
-export class JsonUpdateProductComponent implements OnInit {
-  // Initialisation d'un produit vide
+export class UpdateProductFireComponent implements OnInit {
   product: Product = {
     id: 0,
-    name: '',
-    price: 0,
-    categoryName: '',
+    nom: '',
+    prix: 0,
+    categorie_nom: '',
     description: '',
   };
-
-  // Injection des dépendances
+  productId: string = '';
   constructor(
     private activatedRoute: ActivatedRoute,
-    private jsonProductsService: JsonProductsService,
+    private firestoreService: FirestoreService,
     private router: Router
   ) {}
 
-  // Récupérer le produit par ID lors de l'initialisation du composant
   ngOnInit(): void {
-    const productId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.jsonProductsService.getProductById(productId).subscribe((product) => {
-      this.product = product;
-    });
+    this.productId = this.activatedRoute.snapshot.paramMap.get('id') || '';
+    this.firestoreService
+      .getDocumentById('angproducts', this.productId)
+      .subscribe((product) => {
+        this.product = product;
+      });
   }
 
-  // Mettre à jour le produit et rediriger vers la liste des produits après mise à jour
   updateProduct(): void {
-    this.jsonProductsService.updateProduct(this.product).subscribe(() => {
-      alert('Produit mis à jour !');
-      this.router.navigate(['/products-json']); // Redirection vers la liste des produits après mise à jour
-    });
+    this.firestoreService
+      .updateDocument('angproducts', this.productId, this.product)
+      .then(() => {
+        alert('Produit mis à jour !');
+        this.router.navigate(['/products-firebase']); // Redirection vers la liste des produits après mise à jour    })
+      })
+      .catch((error) => {
+        console.error('Erreur lors de la suppression du produit :', error);
+      });
   }
 }
