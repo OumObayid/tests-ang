@@ -210,7 +210,7 @@ export class ProductsResolver implements Resolve&#60;Product[]&#62; &#123;
         </div>
         <!-- Composant C3 -->
         <div
-          class="tab-pane fade show active "
+          class="tab-pane fade show "
           id="c3"
           role="tabpanel"
           aria-labelledby="c3-tab"
