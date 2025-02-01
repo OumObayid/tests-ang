@@ -36,8 +36,9 @@ import { concatMap, map, take } from 'rxjs/operators';
       <button class="btn btn-primary me-2" (click)="useRange()">range()</button>
       @if (utilisation){
       <p class="mt-3"><strong>Utilisation:</strong> {{ utilisation }}</p>
-      } @if (code){
-      <p><strong class="mt-4 ">Code:</strong> {{ code }}</p>
+      } 
+      @if (code){
+      <div><strong class="mt-4 ">Code:</strong> <pre>{{ code }}</pre></div>
 
       } @if ( results.length > 0){
       <strong class="mt-3">Résultats :</strong>
@@ -76,7 +77,8 @@ export class RxjscreationComponent implements OnDestroy {
     //   });
 
     this.utilisation = 'Utilisation de of pour émettre des valeurs';
-    this.code = `of(1, 2, 3, 4, 5).subscribe(value => this.results.push(value.toString()));`;
+    this.code = `
+    of(1, 2, 3, 4, 5).subscribe(value => this.results.push(value.toString()));`;
   }
 
   // Utilisation de from pour émettre des valeurs d'un tableau
@@ -87,7 +89,8 @@ export class RxjscreationComponent implements OnDestroy {
     );
     this.utilisation =
       "Utilisation de from pour émettre des valeurs d'un tableau";
-    this.code = `from([10, 20, 30, 40, 50]).subscribe((value) =>
+    this.code = `
+    from([10, 20, 30, 40, 50]).subscribe((value) =>
       this.results.push(value.toString())
     );`;
   }
@@ -100,7 +103,8 @@ export class RxjscreationComponent implements OnDestroy {
       .subscribe((value) => this.results.push(value.toString()));
     this.utilisation =
       'Utilisation de interval pour déclencher un événement à intervalles réguliers';
-    this.code = `interval(1000).pipe(take(5)).subscribe((value) => this.results.push(value.toString()));`;
+    this.code = `
+    interval(1000).pipe(take(5)).subscribe((value) => this.results.push(value.toString()));`;
   }
 
   // Utilisation de timer pour déclencher un événement après un délai
@@ -111,7 +115,9 @@ export class RxjscreationComponent implements OnDestroy {
       .subscribe((value) => this.results.push(value.toString()));
     this.utilisation =
       'Utilisation de timer pour déclencher un événement après un délai';
-    this.code = `timer(5000, 1000).pipe(take(5)).subscribe((value) => this.results.push(value.toString()));`;
+    this.code = `
+    timer(5000, 1000).pipe(take(5))
+    .subscribe((value) => this.results.push(value.toString()));`;
   }
 
   // Utilisation de fromEvent pour écouter un événement
@@ -121,7 +127,8 @@ export class RxjscreationComponent implements OnDestroy {
       this.results.push('Click détecté !')
     );
     this.utilisation = 'Utilisation de fromEvent pour écouter un événement';
-    this.code = `fromEvent(document, 'click').subscribe(() =>
+    this.code = `
+    fromEvent(document, 'click').subscribe(() =>
       this.results.push('Click détecté !')
     );`;
   }
@@ -134,7 +141,8 @@ export class RxjscreationComponent implements OnDestroy {
       .subscribe((value) => this.results.push(value));
     this.utilisation =
       "Utilisation de l'opérateur ajax pour effectuer une requête HTTP";
-    this.code = `ajax('https://jsonplaceholder.typicode.com/todos/1').pipe(map((res) => JSON.stringify(res.response))).subscribe((value) => this.results.push(value));`;
+    this.code = `
+    ajax('https://jsonplaceholder.typicode.com/todos/1').pipe(map((res) => JSON.stringify(res.response))).subscribe((value) => this.results.push(value));`;
   }
 
   // Utilisation de defer pour exécuter une fonction de manière asynchrone
@@ -145,9 +153,8 @@ export class RxjscreationComponent implements OnDestroy {
     );
     this.utilisation =
       'Utilisation de defer pour exécuter une fonction de manière asynchrone';
-    this.code = `defer(() => (Math.random() > 0.5 ? of('Succès') : of('Échec'))).subscribe(
-      (value) => this.results.push(value)
-    );`;
+    this.code = `
+    defer(() => (Math.random() > 0.5 ? of('Succès') : of('Échec'))).subscribe((value) => this.results.push(value));`;
   }
 
   // Utilisation de merge pour fusionner plusieurs observables
@@ -166,7 +173,8 @@ export class RxjscreationComponent implements OnDestroy {
     );
     this.utilisation =
       'Utilisation de merge pour fusionner plusieurs observables';
-    this.code = `const obs1$ = interval(2000).pipe(
+    this.code = `
+    const obs1$ = interval(2000).pipe(
       map((v) => 'A' + v),
       take(3)
     );
@@ -185,7 +193,8 @@ export class RxjscreationComponent implements OnDestroy {
     range(1, 10).subscribe((value) => this.results.push(value.toString()));
     this.utilisation =
       'Utilisation de range pour émettre une séquence de nombres';
-    this.code = `range(1, 10).subscribe((value) => this.results.push(value.toString()));`;
+    this.code = `
+    range(1, 10).subscribe((value) => this.results.push(value.toString()));`;
   }
 
   ngOnDestroy() {
