@@ -2,19 +2,36 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, viewChild, ElementRef } from '@angular/core';
 import { Product } from '../../../interfaces/product';
 import { ActivatedRoute } from '@angular/router';
+import { Categorie } from '../../../interfaces/categorie';
 
 @Component({
   selector: 'app-resolver',
   imports: [CommonModule],
   template: `
-    <div class="container">
+    <div class="container ">
       <h1>Resolver</h1>
       <hr />
+      <h3>Liste des categories</h3>
+      <div *ngIf="categories.length > 0; else noCategories" class="row">
+        <div
+          *ngFor="let categorie of categories | slice: 0:4"
+          class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"
+        >
+          <div class="card d-flex flex-column mb-4 shadow">
+            <div class="card-body d-flex flex-column">
+             <h3 class="card-title text-truncate">{{ categorie.nom }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noCategories>
+        <p>Aucune catégorie trouvée.</p>
+      </ng-template>
       <h3>Liste des produits</h3>
       <div *ngIf="products.length > 0; else noProducts" class="row">
         <div
           *ngFor="let product of products | slice: 0:4"
-          class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+          class="col-12 col-sm-6 col-md-3 col-lg-3 mb-4"
         >
           <div class="card d-flex flex-column mb-4">
             <img
@@ -24,7 +41,7 @@ import { ActivatedRoute } from '@angular/router';
               style="max-height: 150px; object-fit: cover;"
             />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-truncate">{{ product.nom }}</h5>
+              <h3 class="card-title text-truncate fw-bold">{{ product.nom }}</h3>
               <p class="card-text text-truncate" [title]="product.description">
                 {{ product.description }}
               </p>
@@ -248,23 +265,28 @@ Cela crée un fichier TypeScript avec une classe implémentant Resolve.
 <!-- --------------------Fin Template pour afficher le code source---------------- -->
 
       <span class=" mt-5">
-        ______________________________________________________________<span class="fs-2">cours</span>
-        ______________________________________________________________
+        __________________________________<span class="fs-2">cours</span>
+        __________________________________
       </span>
       <pre style="font-size:14px;">
-Un resolver dans Angular est comme un assistant qui prépare les données nécessaires avant que
+Un resolver dans Angular est comme un assistant qui prépare les données
+nécessaires avant que
 vous n'arriviez sur une page.
 
-<strong>1. Préparation des données :</strong> Il récupère les informations nécessaires pour une route spécifique avant que la page
+<strong>1. Préparation des données :</strong> Il récupère les informations
+nécessaires pour une route spécifique avant que la page
 ne soit affichée.
 
-<strong>2. Chargement anticipé :</strong> Au lieu d'attendre que le composant soit chargé pour commencer à récupérer les données,
+<strong>2. Chargement anticipé :</strong> Au lieu d'attendre que le composant
+soit chargé pour commencer à récupérer les données,
 le resolver les obtient à l'avance.
 
-<strong>3. Amélioration de l'expérience utilisateur :</strong> Cela permet d'éviter d'afficher une page vide ou un indicateur de chargement,
+<strong>3. Amélioration de l'expérience utilisateur :</strong> Cela permet
+d'éviter d'afficher une page vide ou un indicateur de chargement,
 car les données sont déjà prêtes lorsque la page s'affiche.
 
-<strong>4. Gestion des erreurs :</strong> Si quelque chose ne va pas lors de la récupération des données, le resolver peut rediriger l'utilisateur
+<strong>4. Gestion des erreurs :</strong> Si quelque chose ne va pas lors de
+la récupération des données, le resolver peut rediriger l'utilisateur
  vers une page d'erreur avant même que la route ne soit activée.
 
  <strong>structure:</strong><span class="text-danger">
@@ -363,13 +385,15 @@ export const userResolver: ResolveFn&#60;Product&#62; = (
 })
 export class ResolverComponent implements OnInit {
   products: Product[] = [];
-
+  categories: Categorie[]= [];
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // Récupère les données du resolver
     this.route.data.subscribe((data) => {
       this.products = data['products'];
+      this.categories = data['categories'];
+
     });
   }
   // ----------------------ts pour afficher le code source--------------------

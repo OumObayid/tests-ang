@@ -168,7 +168,8 @@ export class EnfantComponent &#123;
           >Explication</span
         >*************************************************
         <pre>
-Le parent (Test6Component) récupère une liste de catégories depuis un service (CategoriesService) et la charge dans la propriété <strong>categories</strong>, et les transmet au composant enfant (Enfant6Component) <br>via le décorateur &#64;Input.
+Le parent (Test6Component) récupère une liste de catégories depuis un service (CategoriesService) et la charge dans la propriété
+<strong>categories</strong>, et les transmet au composant enfant (Enfant6Component) via le décorateur &#64;Input.
 
 <strong>Composant parent (Test6Component) :</strong>
 Il importe le composant enfant (Enfant6Component) pour l'utiliser dans son modèle.

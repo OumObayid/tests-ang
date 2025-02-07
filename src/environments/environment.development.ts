@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
   apiURL: 'http://localhost:8000',
+  // apiURL: 'http://ang-php.a0001.net/api',
   siteURL: 'http://localhost:4200',
   apiVersion: 'v1', // Version de l'API
   firebaseConfig : {

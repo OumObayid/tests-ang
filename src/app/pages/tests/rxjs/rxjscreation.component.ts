@@ -40,7 +40,8 @@ import { concatMap, map, take } from 'rxjs/operators';
       @if (code){
       <div><strong class="mt-4 ">Code:</strong> <pre>{{ code }}</pre></div>
 
-      } @if ( results.length > 0){
+      } 
+      @if ( results.length > 0){
       <strong class="mt-3">Résultats :</strong>
       <ul>
         <li *ngFor="let item of results">{{ item }}</li>
@@ -54,8 +55,9 @@ export class RxjscreationComponent implements OnDestroy {
   results: string[] = [];
   subscription: Subscription | null = null;
   code: string = '';
-  utilisation: string = '';
+  utilisation: string = ''; 
 
+// Fonction pour réinitialiser les résultats et désabonner l'observable
   resetResults() {
     this.results = [];
     this.subscription?.unsubscribe(); // Désabonner l'observable précédent
@@ -64,7 +66,8 @@ export class RxjscreationComponent implements OnDestroy {
   // Utilisation de of pour émettre des valeurs
   useOf() {
     this.resetResults();
-    this.subscription = of(1, 2, 3, 4, 5).subscribe((value) =>
+    this.subscription = of(1, 2, 3, 4, 5)
+    .subscribe((value) =>
       this.results.push(value.toString())
     );
 
@@ -123,8 +126,10 @@ export class RxjscreationComponent implements OnDestroy {
   // Utilisation de fromEvent pour écouter un événement
   useFromEvent() {
     this.resetResults();
-    this.subscription = fromEvent(document, 'click').subscribe(() =>
-      this.results.push('Click détecté !')
+    this.subscription = fromEvent(document, 'click').subscribe((value) =>
+     { this.results.push('Click détecté !')
+      console.log(value.target);
+     }
     );
     this.utilisation = 'Utilisation de fromEvent pour écouter un événement';
     this.code = `
@@ -137,12 +142,14 @@ export class RxjscreationComponent implements OnDestroy {
   useAjax() {
     this.resetResults();
     ajax('https://jsonplaceholder.typicode.com/todos/1')
-      .pipe(map((res) => JSON.stringify(res.response))) //parser la réponse en JSON
+    .pipe(map((res) => JSON.stringify(res.response))) //parser la réponse en JSON
       .subscribe((value) => this.results.push(value));
     this.utilisation =
       "Utilisation de l'opérateur ajax pour effectuer une requête HTTP";
     this.code = `
-    ajax('https://jsonplaceholder.typicode.com/todos/1').pipe(map((res) => JSON.stringify(res.response))).subscribe((value) => this.results.push(value));`;
+    ajax('https://jsonplaceholder.typicode.com/todos/1')
+    .pipe(map((res) => JSON.stringify(res.response)))
+    .subscribe((value) => this.results.push(value));`;
   }
 
   // Utilisation de defer pour exécuter une fonction de manière asynchrone

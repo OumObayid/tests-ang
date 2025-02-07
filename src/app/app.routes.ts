@@ -1,3 +1,7 @@
+import { StoreComponent } from './pages/tests/signaux/store.component';
+import { MemoComponent } from './pages/tests/signaux/memo.component';
+import { AngPhpComponent } from './pages/tests/hebergements/ang-php.component';
+import { CategoriesResolver } from './services/resolvers/categories.resolver';
 import { UpdateProductFireComponent } from './pages/tests/firebase/updateproductfire.component';
 import { LoginComponent } from './pages/tests/login/login.component';
 import { RxjsTransformationComponent } from './pages/tests/rxjs/rxjstransformer.component';
@@ -41,12 +45,12 @@ import { Test13Component } from './pages/tests/class/test13.component';
 import { Test12Component } from './pages/tests/class/test12.component';
 import { Test11Component } from './pages/tests/class/test11.component';
 import { Test10Component } from './pages/tests/class/test10.component';
-import { Test9Component } from './pages/tests/signal-effect-computed-model/test9.component';
-import { Test8Component } from './pages/tests/signal-effect-computed-model/test8.component';
+import { Test9Component } from './pages/tests/signaux/test9.component';
+import { Test8Component } from './pages/tests/signaux/test8.component';
 import { Test6Component } from './pages/tests/input/test6.component';
 import { Test7Component } from './pages/tests/output/test7.component';
-import { Test5Component } from './pages/tests/signal-effect-computed-model/test5.component';
-import { Test4Component } from './pages/tests/signal-effect-computed-model/test4.component';
+import { Test5Component } from './pages/tests/signaux/test5.component';
+import { Test4Component } from './pages/tests/signaux/test4.component';
 import { Test3Component } from './pages/tests/ajax/test3.component';
 import { Test1Component } from './pages/tests/binding/test1.component';
 import { Test2Component } from './pages/tests/interval/test2.component';
@@ -59,45 +63,47 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
 
   //test
-  { path: 'test1', component: Test1Component },
-  { path: 'test2', component: Test2Component },
-  { path: 'guard', component: GuardComponent },
-  { path: 'test3', component: Test3Component },
+  { path: 'data-binding', component: Test1Component },
+  { path: 'interval', component: Test2Component },
+  { path: 'c-est-quoi-un-guard', component: GuardComponent },
+  { path: 'ajax', component: Test3Component },
   { path: 'http', component: ClienthttpComponent },
-  { path: 'test4', component: Test4Component },
-  { path: 'test5', component: Test5Component },
-  { path: 'test6', component: Test6Component },
-  { path: 'test7', component: Test7Component },
-  { path: 'test8', component: Test8Component },
-  { path: 'test9', component: Test9Component },
-  { path: 'test10', component: Test10Component },
-  { path: 'test11', component: Test11Component },
-  { path: 'test12', component: Test12Component },
-  { path: 'test13', component: Test13Component },
-  { path: 'test14', component: test14Component },
-  { path: 'test15', component: Test15Component },
-  { path: 'test16', component: test16Component },
-  { path: 'test17', component: Test17Component },
-  { path: 'test18', component: Test18Component },
-  { path: 'test19', component: Test19Component },
+  { path: 'signal-et-computed', component: Test4Component },
+  { path: 'signal-et-effect', component: Test5Component },
+  { path: 'les-inputs', component: Test6Component },
+  { path: 'les-outputs', component: Test7Component },
+  { path: 'les-model', component: Test8Component },
+  { path: 'les-memo', component: MemoComponent },
+  { path: 'les-store', component: StoreComponent },
+  { path: 'les-signaux-et-leurs-methodes', component: Test9Component },
+  { path: 'liaison-conditionnelle', component: Test10Component },
+  { path: 'liaison-une-chaine-de-caracteres', component: Test11Component },
+  { path: 'liaison-avec-un-tableau', component: Test12Component },
+  { path: 'liaison-avec-un-objet', component: Test13Component },
+  { path: 'combinaison-des-approches', component: test14Component },
+  { path: 'liaison-d-une-propriete', component: Test15Component },
+  { path: 'liaison-avec-unites', component: test16Component },
+  { path: 'liaison-multiple', component: Test17Component },
+  { path: 'liaison-a-un-objet', component: Test18Component },
+  { path: 'approches-en-combinaison', component: Test19Component },
   { path: 'test20', component: Test20Component },
-  { path: 'test21', component: Test21Component },
-  { path: 'test22', component: test22Component },
-  { path: 'test23', component: Test23Component },
-  { path: 'test24', component: Test24Component },
-  { path: 'test25', component: Test25Component },
-  { path: 'test26', component: Test26Component },
-  { path: 'test27', component: Test27Component },
-  { path: 'test28', component: Test28Component },
-  { path: 'test29', component: Test29Component },
-  { path: 'test30', component: Test30Component },
-  { path: 'test31', component: Test31Component },
-  { path: 'viewChild3', component: Test32Component },
-  { path: 'ngrx', component: NgrxComponent },
-  { path: 'ng-container-template', component: ContainerTemplateComponent },
-  { path: 'ngform1', component: NgFormComponent },
-  { path: 'ngform2', component: ViewchildNgFormComponent },
-  { path: 'form-control-group', component: FormcontrolgroupComponent },
+  { path: 'les-pipes', component: Test21Component },
+  { path: '@if', component: test22Component },
+  { path: '@for', component: Test23Component },
+  { path: '@switch', component: Test24Component },
+  { path: 'projection-avec-ng-content', component: Test25Component },
+  { path: 'acceder-a-un-element-du-dom', component: Test26Component },
+  { path: 'acceder-a-un-composant-enfant', component: Test27Component },
+  { path: 'acceder-a-plusieurs-elements', component: Test28Component },
+  { path: 'acceder-aux-composants-enfants', component: Test29Component },
+  { path: 'acceder-aux-elements-enfants-d-un-composant', component: Test30Component },
+  { path: 'acceder-a-un-composant-enfant-dans-la-projection-de-contenu', component: Test31Component },
+  { path: 'viewchild-avec-ng-template', component: Test32Component },
+  { path: 'les-states-et-les-reducers', component: NgrxComponent },
+  { path: 'ng-container---ng-template', component: ContainerTemplateComponent },
+  { path: 'ngform-dans-ngsubmit', component: NgFormComponent },
+  { path: 'utiliser-viewchild-pour-ngform', component: ViewchildNgFormComponent },
+  { path: 'formgroup-et-formcontrol', component: FormcontrolgroupComponent },
   //guard
   {
     path: 'dashboard',
@@ -105,11 +111,12 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'login',
-    canActivate: [authGuard2],
+    path: 'exemple-de-connexion',
     component: LoginComponent,
+    canActivate: [authGuard2],
+
   },
- 
+
 
   // Resolver : Récupérer des données avant d'afficher une route (ex: liste de produits)
   {
@@ -117,20 +124,23 @@ export const routes: Routes = [
     component: ResolverComponent,
     resolve: {
       products: ProductsResolver, // Associe le resolver à cette route
+      categories:CategoriesResolver
     },
   },
   //rxjs
-  { path: 'rxjs-observable', component: RxjsbservableComponent },
-  { path: 'rxjs-creation', component: RxjscreationComponent },
-  { path: 'rxjs-transformation', component: RxjsTransformationComponent },
+  { path: 'les-observables', component: RxjsbservableComponent },
+  { path: 'les-operateurs-de-creation', component: RxjscreationComponent },
+  { path: 'les-operateurs-de-transformation', component: RxjsTransformationComponent },
 //nodejs
-{ path: 'products-node', component: ProductsnodeComponent },
+{ path: 'crud-nodejs-mongodb', component: ProductsnodeComponent },
 { path: 'update-node/:id', component:UpdateProductnodeComponent },
 //firebase
-{ path: 'products-firebase', component: ProductsfireComponent },
+{ path: 'crud-firebase', component: ProductsfireComponent },
 { path: 'update-product-firebase/:id', component: UpdateProductFireComponent },
 //json
-{ path: 'products-json', component: JsonProductsComponent },
+{ path: 'crud-json', component: JsonProductsComponent },
 { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
+//hebergement
+{ path: 'fullstack-avec-angulaire-et-api-php', component: AngPhpComponent },
 
 ];

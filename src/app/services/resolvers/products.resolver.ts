@@ -13,12 +13,11 @@ export class ProductsResolver implements Resolve<Product[]> {
 
   resolve(): Observable<Product[]> {
     // Appelle le service pour récupérer les produits
-    return this.productService.getProducts().pipe(
+    return this.productService.getProducts()
+    .pipe(
       map((response: any) => {
-        console.log('Response from API:', response); // Affiche la réponse brute pour débogage
-
+        // Vérifie si la réponse est valide et contient des produits
         if (response.success && response.dataProd) {
-          console.log('Products extracted:', response.dataProd); // Affiche les produits extraits
           return response.dataProd; // Retourne les produits extraits comme étant la valeur de l'observable
         } else {
           console.warn('No products found or API returned an error.');
