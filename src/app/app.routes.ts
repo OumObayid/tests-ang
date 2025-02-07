@@ -141,6 +141,6 @@ export const routes: Routes = [
 { path: 'crud-json', component: JsonProductsComponent },
 { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
 //hebergement
-{ path: 'fullstack-avec-angulaire-et-api-php', component: AngPhpComponent },
+{ path: 'angular-avec-api-rest-php', component: AngPhpComponent },
 
 ];

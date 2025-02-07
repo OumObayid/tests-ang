@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   imports: [
-    HeadertestOldComponent,
     HeadertestComponent,
     SidebarComponent,
     FooterComponent,

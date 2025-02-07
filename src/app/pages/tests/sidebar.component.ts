@@ -63,6 +63,7 @@ import { RouterLink, RouterModule } from '@angular/router';
   background-color:#b39b18 !important;
   color: white !important;
   padding:5px;
+  font-size:14px;
 }
 .accordion-button:hover{
   background-color:#d4b507 !important;
@@ -70,7 +71,6 @@ import { RouterLink, RouterModule } from '@angular/router';
 
 .accordion-button:not(.collapsed) {
   background-color:#d4b507 !important;
-
   border:none !important;
 }
 .accordion-button:focus,
@@ -114,11 +114,10 @@ export class SidebarComponent {
       'Ngrx',
       'Rxjs',
       'Angulaire et api rest',
-      'Déployement',
     ],
     Laravel: ['Controllers', 'Models', 'Routes'],
     'React.js': ['Components', 'Hooks', 'State Management'],
-    Déploiement: ['Docker', 'CI/CD', 'Cloud'],
+    Déploiement: ['Deployement vers github', 'Deployement vers un hebergeur', 'Laravel'],
   };
 
   subMenus: any = {
@@ -178,7 +177,6 @@ export class SidebarComponent {
         'Crud firebase',
         'Crud json',
       ],
-      Déployement: ['Fullstack avec angulaire et api php'],
     },
     Laravel: {
       Controllers: ['Controller1', 'Controller2'],
@@ -191,9 +189,8 @@ export class SidebarComponent {
       'State Management': ['Redux', 'Context API'],
     },
     Déploiement: {
-      Docker: ['Docker Basics', 'Docker Compose'],
-      'CI/CD': ['GitHub Actions', 'Jenkins'],
-      Cloud: ['AWS', 'Google Cloud'],
+      'Deployement vers github': ['Deployement vers github'],
+      'Deployement vers un hebergeur': ['Angular avec api rest php', 'Laravel', 'React js']
     },
   };
 
