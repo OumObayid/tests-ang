@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
       <hr />
       <div class="border p-3">
         <h3>Parent</h3>
-        <button class="btn btn-primary  me-3" (click)="callChildMethod()">
+        <button class="btn btn-success  me-3" (click)="callChildMethod()">
           Appeler méthode enfant
         </button>
         <button class="btn btn-secondary me-3" (click)="changeChildText()">
@@ -94,7 +94,7 @@ import &#123; Component, viewChild &#125; from '&#64;angular/core';
       &#60;hr /&#62;
       &#60;div class="border p-3"&#62;
         &#60;h3&#62;Parent&#60;/h3&#62;
-        &#60;button class="btn btn-primary me-3" (click)="callChildMethod()"&#62;
+        &#60;button class="btn btn-success me-3" (click)="callChildMethod()"&#62;
           Appeler méthode enfant
         &#60;/button&#62;
         &#60;button class="btn btn-secondary me-3" (click)="changeChildText()"&#62;
@@ -251,7 +251,10 @@ childComponent est un signal, on l'utiliser avec des parenthèses: <span class="
     </div>
   `,
   styles: `
-.fa-check {
+pre{
+          font-size:15px;
+         }
+.fa-check  {
   color: grey;
 }
 
@@ -272,7 +275,7 @@ i.fa-copy {
   transform: scale(1.2); /* Effet d'agrandissement au survol */
   cursor: pointer; /* Change le curseur pour indiquer une action cliquable */
   }
-  
+
   .confirm{
     position: absolute;
     top: 30px;

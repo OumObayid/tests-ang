@@ -10,10 +10,10 @@ import { User } from '../../../interfaces/user';
       <h1>viewChild: accéder à un élément du DOM</h1>
       <hr />
       <div class="rounded-3 border p-3" #userInfo>aucune information</div>
-      <button class="btn btn-primary mt-3 me-3" (click)="afficherNom()">
+      <button class="btn btn-success mt-3 me-3" (click)="afficherNom()">
         Afficher son nom
       </button>
-      <button class="btn btn-primary mt-3 me-3" (click)="afficherEmail()">
+      <button class="btn btn-success mt-3 me-3" (click)="afficherEmail()">
         Afficher son email
       </button>
       <button class="btn btn-danger mt-3" (click)="initialise()">
@@ -65,10 +65,10 @@ import &#123; User &#125; from '../../../interfaces/user';
       &#60;h1&#62;viewChild: accéder à un élément du DOM&#60;/h1&#62;
       &#60;hr /&#62;
       &#60;div class="rounded-3 border p-3" #userInfo&#62;aucune information&#60;/div&#62;
-      &#60;button class="btn btn-primary mt-3 me-3" (click)="afficherNom()"&#62;
+      &#60;button class="btn btn-success mt-3 me-3" (click)="afficherNom()"&#62;
         Afficher son nom
       &#60;/button&#62;
-      &#60;button class="btn btn-primary mt-3 me-3" (click)="afficherEmail()"&#62;
+      &#60;button class="btn btn-success mt-3 me-3" (click)="afficherEmail()"&#62;
         Afficher son email
       &#60;/button&#62;
       &#60;button class="btn btn-danger mt-3" (click)="initialise()"&#62;
@@ -149,7 +149,10 @@ initialise() : Utilise viewChild pour réinitialiser le style appliqué précéd
     </div>
   `,
   styles: `
-  .fa-check {
+  pre{
+          font-size:15px;
+         }
+.fa-check  {
     color: grey;
   }
 

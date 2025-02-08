@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
       <div [ngClass]="userClassObject">
         {{ user.name }}
       </div>
-      <button class="btn btn-primary my-3" (click)="toggleHighlight()">
+      <button class="btn btn-success my-3" (click)="toggleHighlight()">
         Toggle Highlight
       </button>
       <!-- --------------------Template pour afficher le code source---------------- -->
@@ -68,7 +68,7 @@ import &#123; Component &#125; from '&#64;angular/core';
     &#60;div &#91;ngClass&#93;="userClassObject"&#62;
       &#123;&#123; user.name &#125;&#125;
     &#60;/div&#62;
-    &#60;button class="btn btn-primary my-3" (click)="toggleHighlight()"&#62;Toggle Highlight&#60;/button&#62;
+    &#60;button class="btn btn-success my-3" (click)="toggleHighlight()"&#62;Toggle Highlight&#60;/button&#62;
     &#60;/div&#62;
   &#96;,
   styles: &#91;&#96;
@@ -136,7 +136,10 @@ Prend en charge les objets, tableaux, ou chaînes de caractères concaténées.
         background-color: yellow;
       }
       // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

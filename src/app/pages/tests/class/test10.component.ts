@@ -25,7 +25,7 @@ interface User {
         <strong>Email:</strong> {{ user.email }}
       </div>
 
-      <button class="btn btn-primary mt-2" (click)="toggleUserStatus()">
+      <button class="btn btn-success mt-2" (click)="toggleUserStatus()">
         {{ isUserActive ? 'Deactivate User' : 'Activate User' }}
       </button>
       <hr />
@@ -85,7 +85,7 @@ interface User &#123;
         &#60;strong&#62;Email:&#60;/strong&#62; &#123;&#123; user.email &#125;&#125;
       &#60;/div&#62;
 
-      &#60;button class="btn btn-primary mt-2" (click)="toggleUserStatus()"&#62;
+      &#60;button class="btn btn-success mt-2" (click)="toggleUserStatus()"&#62;
         &#123;&#123; isUserActive ? 'Deactivate User' : 'Activate User' &#125;&#125;
       &#60;/button&#62;
       &#62;
@@ -138,7 +138,10 @@ cette condition peut etre <span class="text-danger">true</span> ou <span class="
   `,
   // -------------------------style pour afficher le code source----------------
   styles: `
-   .fa-check {
+   pre{
+          font-size:15px;
+         }
+.fa-check  {
      color: grey;
    }
 

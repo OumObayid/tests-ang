@@ -228,7 +228,10 @@ export class Enfant2Component &#123;
     border-radius: 8px;
   }
   // -------------------------style pour afficher le code source----------------
-  .fa-check {
+  pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

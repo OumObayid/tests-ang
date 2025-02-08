@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-enfant20',
+  selector: 'app-enfant-ngonchange',
   imports: [CommonModule],
   template: `
     <div class="border p-3 mt-3">
@@ -18,7 +18,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   `,
   styles: [``],
 })
-export class Enfant20Component implements OnChanges {
+export class EnfantNgOnChangeComponent implements OnChanges {
   @Input() message: string = ''; // Valeur envoyée par le parent
   changeLog: string[] = []; // Stocke les changements
 

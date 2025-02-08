@@ -337,7 +337,10 @@ export const userResolver: ResolveFn&#60;Product&#62; = (
 
  styles: `
  // -------------------------style pour afficher le code source----------------
-       .fa-check {
+       pre{
+          font-size:15px;
+         }
+.fa-check  {
          color: grey;
        }
 

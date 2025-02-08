@@ -162,7 +162,10 @@ export class ViewchildNgFormComponent &#123;
   `,
   styles: `
       // -------------------------style pour afficher le code source----------------
-            .fa-check {
+            pre{
+          font-size:15px;
+         }
+.fa-check  {
               color: grey;
             }
 

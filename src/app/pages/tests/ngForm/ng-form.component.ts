@@ -236,7 +236,10 @@ Le bouton est désactivé si le formulaire n'est pas valide (!loginForm.valid).
   `,
   styles: `
   // -------------------------style pour afficher le code source----------------
-        .fa-check {
+        pre{
+          font-size:15px;
+         }
+.fa-check  {
           color: grey;
         }
 

@@ -128,11 +128,7 @@ export class AppComponent &#123;
     username: 'alice123',
     email: 'alice&#64;example.com',
   &#125;;
-&#125;
-
-
-
-        </pre
+&#125;</pre
           >
         </div>
       </div>
@@ -164,7 +160,10 @@ export class AppComponent &#123;
   `,
     // -------------------------style pour afficher le code source----------------
     styles: `
-    .fa-check {
+    pre{
+          font-size:15px;
+         }
+.fa-check  {
       color: grey;
     }
 

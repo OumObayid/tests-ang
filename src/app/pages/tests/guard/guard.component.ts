@@ -111,7 +111,7 @@ export const routes: Routes = [
 ____________________________________________________________________________<span class="fs-2">cours</span>____________________________________________________________________________
 
 <pre style="font-size:14px">
-  
+
 Un Guard sur Angular est une fonctionnalité qui vous permet de contrôler l'accès à des routes spécifiques dans votre application.
 Vous pouvez utiliser des guards pour exécuter certaines vérifications ou actions avant de permettre l'accès à une route,
 par exemple pour vérifier si l'utilisateur est authentifié ou a les droits d'accès appropriés.
@@ -138,7 +138,10 @@ pour protéger page dashboard:
   `,
   styles: `
   // -------------------------style pour afficher le code source----------------
-        .fa-check {
+        pre{
+          font-size:15px;
+         }
+.fa-check  {
           color: grey;
         }
 

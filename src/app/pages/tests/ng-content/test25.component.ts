@@ -158,7 +158,10 @@ Il agit comme un "emplacement réservé" dans le template du composant enfant o�
   `,
 styles: `
     // -------------------------style pour afficher le code source----------------
-          .fa-check {
+          pre{
+          font-size:15px;
+         }
+.fa-check  {
             color: grey;
           }
 

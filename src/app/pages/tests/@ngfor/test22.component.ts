@@ -91,8 +91,8 @@ export interface User {
             >copied <i class="fas fa-check"></i>
           </span>
           <pre #tab1 class="tab fw-bold" ngNonBindable>
-import &#123; CommonModule &#125; from '&#96;angular/common';
-import &#123; Component &#125; from '&#96;angular/core';
+import &#123; CommonModule &#125; from '&#64;angular/common';
+import &#123; Component &#125; from '&#64;angular/core';
 
 export interface User &#123;
   id: number;
@@ -102,8 +102,9 @@ export interface User &#123;
   phone?: string;
 &#125;
 
-&#96;Component(&#123; selector: 'app-users',
-imports: [CommonModule], template: &#96;
+&#64;Component(&#123; selector: 'app-users',
+imports: [CommonModule],
+template: &#96;
 &#60;div class="container"&#62;
   &#60;h1&#62;&#64;for....&#64;empty... / *ngFor...&#60;/h1&#62;
   &#60;hr /&#62;
@@ -116,9 +117,9 @@ imports: [CommonModule], template: &#96;
   &#60;br /&#62;
   &#60;div class="card p-3"&#62;
     &#60;h4&#62;version recente:&#60;/h4&#62;
-    &#96;for (user of users; track user.id;) &#123;
+    &#64;for (user of users; track user.id;) &#123;
     &#60;div&#62;&#123;&#123; user.name &#125;&#125; &#123;&#123; user.email &#125;&#125;&#60;/div&#62;
-    &#125; &#96;empty &#123;
+    &#125; &#64;empty &#123;
     &#60;p&#62;Aucun utilisateur trouvé&#60;/p&#62;
     &#125;
   &#60;/div&#62;
@@ -129,7 +130,7 @@ imports: [CommonModule], template: &#96;
       &#60;strong class="text-danger"&#62;&#123;&#123; users.length &#125;&#125;&#60;/strong&#62; utilisateurs au
       total
     &#60;/p&#62;
-    &#96;for (user of users; track user.id) &#123;
+    &#64;for (user of users; track user.id) &#123;
 
     &#60;div
       [style.background-color]="$even ? '#f9f9f9' : '#e9e9e9'"
@@ -141,7 +142,7 @@ imports: [CommonModule], template: &#96;
       &#60;div&#62;Index: &#123;&#123; $index &#125;&#125;, Pair: &#123;&#123; $even &#125;&#125;, Impair: &#123;&#123; $odd &#125;&#125;&#60;/div&#62;
     &#60;/div&#62;
 
-    &#125; &#96;empty &#123;
+    &#125; &#64;empty &#123;
     &#60;p class="text-muted"&#62;Aucun utilisateur trouvé&#60;/p&#62;
     &#125;
   &#60;/div&#62;
@@ -166,13 +167,13 @@ imports: [CommonModule], template: &#96;
 &#125;)
 export class test22Component &#123;
   users: User[] = [
-    &#123; id: 1, name: 'Alice', username: 'alice123', email: 'alice&#96;example.com' &#125;,
-    &#123; id: 2, name: 'Bob', username: 'bob456', email: 'bob&#96;example.com' &#125;,
+    &#123; id: 1, name: 'Alice', username: 'alice123', email: 'alice&#64;example.com' &#125;,
+    &#123; id: 2, name: 'Bob', username: 'bob456', email: 'bob&#64;example.com' &#125;,
     &#123;
       id: 3,
       name: 'Charlie',
       username: 'charlie789',
-      email: 'charlie&#96;example.com',
+      email: 'charlie&#64;example.com',
     &#125;,
   ];
 &#125;
@@ -221,7 +222,10 @@ $count : le nombre total d'éléments dans la collection.
   `,
   // -------------------------style pour afficher le code source----------------
   styles: `
-   .fa-check {
+   pre{
+          font-size:15px;
+         }
+.fa-check  {
      color: grey;
    }
 

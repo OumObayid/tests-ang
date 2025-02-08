@@ -224,7 +224,10 @@ console.log(user().name); // Affiche "Bob"
   `,
         styles: `
         // -------------------------style pour afficher le code source----------------
-              .fa-check {
+              pre{
+          font-size:15px;
+         }
+.fa-check  {
                 color: grey;
               }
 

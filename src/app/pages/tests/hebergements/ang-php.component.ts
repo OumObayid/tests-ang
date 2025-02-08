@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
       <!-- Boutons pour sélectionner la vidéo -->
       <div class="text-center mb-3">
-        <button class="btn btn-primary mx-2" (click)="selectVideo(0)">
+        <button class="btn btn-success mx-2" (click)="selectVideo(0)">
           Étape 1
         </button>
         <button class="btn btn-success mx-2" (click)="selectVideo(1)">

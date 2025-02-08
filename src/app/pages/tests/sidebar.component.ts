@@ -98,8 +98,12 @@ export class SidebarComponent {
   menuItems: any = {
     Angular: [
       'data binding',
-      'les classes',
-      'les styles',
+      'Les routes',
+      'Les guards',
+      'Les cycles de vie',
+      'Services et Resolver',
+      'Les classes',
+      'Les styles',
       'Les pipes',
       'Control Flow',
       'Les signaux',
@@ -110,7 +114,6 @@ export class SidebarComponent {
       'Viewchildren',
       'ContentChild',
       'Les formulaires',
-      'Le guard',
       'Ngrx',
       'Rxjs',
       'Angulaire et api rest',
@@ -123,15 +126,18 @@ export class SidebarComponent {
   subMenus: any = {
     Angular: {
       'data binding': ['data binding'],
-      'Le guard':['C\'est quoi un guard','Exemple de connexion'],
-      'les classes': [
+      'Les routes':['Les routes'],
+      'Les guards':['C\'est quoi un guard','Exemple de connexion'],
+      'Les cycles de vie':['NgOnInit','NgOnChanges','ngAfterViewInit','ngOnDestroy'],
+      'Services et Resolver':['Les services', 'Les resolvers'],
+      'Les classes': [
         'Liaison conditionnelle',
         'Liaison une chaîne de caractères',
         'Liaison avec un tableau',
         'Liaison avec un objet',
         'Combinaison des approches',
       ],
-      'les styles': [
+      'Les styles': [
         "Liaison d'une propriété",
         'Liaison avec unités',
         'Liaison multiple',
@@ -144,8 +150,6 @@ export class SidebarComponent {
         'signal et computed',
         'signal et effect',
         'Les model',
-        'Les memo',
-        'Les store',
         'Les signaux et leurs méthodes',
       ],
       'Input et Output': ['les inputs', 'les outputs'],

@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
         >
           <strong>{{ user.name }}</strong>
         </div>
-        <button class="btn btn-primary w-100 mt-2" (click)="toggleVisibility()">
+        <button class="btn btn-success w-100 mt-2" (click)="toggleVisibility()">
           {{ isVisible ? 'Masquer' : 'Afficher' }}
         </button>
 

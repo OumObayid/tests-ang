@@ -168,9 +168,12 @@ export class EnfantComponent &#123;
           >Explication</span
         >*************************************************
         <pre>
-Le parent (Test6Component) récupère une liste de catégories depuis un service (CategoriesService) et la charge dans la propriété
-<strong>categories</strong>, et les transmet au composant enfant (Enfant6Component) via le décorateur &#64;Input.
-
+<div class="fs-6 fw-bold text-danger mt-4">C'est quoi &#64;Input ?</div>
+<div>&#64;Input() sert à passer une donnée d’un composant parent vers son composant enfant.</div>
+Le parent (Test6Component) récupère une liste de catégories depuis un service
+(CategoriesService) et la charge dans la propriété
+<strong>categories</strong>, et les transmet au composant enfant (Enfant6Component)
+via le décorateur &#64;Input.
 <strong>Composant parent (Test6Component) :</strong>
 Il importe le composant enfant (Enfant6Component) pour l'utiliser dans son modèle.
 Il récupère les données via un service asynchrone dans la méthode fetchCategories().
@@ -189,7 +192,10 @@ Il utilise la propriété  data pour afficher le contenu
   `,
   styles: `
 // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 
@@ -231,6 +237,9 @@ Il utilise la propriété  data pour afficher le contenu
       }
          h3 {
            margin-top: 20px;
+         }
+         pre{
+          font-size:15px;
          }
 // -------------------------Fin style pour afficher le code source----------------
          `,

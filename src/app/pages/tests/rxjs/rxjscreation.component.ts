@@ -21,26 +21,26 @@ import { concatMap, map, take } from 'rxjs/operators';
     <div class="container mt-4">
       <h1>RxJS : Opérateurs de Création</h1>
       <hr />
-      <button class="btn btn-primary me-2" (click)="useOf()">of()</button>
-      <button class="btn btn-primary me-2" (click)="useFrom()">from()</button>
-      <button class="btn btn-primary me-2" (click)="useInterval()">
+      <button class="btn btn-success me-2" (click)="useOf()">of()</button>
+      <button class="btn btn-success me-2" (click)="useFrom()">from()</button>
+      <button class="btn btn-success me-2" (click)="useInterval()">
         interval()
       </button>
-      <button class="btn btn-primary me-2" (click)="useTimer()">timer()</button>
-      <button class="btn btn-primary me-2" (click)="useFromEvent()">
+      <button class="btn btn-success me-2" (click)="useTimer()">timer()</button>
+      <button class="btn btn-success me-2" (click)="useFromEvent()">
         fromEvent()
       </button>
-      <button class="btn btn-primary me-2" (click)="useAjax()">ajax()</button>
-      <button class="btn btn-primary me-2" (click)="useDefer()">defer()</button>
-      <button class="btn btn-primary me-2" (click)="useMerge()">merge()</button>
-      <button class="btn btn-primary me-2" (click)="useRange()">range()</button>
+      <button class="btn btn-success me-2" (click)="useAjax()">ajax()</button>
+      <button class="btn btn-success me-2" (click)="useDefer()">defer()</button>
+      <button class="btn btn-success me-2" (click)="useMerge()">merge()</button>
+      <button class="btn btn-success me-2" (click)="useRange()">range()</button>
       @if (utilisation){
       <p class="mt-3"><strong>Utilisation:</strong> {{ utilisation }}</p>
-      } 
+      }
       @if (code){
-      <div><strong class="mt-4 ">Code:</strong> <pre>{{ code }}</pre></div>
+      <div><strong class="mt-4 ">Code:</strong> <pre style="font-size:14px">{{ code }}</pre></div>
 
-      } 
+      }
       @if ( results.length > 0){
       <strong class="mt-3">Résultats :</strong>
       <ul>
@@ -49,13 +49,13 @@ import { concatMap, map, take } from 'rxjs/operators';
       }
     </div>
   `,
-  styles: [],
+
 })
 export class RxjscreationComponent implements OnDestroy {
   results: string[] = [];
   subscription: Subscription | null = null;
   code: string = '';
-  utilisation: string = ''; 
+  utilisation: string = '';
 
 // Fonction pour réinitialiser les résultats et désabonner l'observable
   resetResults() {
@@ -119,7 +119,7 @@ export class RxjscreationComponent implements OnDestroy {
     this.utilisation =
       'Utilisation de timer pour déclencher un événement après un délai';
     this.code = `
-    timer(5000, 1000).pipe(take(5))
+    timer(3000, 1000).pipe(take(5))
     .subscribe((value) => this.results.push(value.toString()));`;
   }
 

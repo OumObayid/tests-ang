@@ -9,7 +9,7 @@ import { Component, viewChild, ElementRef } from '@angular/core';
       <h1>ng-container / ng-template</h1>
       <hr />
       <!-- Bouton pour basculer entre connecté/déconnecté -->
-      <button class="btn btn-primary" (click)="toggleLogin()">
+      <button class="btn btn-success" (click)="toggleLogin()">
         {{ isLoggedIn ? 'Se déconnecter' : 'Se connecter' }}
       </button>
 
@@ -101,7 +101,7 @@ template: &#96;
   &#60;h1&#62;ng-container / ng-template&#60;/h1&#62;
   &#60;hr /&#62;
   &#60;!-- Bouton pour basculer entre connecté/déconnecté --&#62;
-  &#60;button class="btn btn-primary" (click)="toggleLogin()"&#62;
+  &#60;button class="btn btn-success" (click)="toggleLogin()"&#62;
     &#123;&#123; isLoggedIn ? 'Se déconnecter' : 'Se connecter' &#125;&#125;
   &#60;/button&#62;
 
@@ -183,7 +183,10 @@ Utilisé ici avec #notLoggedIn et #emptyList.
   `,
   styles: `
  // -------------------------style pour afficher le code source----------------
-       .fa-check {
+       pre{
+          font-size:15px;
+         }
+.fa-check  {
          color: grey;
        }
 

@@ -14,7 +14,7 @@ import {
   template: `
     <div class="container mt-3">
       <h1>ViewChild avec ng-template</h1>
-      <button class="btn btn-primary" (click)="toggleTemplate()">
+      <button class="btn btn-success" (click)="toggleTemplate()">
         {{ showTemplate ? 'Masquer' : 'Afficher' }} le contenu
       </button>
       <!-- Contenu affiché ou masqué -->
@@ -73,7 +73,7 @@ import &#123; Component, ViewChild, TemplateRef &#125; from "&#64;angular/core";
   template: &#96;
     &#60;div class="container mt-3"&#62;
       &#60;h1&#62;ViewChild avec ng-template&#60;/h1&#62;
-      &#60;button class="btn btn-primary" (click)="toggleTemplate()"&#62;
+      &#60;button class="btn btn-success" (click)="toggleTemplate()"&#62;
         &#123;&#123; showTemplate ? "Masquer" : "Afficher" &#125;&#125; le contenu
       &#60;/button&#62;
       &#60;!-- Contenu affiché ou masqué --&#62;
@@ -115,7 +115,10 @@ export class Test32Component &#123;
   `,
   styles: `
    // -------------------------style pour afficher le code source----------------
-         .fa-check {
+         pre{
+          font-size:15px;
+         }
+.fa-check  {
            color: grey;
          }
 

@@ -16,7 +16,7 @@ import { Component, viewChild, ElementRef } from '@angular/core';
       </div>
       <div class="mt-3">
         <button
-          class="btn btn-primary me-2"
+          class="btn btn-success me-2"
           (click)="toggleClass('highlighted')"
         >
           Toggle Highlight
@@ -82,7 +82,7 @@ import &#123; Component &#125; from '&#64;angular/core';
         &#60;strong&#62;&#123;&#123; user.name &#125;&#125;&#60;/strong&#62;
       &#60;/div&#62;
       &#60;div class="mt-3"&#62;
-        &#60;button class="btn btn-primary me-2" (click)="toggleClass('highlighted')"&#62;
+        &#60;button class="btn btn-success me-2" (click)="toggleClass('highlighted')"&#62;
           Toggle Highlight
         &#60;/button&#62;
         &#60;button class="btn btn-secondary me-2" (click)="toggleClass('elevated')"&#62;
@@ -137,7 +137,7 @@ export class AppComponent &#123;
         </div>
       </div>
       <!-- --------------------Fin Template pour afficher le code source---------------- -->
-      
+
       <!-- --------------------Template pour afficher le cours---------------- -->
       <div class=" mt-4">
         __________________________________________________________ <span class="fs-2">cours</span
@@ -198,7 +198,10 @@ Reset Classes : Réinitialise toutes les classes à leur état initial.
         border-color: #c3e6cb;
       }
       // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

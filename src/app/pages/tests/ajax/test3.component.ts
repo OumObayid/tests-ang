@@ -12,7 +12,7 @@ import { environment } from '../../../../environments/environment';
   template: `
     <div class="container mt-3">
       <h1>Test de la requête AJAX</h1>
-      <button class="btn btn-primary" (click)="fetchCategories()">
+      <button class="btn btn-success" (click)="fetchCategories()">
         Afficher tous les categories de l'api
       </button>
       @if (categories.length>0) {
@@ -86,7 +86,7 @@ import &#123; environment &#125; from '../../../../environments/environment';
   template: &#96;
     &#60;div class="container mt-3"&#62;
       &#60;h1&#62;Test de la requête AJAX&#60;/h1&#62;
-      &#60;button class="btn btn-primary" (click)="fetchCategories()"&#62;
+      &#60;button class="btn btn-success" (click)="fetchCategories()"&#62;
         Afficher tous les categories de l'api
       &#60;/button&#62;
 
@@ -173,7 +173,10 @@ ajax(&#123;
   `,
   // -------------------------style pour afficher le code source----------------
   styles: `
-   .fa-check {
+   pre{
+          font-size:15px;
+         }
+.fa-check  {
      color: grey;
    }
 
@@ -235,7 +238,7 @@ export class Test3Component {
       url: `${this.baseURL}/categories/getCategories.php`,
       method: 'GET',
     })
-    
+
 
     response.subscribe({
       next: (response: any) => {

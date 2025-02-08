@@ -60,7 +60,7 @@ import { ActivatedRoute, Router } from '@angular/router';
             ></textarea>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            <button type="submit" class="btn btn-success">Mettre à jour</button>
           </div>
         </form>
       </div>

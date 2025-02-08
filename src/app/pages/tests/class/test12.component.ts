@@ -17,7 +17,7 @@ import { Component, viewChild, ElementRef } from '@angular/core';
       </div>
       <div class="mt-3">
         <button
-          class="btn btn-primary me-2"
+          class="btn btn-success me-2"
           (click)="toggleClass('highlighted')"
         >
           Toggle Highlight
@@ -86,7 +86,7 @@ import &#123;", Component &#125; from '&#64;angular/core';
       &#60;/div&#62;
       &#60;div class="mt-3"&#62;
         &#60;button
-          class="btn btn-primary me-2"
+          class="btn btn-success me-2"
           (click)="toggleClass('highlighted')"
         &#62;
           Toggle Highlight
@@ -185,7 +185,10 @@ en paramètre le nom de la classe à ajouter ou supprimer.
         border-color: #c3e6cb;
       }
       // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

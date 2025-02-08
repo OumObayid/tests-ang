@@ -1,5 +1,9 @@
-import { StoreComponent } from './pages/tests/signaux/store.component';
-import { MemoComponent } from './pages/tests/signaux/memo.component';
+import { UtilisationServiceComponent } from './pages/tests/utilisation-service/utilisation-service.component';
+import { RoutesComponent } from './pages/tests/routes/routes.component';
+import { NgOnChangesComponent } from './pages/tests/cycle/ngonchange.component';
+import { NgOnDestroyComponent } from './pages/tests/cycle/ngondestroy.component';
+import { NgOnAfterViewInitComponent } from './pages/tests/cycle/ngonafterviewinit.component';
+import { NgOnInitComponent } from './pages/tests/cycle/ngoninit.compoenent';
 import { AngPhpComponent } from './pages/tests/hebergements/ang-php.component';
 import { CategoriesResolver } from './services/resolvers/categories.resolver';
 import { UpdateProductFireComponent } from './pages/tests/firebase/updateproductfire.component';
@@ -34,7 +38,6 @@ import { Test24Component } from './pages/tests/switch/test24.component';
 import { Test23Component } from './pages/tests/@ngif/test23.component';
 import { test22Component } from './pages/tests/@ngfor/test22.component';
 import { Test21Component } from './pages/tests/pipes-template/test21.component';
-import { Test20Component } from './pages/tests/cycle/test20.component';
 import { Test19Component } from './pages/tests/style/test19.component';
 import { Test18Component } from './pages/tests/style/test18.component';
 import { Test17Component } from './pages/tests/style/test17.component';
@@ -64,8 +67,10 @@ export const routes: Routes = [
 
   //test
   { path: 'data-binding', component: Test1Component },
+  { path: 'les-routes', component: RoutesComponent },
   { path: 'interval', component: Test2Component },
   { path: 'c-est-quoi-un-guard', component: GuardComponent },
+  { path: 'les-services', component: UtilisationServiceComponent },
   { path: 'ajax', component: Test3Component },
   { path: 'http', component: ClienthttpComponent },
   { path: 'signal-et-computed', component: Test4Component },
@@ -73,8 +78,6 @@ export const routes: Routes = [
   { path: 'les-inputs', component: Test6Component },
   { path: 'les-outputs', component: Test7Component },
   { path: 'les-model', component: Test8Component },
-  { path: 'les-memo', component: MemoComponent },
-  { path: 'les-store', component: StoreComponent },
   { path: 'les-signaux-et-leurs-methodes', component: Test9Component },
   { path: 'liaison-conditionnelle', component: Test10Component },
   { path: 'liaison-une-chaine-de-caracteres', component: Test11Component },
@@ -86,10 +89,13 @@ export const routes: Routes = [
   { path: 'liaison-multiple', component: Test17Component },
   { path: 'liaison-a-un-objet', component: Test18Component },
   { path: 'approches-en-combinaison', component: Test19Component },
-  { path: 'test20', component: Test20Component },
+  { path: 'ngoninit', component: NgOnInitComponent },
+  { path: 'ngonchanges', component: NgOnChangesComponent },
+  { path: 'ngafterviewinit', component: NgOnAfterViewInitComponent },
+  { path: 'ngondestroy', component: NgOnDestroyComponent },
   { path: 'les-pipes', component: Test21Component },
-  { path: '@if', component: test22Component },
-  { path: '@for', component: Test23Component },
+  { path: '@for', component: test22Component },
+  { path: '@if', component: Test23Component },
   { path: '@switch', component: Test24Component },
   { path: 'projection-avec-ng-content', component: Test25Component },
   { path: 'acceder-a-un-element-du-dom', component: Test26Component },
@@ -120,7 +126,7 @@ export const routes: Routes = [
 
   // Resolver : Récupérer des données avant d'afficher une route (ex: liste de produits)
   {
-    path: 'resolver',
+    path: 'les-resolvers',
     component: ResolverComponent,
     resolve: {
       products: ProductsResolver, // Associe le resolver à cette route

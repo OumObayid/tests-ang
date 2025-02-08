@@ -403,7 +403,7 @@ import &#123; ProductService &#125; from '../../../services/http/apinodejs/produ
         /&#62;
       &#60;/div&#62;
 
-      &#60;button class="btn btn-primary mt-2" (click)="updateProduct()"&#62;
+      &#60;button class="btn btn-success mt-2" (click)="updateProduct()"&#62;
         Save
       &#60;/button&#62;
     &#60;/div&#62;
@@ -758,7 +758,10 @@ et recupérer la chaîne de connexion.
   `,
   styles: `
 // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

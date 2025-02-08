@@ -9,16 +9,35 @@ import { Component, viewChild, ElementRef } from '@angular/core';
     <div class="container">
       <h1>Les pipes</h1>
       <hr />
-      <h4 class="text-danger mt-5">Date Pipe</h4>
+      <p>
+        <strong class="fs-6 text-danger">C'est quoi un Pipe ?</strong><br />
+        Un pipe dans Angular est un moyen simple de transformer, formater ou
+        filtrer une valeur dans votre template.
+        <br />
+        Lorsque vous utilisez un pipe dans un template, vous le faites suivre
+        d’une barre verticale (|) et du nom du pipe. Vous pouvez également
+        passer des arguments aux pipes.
+      </p>
+      <h4 class="fs-6 fw-bold text-danger mt-4">Date Pipe :</h4>
+      <p>Transforme une date en une chaîne formatée.</p>
       <p>Original Date: {{ currentDate }}</p>
       <p>Short Date: {{ currentDate | date : 'short' }}</p>
       <p>Full Date: {{ currentDate | date : 'fullDate' }}</p>
       <p>Custom Format: {{ currentDate | date : 'dd/MM/yyyy HH:mm' }}</p>
-      <h4 class="text-danger mt-5">Uppercase and Lowercase Pipes</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">
+        Uppercase and Lowercase Pipes
+      </h4>
+      <p>Transforme une chaîne en majuscules ou en minuscules.</p>
+      <br />
       <p>Original Text: {{ sampleText }}</p>
       <p>Uppercase: {{ sampleText | uppercase }}</p>
       <p>Lowercase: {{ sampleText | lowercase }}</p>
-      <h4 class="text-danger mt-5">Currency Pipe</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">Currency Pipe :</h4>
+      <p>
+        Transforme un nombre en une chaîne de devise, en utilisant le symbole de
+        devise configuré par défaut pour la locale en cours.
+      </p>
+      <br />
       <p>Original Amount: {{ amount }}</p>
       <p>USD: {{ amount | currency : 'USD' }}</p>
       <p>EUR: {{ amount | currency : 'EUR' }}</p>
@@ -26,15 +45,29 @@ import { Component, viewChild, ElementRef } from '@angular/core';
         Custom Currency (INR):
         {{ amount | currency : 'INR' : 'symbol' : '1.2-2' }}
       </p>
-      <h4 class="text-danger mt-5">Percent Pipe</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">Percent Pipe :</h4>
+      <p>
+        Transforme un nombre en une chaîne de pourcentage, multiplié par 100.
+      </p>
+      <br />
       <p>Original Fraction: {{ fraction }}</p>
       <p>Percentage: {{ fraction | percent }}</p>
-      <h4 class="text-danger mt-5">Number Pipe</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">Number Pipe :</h4>
+      <p>transforme un nombre en une chaîne de caractères formatée, en suivant des règles de localisation pour la représentation des nombres décimaux, des milliers, et permettant de définir le nombre de chiffres avant et après la virgule.</p>
       <p>Original Number: {{ bigNumber }}</p>
       <p>Formatted: {{ bigNumber | number : '1.1-2' }}</p>
-      <h4 class="text-danger mt-5">JSON Pipe</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">JSON Pipe :</h4>
+      <p>Transforme une valeur en une chaîne JSON.</p>
       <p>Object as JSON: {{ user | json }}</p>
-      <h4 class="text-danger mt-5">Custom Pipes (Example)</h4>
+      <h4 class="fs-6 fw-bold text-danger mt-4">SlicePipe :</h4>
+      <p>Crée un sous-ensemble d’un tableau ou d’une chaîne.</p>
+      <p>Original tableau: [1, 2, 3, 4, 5]</p>
+      <p>tableau sliced : {{ [1, 2, 3, 4, 5] | slice:1:3 }}</p>
+      <h4 class="fs-6 fw-bold text-danger mt-4">AsyncPipe :</h4>
+      <p>Va subscribe à un Observable et renvoyer la dernière valeur qu’il a émise. Lors de la destruction du composant, le pipe va unsubscribe automatiquement.</p>
+      <p>syntaxe:&#123; &#123; observable$ | async &#125; &#125;</p>
+      <h4 class="fs-6 fw-bold text-danger mt-4">Custom Pipes (Example) :</h4>
+      <p>En plus des pipes intégrés, Angular vous permet également de créer vos propres pipes personnalisés. Pour ce faire, vous pouvez utiliser le décorateur &#64;Pipe() pour définir un nouveau pipe et implémenter l’interface PipeTransform.</p>
       <p>Original Number: {{ sampleText }}</p>
       <p>Reversed Text: {{ sampleText | reverse }}</p>
       <hr />
@@ -150,7 +183,8 @@ export class AppComponent &#123;
   fraction = 0.678; // Fraction pour percent pipe
   bigNumber = 987654321.123; // Grand nombre pour number pipe
   user = &#123; name: "John Doe", age: 30, email: "john.doe&#64;example.com" &#125;; // Objet pour JSON pipe
-&#125;</pre>
+&#125;</pre
+          >
         </div>
 
         <!-- Composant C2 -->
@@ -177,7 +211,8 @@ export class ReversePipe implements PipeTransform &#123;
   transform(value: string): string &#123;
     return value.split(' ').reverse().join(' ');
   &#125;
-&#125;</pre>
+&#125;</pre
+          >
         </div>
       </div>
       <!-- --------------------Fin Template pour afficher le code source---------------- -->
@@ -194,9 +229,13 @@ export class ReversePipe implements PipeTransform &#123;
       }
       p {
         margin-bottom: 10px;
+        font-size: 16px;
       }
       // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

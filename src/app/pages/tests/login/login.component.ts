@@ -69,7 +69,7 @@ import { setActiveUser } from '../../../ngrx/data.slice';
                 <div class="d-grid">
                   <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn btn-success"
                     [disabled]="!loginForm.valid"
                   >
                     Se connecter
@@ -83,7 +83,7 @@ import { setActiveUser } from '../../../ngrx/data.slice';
 
 <!-- --------------------Template pour afficher le code source---------------- -->
     <!-- Nav Tabs -->
-    <ul class="nav nav-tabs" id="codeTabs" role="tablist">
+    <ul class="nav nav-tabs mt-5" id="codeTabs" role="tablist">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
@@ -201,7 +201,7 @@ import &#123; setActiveUser &#125; from '../../../ngrx/data.slice';
                 &#60;div class="d-grid"&#62;
                   &#60;button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn btn-success"
                     [disabled]="!loginForm.valid"
                   &#62;
                     Se connecter
@@ -358,7 +358,10 @@ et grâce à la valeur de isloggedIn on peut afficher/masquer : les menus: se co
   `,
 styles: `
 // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

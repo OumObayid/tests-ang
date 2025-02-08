@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-memo',
+  selector: 'app-routes',
   imports: [],
   template: `
-<p>Les memos</p>
+  <p>Les routes</p>
   `,
+
 })
-export class MemoComponent {
+export class RoutesComponent {
 
 }

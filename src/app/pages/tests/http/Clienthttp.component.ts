@@ -11,8 +11,8 @@ import { Categorie } from '../../../interfaces/categorie';
   template: `
     <div class="container mt-3">
       <h1>Test de la requête Http</h1>
-      <button class="btn btn-primary" (click)="fetchCategories()">
-        Afficher tous les categories de l'api
+      <button class="btn btn-success" (click)="fetchCategories()">
+        Afficher/Masquer tous les categories de l'api
       </button>
       @if (categories.length>0) {
       <ul class="mt-3">
@@ -92,7 +92,7 @@ import &#123; Categorie &#125; from '../../../interfaces/categorie';
   template: &#96;
     &#60;div class="container mt-3"&#62;
       &#60;h1&#62;Test de la requête Http&#60;/h1&#62;
-      &#60;button class="btn btn-primary" (click)="fetchCategories()"&#62;
+      &#60;button class="btn btn-success" (click)="fetchCategories()"&#62;
         Afficher tous les categories de l'api
       &#60;/button&#62;
       &#64;if (categories.length&#62;0) &#123;
@@ -255,7 +255,10 @@ export class UserService &#123;
   `,
   // -------------------------style pour afficher le code source----------------
   styles: `
-   .fa-check {
+   pre{
+          font-size:15px;
+         }
+.fa-check  {
      color: grey;
    }
 
@@ -309,7 +312,6 @@ export class ClienthttpComponent {
   isClicked: boolean = false;
   fetchCategories() {
     this.hasError = false; // Réinitialisation de l'état d'erreur
-
     //la difference avec axios est qu'il faut ajouter X-Requested-With dans l'api:header('Access-Control-Allow-Headers: Content-Type,X-Requested-With');
     // et au lieu de data dans la response on met response: response.data devient response.response
     const retour = this.CategoriesService.getCategories()

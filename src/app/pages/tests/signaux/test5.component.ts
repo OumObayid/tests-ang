@@ -126,7 +126,10 @@ Les méthodes increment() et decrement() modifient respectivement la valeur du c
   `,
   styles: `
     // -------------------------style pour afficher le code source----------------
-          .fa-check {
+          pre{
+          font-size:15px;
+         }
+.fa-check  {
             color: grey;
           }
 

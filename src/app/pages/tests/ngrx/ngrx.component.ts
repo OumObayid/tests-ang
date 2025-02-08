@@ -11,7 +11,7 @@ import { Categorie } from '../../../interfaces/categorie';
   template: `
     <div class="container mt-3">
       <h1>Ngrx: stoquer et récuperer </h1>
-      <button class="btn btn-primary" (click)="showCategories()">
+      <button class="btn btn-success" (click)="showCategories()">
         Afficher tous les categories
       </button>
       @if (categories.length>0) {
@@ -104,7 +104,7 @@ import &#123; Categorie &#125; from '../../../../interfaces/categorie';
   template: &#96;
     &#60;div class="container mt-3"&#62;
       &#60;h1&#62;ngrx: select et dispatch&#60;/h1&#62;
-      &#60;button class="btn btn-primary" (click)="showCategories()"&#62;
+      &#60;button class="btn btn-success" (click)="showCategories()"&#62;
         Afficher tous les categories
       &#60;/button&#62;
       &#64;if (categories.length&#62;0) &#123;
@@ -309,7 +309,10 @@ export const appStore = provideStore(&#123;
   `,
   styles: `
         // -------------------------style pour afficher le code source----------------
-              .fa-check {
+              pre{
+          font-size:15px;
+         }
+.fa-check  {
                 color: grey;
               }
 

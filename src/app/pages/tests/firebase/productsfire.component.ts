@@ -495,7 +495,7 @@ import &#123; ActivatedRoute, Router &#125; from '&#64;angular/router';
             &#62;&#60;/textarea&#62;
           &#60;/div&#62;
           &#60;div class="col-12"&#62;
-            &#60;button type="submit" class="btn btn-primary"&#62;Mettre à jour&#60;/button&#62;
+            &#60;button type="submit" class="btn btn-success"&#62;Mettre à jour&#60;/button&#62;
           &#60;/div&#62;
         &#60;/form&#62;
       &#60;/div&#62;
@@ -612,7 +612,10 @@ firebaseConfig : &#123;
 
   styles: `
 // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

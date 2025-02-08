@@ -167,7 +167,7 @@ import {
           placeholder="Nouvelle compétence"
           [(ngModel)]="newSkill"
         />
-        <button type="button" class="btn btn-primary" (click)="addSkill()">
+        <button type="button" class="btn btn-success" (click)="addSkill()">
           Ajouter
         </button>
       </div>
@@ -377,7 +377,7 @@ import &#123;
           placeholder="Nouvelle compétence"
           [(ngModel)]="newSkill"
         /&#62;
-        &#60;button type="button" class="btn btn-primary" (click)="addSkill()"&#62;
+        &#60;button type="button" class="btn btn-success" (click)="addSkill()"&#62;
           Ajouter
         &#60;/button&#62;
       &#60;/div&#62;
@@ -454,7 +454,10 @@ export class FormcontrolgroupComponent &#123;
   `,
         styles: `
         // -------------------------style pour afficher le code source----------------
-              .fa-check {
+              pre{
+          font-size:15px;
+         }
+.fa-check  {
                 color: grey;
               }
 

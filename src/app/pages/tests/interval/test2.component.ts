@@ -10,7 +10,7 @@ import { interval } from 'rxjs';
     <div class="container">
       <h1>l'observable interval()</h1>
       <hr />
-      <button class="btn btn-primary" (click)="startTimer()">Démarrer</button>
+      <button class="btn btn-success" (click)="startTimer()">Démarrer</button>
       <button class="btn btn-danger mx-4" (click)="stopTimer()">Arrêter</button>
       <button class="btn btn-success" (click)="resetTimer()">
         Réinitialiser
@@ -66,7 +66,7 @@ import &#123; interval, Subscription &#125; from "rxjs";
     &#60;div class="container"&#62;
       &#60;h1&#62;l'observable interval()&#60;/h1&#62;
       &#60;hr /&#62;
-      &#60;button class="btn btn-primary" (click)="startTimer()"&#62;Démarrer&#60;/button&#62;
+      &#60;button class="btn btn-success" (click)="startTimer()"&#62;Démarrer&#60;/button&#62;
       &#60;button class="btn btn-danger mx-4" (click)="stopTimer()"&#62;Arrêter&#60;/button&#62;
       &#60;button class="btn btn-success" (click)="resetTimer()"&#62;
         Réinitialiser
@@ -170,7 +170,10 @@ export class AppComponent &#123;
   `,
   styles: `
   // -------------------------style pour afficher le code source----------------
-        .fa-check {
+        pre{
+          font-size:15px;
+         }
+.fa-check  {
           color: grey;
         }
 

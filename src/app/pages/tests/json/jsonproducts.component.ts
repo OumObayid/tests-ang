@@ -68,7 +68,7 @@ import {
               ></textarea>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Ajouter</button>
+              <button type="submit" class="btn btn-success">Ajouter</button>
             </div>
           </form>
         </div>
@@ -246,7 +246,7 @@ import &#123; Product, JsonProductsService &#125; from '../../../services/http/j
               &#62;&#60;/textarea&#62;
             &#60;/div&#62;
             &#60;div class="col-12"&#62;
-              &#60;button type="submit" class="btn btn-primary"&#62;Ajouter&#60;/button&#62;
+              &#60;button type="submit" class="btn btn-success"&#62;Ajouter&#60;/button&#62;
             &#60;/div&#62;
           &#60;/form&#62;
         &#60;/div&#62;
@@ -342,7 +342,7 @@ export class JsonProductsComponent implements OnInit &#123;
     this.jsonProductsService.deleteProduct(id).subscribe(() =&#62; &#123;
       this.products = this.products.filter((p) =&#62; p.id !== id); //reaffichage des produits sans le produit supprimé
       // ou  this.fetchProducts();
-    &#125;);    
+    &#125;);
   &#125;
 &#125;</pre
           >
@@ -421,7 +421,7 @@ import &#123; Product &#125; from '../../../services/http/json/jsonproducts.serv
             &#62;&#60;/textarea&#62;
           &#60;/div&#62;
           &#60;div class="col-12"&#62;
-            &#60;button type="submit" class="btn btn-primary"&#62;Mettre à jour&#60;/button&#62;
+            &#60;button type="submit" class="btn btn-success"&#62;Mettre à jour&#60;/button&#62;
           &#60;/div&#62;
         &#60;/form&#62;
       &#60;/div&#62;
@@ -570,10 +570,13 @@ ng generate component pages/tests/json/jsonproducts, et avec le contenu suivant:
   `,
   styles: `
    // -------------------------style pour afficher le code source----------------
-         .fa-check {
+         pre{
+          font-size:15px;
+         }
+.fa-check  {
            color: grey;
          }
-   
+
          i.fa-copy {
            cursor: pointer;
            color: grey;
@@ -585,7 +588,7 @@ ng generate component pages/tests/json/jsonproducts, et avec le contenu suivant:
            display: inline-block;
            padding: 10px;
          }
-   
+
            i.fa-copy:hover{
              color:#aaacad;
            transform: scale(1.2); /* Effet d'agrandissement au survol */

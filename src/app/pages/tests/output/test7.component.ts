@@ -215,13 +215,15 @@ Représente les données transmises par emit() depuis le Child Component.
 Accessible dans la méthode appelée par le parent.
 handleData($event: string) &#123;
   console.log('Données reçues du Child :', $event);
-  &#125;
-      </pre>
+  &#125;</pre>
     </div>
   `,
   styles: `
        // -------------------------style pour afficher le code source----------------
-             .fa-check {
+             pre{
+          font-size:15px;
+         }
+.fa-check  {
                color: grey;
              }
 
@@ -264,6 +266,9 @@ handleData($event: string) &#123;
                 h3 {
                   margin-top: 20px;
                 }
+                pre{
+          font-size:15px;
+         }
        // -------------------------Fin style pour afficher le code source----------------
        `,
 })

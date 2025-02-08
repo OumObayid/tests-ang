@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
       <hr />
       <h2>{{ productName }}</h2>
       <!-- Interpolation -->
-      <button class="btn btn-primary me-4" (click)="addToCart()">
+      <button class="btn btn-success me-4" (click)="addToCart()">
         Ajouter au panier
       </button>
       <!-- Event binding -->
@@ -55,7 +55,7 @@ import { FormsModule } from '@angular/forms';
           <span class="confirm" *ngIf="clicked"
             >copied <i class="fas fa-check"></i>
           </span>
-          <pre #tab1 class="tab fw-bold" ngNonBindable>
+<pre #tab1 class="tab fw-bold" ngNonBindable>
 import &#123; Component &#125; from '&#64;angular/core';
 import &#123; FormsModule &#125; from '&#64;angular/forms';
 
@@ -67,7 +67,7 @@ import &#123; FormsModule &#125; from '&#64;angular/forms';
     &#60;hr /&#62;
     &#60;h2&#62;&#123;&#123; productName &#125;&#125;&#60;/h2&#62;
     &#60;!-- Interpolation --&#62;
-    &#60;button class="btn btn-primary me-4" (click)="addToCart()"&#62;
+    &#60;button class="btn btn-success me-4" (click)="addToCart()"&#62;
       Ajouter au panier
     &#60;/button&#62;
     &#60;!-- Event binding --&#62;
@@ -95,7 +95,66 @@ alert(&#96;$&#123;this.quantity&#125; $&#123;this.productName&#125;(s) ajouté(s
         ****************************************<span class="fs-2">cours</span
         >*************************************************
       </div>
-      <pre ngNonBindable><h3 class="my-0">Résumé des bindings</h3>
+      <pre>
+<strong class="fs-6">Interpolation :</strong>
+L’interpolation permet d’afficher une valeur dans le template. Pour cela, on utilise la syntaxe &#123;&#123; &#125;.
+<div class="p-2" style="background-color:#edeef3">&#64;Component(&#123;
+  template: &#96;
+    &#60;p&#62;Mon nom est &#123;&#123; name &#125;&#60;/p&#62;
+    &#60;p&#62;&#123;&#123; copyright &#125;&#60;/p&#62;
+  &#96;
+&#125;)
+export class AppComponent &#123;
+  name = 'Emeline';
+  copyright = &#96;Bonjour Angular, $&#123;new Date().getFullYear()&#125;&#96;
+&#125;</div>
+
+<strong class="fs-6">Property binding :</strong>
+Le property binding permet de lier une propriété d’un élément HTML à une valeur dans le composant. Pour cela, on utilise la syntaxe [ ].
+
+<div class="p-2" style="background-color:#edeef3">&#64;Component(&#123;
+  template: &#96;
+    &#60;button [disabled]="isDisabled"&#62;Mon bouton&#60;/button&#62;
+    &#60;img [src]="image" /&#62;
+  &#96;
+&#125;)
+export class AppComponent &#123;
+  isDisabled = true;
+  image = 'https://angular.io/assets/images/logos/angular/angular.png';
+&#125;</div>
+
+<strong class="fs-6">Event binding :</strong>
+L’event binding permet de lier un événement d’un élément HTML à une méthode dans le composant. Pour cela, on utilise la syntaxe ( ). Il existe beaucoup d’événements comme click, change, input, keyup, keydown, mouseover, mouseout, focus, blur, etc.
+
+<div class="p-2" style="background-color:#edeef3">&#64;Component(&#123;
+  template: &#96;
+    &#60;button (click)="alert('Bonjour Angular!')"&#62;Alert&#60;/button&#62;
+  &#96;
+&#125;)
+export class AppComponent &#123;
+  alert(message: string) &#123;
+    window.alert(message);
+  &#125;
+&#125;</div>
+
+<strong class="fs-6">Two-way binding :</strong>
+Le two-way binding est une fonctionnalité qui crée une connexion bidirectionnelle entre un élément HTML et un composant. Cela signifie que toute modification apportée à l’élément est reflétée dans le composant, et vice-versa. Pour réaliser cette liaison, on utilise la syntaxe [( )].
+
+<div class="p-2" style="background-color:#edeef3">&#64;Component(&#123;
+  template: &#96;
+    &#60;input type="text" [(ngModel)]="name" /&#62;
+    &#60;p&#62;Mon nom est &#123; &#123; name &#125; &#125;&#60;/p&#62;
+  &#96;
+&#125;)
+export class AppComponent &#123;
+  name = 'Emeline';
+&#125;</div>
+
+Ici, si l’utilisateur écrit dans l’input, cela modifiera la propriété name et ce changement sera reflété automatiquement dans &#123; &#123; name &#125; &#125;.
+</pre>
+<pre ngNonBindable>
+
+<strong class="fs-6">Résumé des bindings :</strong>
     <table class="my-0 table table-bordered table-striped">
           <thead>
             <tr>
@@ -107,8 +166,8 @@ alert(&#96;$&#123;this.quantity&#125; $&#123;this.productName&#125;(s) ajouté(s
           <tbody>
             <tr>
               <td><strong>Interpolation</strong></td>
-              <td>{{ expression }}</td>
-              <td>&lt;p&gt;{{ title }}&lt;/p&gt;</td>
+              <td>&#123;&#123; expression %#125;%#125;</td>
+              <td>&lt;p&gt;&#123;&#123; title %#125;%#125;&lt;/p&gt;</td>
             </tr>
             <tr>
               <td><strong>Property Binding</strong></td>
@@ -136,7 +195,9 @@ alert(&#96;$&#123;this.quantity&#125; $&#123;this.productName&#125;(s) ajouté(s
               <td>&lt;div [style.color]="color"&gt;&lt;/div&gt;</td>
             </tr>
           </tbody>
-        </table>  <h3>Résumé rapide</h3>
+        </table>
+
+<strong class="fs-6">Résumé rapide : </strong>
   <table class="table table-bordered table-striped">
   <thead style="background-color: black; color: white;">
     <tr>
@@ -165,7 +226,10 @@ alert(&#96;$&#123;this.quantity&#125; $&#123;this.productName&#125;(s) ajouté(s
   `,
   // -------------------------style pour afficher le code source----------------
   styles: `
-   .fa-check {
+   pre{
+          font-size:15px;
+         }
+.fa-check  {
      color: grey;
    }
 

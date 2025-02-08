@@ -55,7 +55,7 @@ import { ProductService } from '../../../services/http/apinodejs/product.service
         />
       </div>
 
-      <button class="btn btn-primary mt-2" (click)="updateProduct()">
+      <button class="btn btn-success mt-2" (click)="updateProduct()">
         Save
       </button>
     </div>

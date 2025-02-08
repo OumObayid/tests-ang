@@ -19,7 +19,7 @@ import { Component, viewChild, ElementRef } from '@angular/core';
       >
         {{ user.name }}
       </div>
-      <button class="btn btn-primary mt-3" (click)="toggleState()">
+      <button class="btn btn-success mt-3" (click)="toggleState()">
         Toggle State
       </button>
             <!-- --------------------Template pour afficher le code source---------------- -->
@@ -75,7 +75,7 @@ import &#123; Component &#125; from '&#64;angular/core';
          &#91;ngClass&#93;="additionalClasses"&#62;
       &#123;&#123; user.name &#125;&#125;
     &#60;/div&#62;
-    &#60;button class="btn btn-primary mt-3" (click)="toggleState()"&#62;Toggle State&#60;/button&#62;
+    &#60;button class="btn btn-success mt-3" (click)="toggleState()"&#62;Toggle State&#60;/button&#62;
     &#60;/div&#62;
   &#96;,
   styles: &#91;&#96;
@@ -147,7 +147,10 @@ export class AppComponent &#123;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
       // -------------------------style pour afficher le code source----------------
-      .fa-check {
+      pre{
+          font-size:15px;
+         }
+.fa-check  {
         color: grey;
       }
 

@@ -166,7 +166,10 @@ ts de l'enfant:<span class="text-danger fw-bold">
   `,
   styles: `
    // -------------------------style pour afficher le code source----------------
-         .fa-check {
+         pre{
+          font-size:15px;
+         }
+.fa-check  {
            color: grey;
          }
 

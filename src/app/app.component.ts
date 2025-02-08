@@ -1,4 +1,3 @@
-import { HeadertestOldComponent } from './pages/tests/headertestold.component';
 import { SidebarComponent } from './pages//tests/sidebar.component';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
