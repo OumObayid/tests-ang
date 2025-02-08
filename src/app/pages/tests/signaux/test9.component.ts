@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Component, signal, viewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
-  imports:[FormsModule],
+  imports:[FormsModule,CommonModule],
   template: `
     <div class="container">
       <h1>Difference entre les deux methodes set() et update() d'un signal</h1>
@@ -70,9 +71,10 @@ import { Component, signal, viewChild, ElementRef } from '@angular/core';
         >
           <!-- Bouton de copie pour C1 -->
           <i (click)="copy1()" class="fas fa-copy"></i>
-          <span class="confirm" *ngIf="clicked"
-            >copied <i class="fas fa-check"></i>
+          @if (clicked) {
+          <span class="confirm">copied <i class="fas fa-check"></i>
           </span>
+        }
           <pre #tab1 class="tab fw-bold" ngNonBindable>
 import &#123; FormsModule &#125; from '&#64;angular/forms';
 import &#123; Component, signal &#125; from '&#64;angular/core';
@@ -145,7 +147,7 @@ export class Test9Component &#123;
       (currentValue) =&#62; currentValue.toUpperCase()
     ); // Capitalise le nom
   &#125;
-  
+
   lowerCaseNom() &#123;
     this.nom.update(
       (currentValue) =&#62; currentValue.toLowerCase()

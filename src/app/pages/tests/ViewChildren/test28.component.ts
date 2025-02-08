@@ -1,7 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, viewChildren, ElementRef, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-test28',
+  imports:[CommonModule],
   standalone: true,
   template: `
     <div class="container">

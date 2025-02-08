@@ -1,11 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Enfant29Component } from './enfant29.component';
 import { Component, viewChild, viewChildren, ElementRef } from '@angular/core';
 import { User } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-test29',
+  imports:[CommonModule,Enfant29Component],
   standalone: true,
-  imports: [Enfant29Component],
   template: `
     <div class="container">
       <h1>viewChildren : Accéder aux composants enfants</h1>
