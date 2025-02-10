@@ -1,8 +1,8 @@
+import { ProductNodeService } from './../../../services/http/apinodejs/productnode.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductService } from '../../../services/http/apinodejs/product.service';
 
 @Component({
   selector: 'app-update-product',
@@ -60,13 +60,17 @@ import { ProductService } from '../../../services/http/apinodejs/product.service
       </button>
     </div>
   `,
-  styles: [],
+  styles:`
+p{
+  font-size:15px;
+}
+  `,
 })
 export class UpdateProductnodeComponent implements OnInit {
   product: any = {};
   productId: string | null = null;
   constructor(
-    private productService: ProductService,
+    private productService: ProductNodeService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

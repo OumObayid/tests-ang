@@ -13,6 +13,8 @@ import { setActiveUser } from '../../../ngrx/data.slice';
       <h1>Système de connexion</h1>
       <hr />
       <div class="row justify-content-center">
+      <span class="text-center">utilisateur: admin</span>
+      <span class="text-center">password: admin</span>
         <div class="col-md-4">
           <div class="card shadow">
             <div class="card-header text-center bg-primary text-white">

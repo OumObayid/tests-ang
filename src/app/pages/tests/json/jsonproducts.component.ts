@@ -15,7 +15,11 @@ import {
     <div class="container">
       <h1>Crud avec api json</h1>
       <hr />
+      <p>Dans ce cours, nous allons voir comment effectuer les opérations CRUD (Create, Read, Update, Delete) dans une application Angular en utilisant une API REST JSON créé par node js. Nous utiliserons HttpClient pour communiquer avec cette API distante (JSON Server).</p>
+      <p>(voir démarche à suivre)</p>
+      <hr>
       <h3 class="mb-4">Gestion des Produits</h3>
+      <p>Pour que ça marche, il faur démarrer le serveur json</p>
       <!-- Ajouter un produit -->
       <div class="mb-4">
         <div class="card-header">Ajouter un produit</div>

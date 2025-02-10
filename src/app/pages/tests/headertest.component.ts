@@ -1,26 +1,49 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, effect, signal } from '@angular/core';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
 
 @Component({
   selector: 'app-headertest',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   template: `
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a [ngClass]="{ active: router.url === '/' }" routerLink="/" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item" *ngFor="let menu of mainMenus">
-          <a
-            class="nav-link"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+      <div class="navbar-nav d-flex justify-content-between w-100">
+        <a class="nav-link"
+          class="nav-item"
+          [ngClass]="{ active: router.url === '/' }"
+          routerLink="/"
+          >Home</a>
+        <span class="d-flex">
+          <a class="nav-link"
+            *ngFor="let menu of mainMenus"
             [class.active]="menu === activeMenu"
             (click)="selectMenu(menu)"
           >
             {{ menu }}
           </a>
-        </li>
-      </ul>
+          <a class="nav-link"
+            *ngIf="!isloggedIn()"
+            [ngClass]="{ active: router.url === '/exemple-de-protection' }"
+            routerLink="/exemple-de-protection"
+            >se connecter
+          </a>
+          <a class="nav-link"
+            *ngIf="isloggedIn()"
+
+            style="cursor: pointer;"
+            (click)="lougout()"
+          >
+            se deconnecter
+          </a>
+          <a class="nav-link"
+            *ngIf="isloggedIn()"
+            [ngClass]="{ active: router.url === '/dashboard' }"
+            routerLink="/dashboard"
+            >dashboard</a>
+        </span>
+      </div>
     </nav>
   `,
   styles: `
@@ -33,14 +56,31 @@ import { Router, ActivatedRoute, RouterLink } from '@angular/router';
   `,
 })
 export class HeadertestComponent {
-  constructor(public router: Router, private route: ActivatedRoute) {}
+  constructor(
+    public router: Router,
+    private route: ActivatedRoute,
+    private store: Store
+  ) {
+    // Déclaration d'un effet qui observe les changements du signal store
+    effect(() => {
+      this.store
+        .select(selectIsLoggedIn)
+        .subscribe((islog) => this.isloggedIn.set(islog));
+    });
+  }
+  //pour la connexion
+  isloggedIn = signal(false);
 
   @Output() menuSelected = new EventEmitter<string>();
-  mainMenus = ['Angular', 'Laravel', 'React.js', 'Déploiement'];
+  mainMenus = ['Angular', 'Laravel', 'React.js', 'Wordpress', 'Déploiement'];
   activeMenu: string = 'Angular'; // Angular actif par défaut
 
-
   ngOnInit() {
+    //pour la connexion
+    this.store
+      .select(selectIsLoggedIn)
+      .subscribe((islog) => this.isloggedIn.set(islog));
+    console.log('this.isloggedIn :', this.isloggedIn());
     this.detectActiveMenu();
   }
 
@@ -78,5 +118,13 @@ export class HeadertestComponent {
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/\s+/g, '-') // Remplace les espaces par des tirets
       .replace(/'/g, '-'); // Remplace les apostrophes par des tirets
+  }
+
+  //pour la connexion
+  lougout() {
+    this.isloggedIn.set(false);
+    this.store.dispatch(removeActiveUser());
+    this.router.navigate(['/exemple-de-protection']);
+
   }
 }

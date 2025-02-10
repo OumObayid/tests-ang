@@ -1,11 +1,28 @@
+import { SurabaseDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudsurabase';
+import { LaravelDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudlaravel.component';
+import { FirebaseDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudfirebase.component';
+import { ExpressRaylwayDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudexpressrailway.component';
+import { DeplVpsFullstackComponent } from './pages/tests/deployements/vps/deplvpsfullstack';
+import { DeplVpsLaravelNginxApacheComponent } from './pages/tests/deployements/vps/deplvpslaravel.component';
+import { DeplVpsApiNodejsComponent } from './pages/tests/deployements/vps/deplvpsapinode.component';
+import { LaravelDeplHebergeurComponent } from './pages/tests/deployements/hebergeur/laraveldeplhebergeur.component';
+import { ReactjsDeplHebergeurComponent } from './pages/tests/deployements/hebergeur/reactjsdeplhebergeur.component';
+import { AngularDeplHebergeurComponent } from './pages/tests/deployements/hebergeur/angulardeplhebergeur.component';
+import { ReactjsDeplGithubComponent } from './pages/tests/deployements/github/reactjsdeplgithub.component';
+import { AngularDeplGithubComponent } from './pages/tests/deployements/github/angulardeplgithub.component';
+import { ResolverComponent } from './pages/tests/resolver/resolver.component';
+import { ProductsResolver } from './services/resolvers/products.resolver';
+import { LazyLoadingComponent } from './pages/tests/routes/lazyloading.component';
+import { RouteGuardComponent } from './pages/tests/routes/routeguard.component';
+import { RedirectionEtPage404Component } from './pages/tests/routes/redirectionetpage404.component';
+import { RoutesAvecParametresReqComponent } from './pages/tests/routes/routesavecparametresrequ.component';
+import { RoutesAvecParametresComponent } from './pages/tests/routes/routesavecparametres.component';
 import { UtilisationServiceComponent } from './pages/tests/utilisation-service/utilisation-service.component';
-import { RoutesComponent } from './pages/tests/routes/routes.component';
+import { RoutesIntroComponent } from './pages/tests/routes/routesintro.component';
 import { NgOnChangesComponent } from './pages/tests/cycle/ngonchange.component';
 import { NgOnDestroyComponent } from './pages/tests/cycle/ngondestroy.component';
 import { NgOnAfterViewInitComponent } from './pages/tests/cycle/ngonafterviewinit.component';
 import { NgOnInitComponent } from './pages/tests/cycle/ngoninit.compoenent';
-import { AngPhpComponent } from './pages/tests/hebergements/ang-php.component';
-import { CategoriesResolver } from './services/resolvers/categories.resolver';
 import { UpdateProductFireComponent } from './pages/tests/firebase/updateproductfire.component';
 import { LoginComponent } from './pages/tests/login/login.component';
 import { RxjsTransformationComponent } from './pages/tests/rxjs/rxjstransformer.component';
@@ -16,9 +33,6 @@ import { ProductsnodeComponent } from './pages/tests/nodejs/productsnode.compone
 import { ProductsfireComponent } from './pages/tests/firebase/productsfire.component';
 import { UpdateProductnodeComponent } from './pages/tests/nodejs/update-productnode.component';
 import { RxjsbservableComponent } from './pages/tests/rxjs/rxjsobservable.component';
-import { ProductsResolver } from './services/resolvers/products.resolver';
-import { ResolverComponent } from './pages/tests/resolver/resolver.component';
-import { GuardComponent } from './pages/tests/guard/guard.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormcontrolgroupComponent } from './pages/tests/formControl-formGroup/formcontrolgroup.component';
 import { ViewchildNgFormComponent } from './pages/tests/ngForm/viewChild-ngForm.component';
@@ -54,7 +68,7 @@ import { Test6Component } from './pages/tests/input/test6.component';
 import { Test7Component } from './pages/tests/output/test7.component';
 import { Test5Component } from './pages/tests/signaux/test5.component';
 import { Test4Component } from './pages/tests/signaux/test4.component';
-import { Test3Component } from './pages/tests/ajax/test3.component';
+import { AjaxComponent } from './pages/tests/ajax/ajax.component';
 import { Test1Component } from './pages/tests/binding/test1.component';
 import { Test2Component } from './pages/tests/interval/test2.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -67,11 +81,30 @@ export const routes: Routes = [
 
   //test
   { path: 'data-binding', component: Test1Component },
-  { path: 'les-routes', component: RoutesComponent },
+  { path: 'introduction-au-routing', component: RoutesIntroComponent },
   { path: 'interval', component: Test2Component },
-  { path: 'c-est-quoi-un-guard', component: GuardComponent },
+
+  //routing
+  {
+    path: 'routes-avec-des-parametres',
+    component: RoutesAvecParametresComponent,
+  },
+  {
+    path: 'route-avec-parametres-de-requete',
+    component: RoutesAvecParametresReqComponent,
+  },
+  {
+    path: 'redirections-et-pages-404',
+    component: RedirectionEtPage404Component,
+  },
+  {
+    path: 'chargement-de-modules-avec-lazy-loading',
+    component: LazyLoadingComponent,
+  },
+
+  { path: 'route-guards-proteger-les-pages', component: RouteGuardComponent },
   { path: 'les-services', component: UtilisationServiceComponent },
-  { path: 'ajax', component: Test3Component },
+  { path: 'ajax', component: AjaxComponent },
   { path: 'http', component: ClienthttpComponent },
   { path: 'signal-et-computed', component: Test4Component },
   { path: 'signal-et-effect', component: Test5Component },
@@ -102,13 +135,22 @@ export const routes: Routes = [
   { path: 'acceder-a-un-composant-enfant', component: Test27Component },
   { path: 'acceder-a-plusieurs-elements', component: Test28Component },
   { path: 'acceder-aux-composants-enfants', component: Test29Component },
-  { path: 'acceder-aux-elements-enfants-d-un-composant', component: Test30Component },
-  { path: 'acceder-a-un-composant-enfant-dans-la-projection-de-contenu', component: Test31Component },
+  {
+    path: 'acceder-aux-elements-enfants-d-un-composant',
+    component: Test30Component,
+  },
+  {
+    path: 'acceder-a-un-composant-enfant-dans-la-projection-de-contenu',
+    component: Test31Component,
+  },
   { path: 'viewchild-avec-ng-template', component: Test32Component },
   { path: 'les-states-et-les-reducers', component: NgrxComponent },
   { path: 'ng-container---ng-template', component: ContainerTemplateComponent },
   { path: 'ngform-dans-ngsubmit', component: NgFormComponent },
-  { path: 'utiliser-viewchild-pour-ngform', component: ViewchildNgFormComponent },
+  {
+    path: 'utiliser-viewchild-pour-ngform',
+    component: ViewchildNgFormComponent,
+  },
   { path: 'formgroup-et-formcontrol', component: FormcontrolgroupComponent },
   //guard
   {
@@ -117,12 +159,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'exemple-de-connexion',
+    path: 'exemple-de-protection',
     component: LoginComponent,
     canActivate: [authGuard2],
-
   },
-
 
   // Resolver : Récupérer des données avant d'afficher une route (ex: liste de produits)
   {
@@ -130,23 +170,42 @@ export const routes: Routes = [
     component: ResolverComponent,
     resolve: {
       products: ProductsResolver, // Associe le resolver à cette route
-      categories:CategoriesResolver
     },
   },
   //rxjs
   { path: 'les-observables', component: RxjsbservableComponent },
   { path: 'les-operateurs-de-creation', component: RxjscreationComponent },
-  { path: 'les-operateurs-de-transformation', component: RxjsTransformationComponent },
-//nodejs
-{ path: 'crud-nodejs-mongodb', component: ProductsnodeComponent },
-{ path: 'update-node/:id', component:UpdateProductnodeComponent },
-//firebase
-{ path: 'crud-firebase', component: ProductsfireComponent },
-{ path: 'update-product-firebase/:id', component: UpdateProductFireComponent },
-//json
-{ path: 'crud-json', component: JsonProductsComponent },
-{ path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
-//hebergement
-{ path: 'angular-avec-api-rest-php', component: AngPhpComponent },
+  {
+    path: 'les-operateurs-de-transformation',
+    component: RxjsTransformationComponent,
+  },
+  //nodejs
+  { path: 'crud-nodejs-mongodb', component: ProductsnodeComponent },
+  { path: 'update-node/:id', component: UpdateProductnodeComponent },
+  //firebase
+  { path: 'crud-firebase', component: ProductsfireComponent },
+  {
+    path: 'update-product-firebase/:id',
+    component: UpdateProductFireComponent,
+  },
+  //json
+  { path: 'crud-json', component: JsonProductsComponent },
+  { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
+
+
+
+  //deployement
+  { path: 'deployement-github-angular', component: AngularDeplGithubComponent },
+  { path: 'deployement-github-reactjs', component: ReactjsDeplGithubComponent },
+  { path: 'deployement-hebergeur-angular-api-rest', component: AngularDeplHebergeurComponent },
+  { path: 'deployement-hebergeur-reactjs-api-rest', component: ReactjsDeplHebergeurComponent },
+  { path: 'deployement-hebergeur-laravel', component: LaravelDeplHebergeurComponent },
+  { path: 'deployement-vps-api-node.js', component: DeplVpsApiNodejsComponent },
+  { path: 'deployement-vps-laravel-nginx-apache', component: DeplVpsLaravelNginxApacheComponent },
+  { path: 'deployement-vps-full-stack-sur-vps', component: DeplVpsFullstackComponent },
+  { path: 'deployement-cloud-laravel-heroku', component: LaravelDeplCloudComponent },
+  { path: 'deployement-cloud-expressjs-railway', component: ExpressRaylwayDeplCloudComponent },
+  { path: 'deployement-cloud-firebase-functions', component: FirebaseDeplCloudComponent },
+  { path: 'deployement-cloud-supabase', component: SurabaseDeplCloudComponent },
 
 ];

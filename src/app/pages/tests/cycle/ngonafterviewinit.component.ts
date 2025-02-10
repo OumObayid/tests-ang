@@ -13,21 +13,34 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="container mt-4">
-      <h2 class="text-primary">Liste des utilisateurs</h2>
-      <button class="btn btn-success my-3" (click)="showUsers()">
-        Afficher Utilisateurs
-      </button>
-      <ul class="list-group" *ngIf="users.length > 0" #userList>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let user of users"
-        >
-          <span
-            ><strong>{{ user.name }}</strong> - {{ user.email }}</span
-          >
-          <span class="badge bg-info rounded-pill">ID: {{ user.id }}</span>
-        </li>
-      </ul>
+      <h1>ngAfterViewInit() : Exécuter du code après l'affichage</h1>
+      <hr />
+      <p>
+        Cette méthode est appelée après que la vue d’un composant (et de ses
+        enfants) a été complètement initialisée. C’est l’endroit idéal pour
+        effectuer des manipulations liées à la vue, comme interagir avec des
+        éléments du DOM ou utiliser ViewChild pour accéder à des composants ou
+        éléments enfants
+      </p>
+      <p>
+        ➡️ Déclenché une seule fois après l’affichage du composant et des
+        enfants.
+      </p>
+      <p>
+        ➡️ Utilisation principale : Manipuler le DOM ou appeler une bibliothèque
+        qui a besoin du DOM.
+      </p>
+      <h2>Exemple : Changer la couleur d’un élément après l’affichage</h2>
+      <p>
+        Voici un exemple plus significatif qui montre l'utilité de
+        ngAfterViewInit() pour effectuer des actions après l'initialisation de
+        la vue, comme accéder à des éléments DOM, mesurer leur taille, appliquer
+        des styles conditionnels, ou lancer des animations :
+      </p>
+      <hr />
+      <div #myDiv class="box">
+      Ce div sera manipulé après l'initialisation de la vue.
+      </div>
       <!-- --------------------Template pour afficher le code source---------------- -->
       <!-- Nav Tabs -->
       <ul class="nav nav-tabs mt-5" id="codeTabs" role="tablist">
@@ -63,71 +76,95 @@ import { CommonModule } from '@angular/common';
             >copied <i class="fas fa-check"></i>
           </span>
           <pre #tab1 class="tab fw-bold" ngNonBindable>
-import &#123; AfterViewInit, Component, ElementRef, ViewChild &#125; from '&#64;angular/core';
-import &#123; CommonModule &#125; from '&#64;angular/common';
+import &#123; Component, AfterViewInit, ViewChild, ElementRef &#125; from '&#64;angular/core';
 
 &#64;Component(&#123;
-  selector: 'app-user-list',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'app-example',
   template: &#96;
-    &#60;div class="container mt-4"&#62;
-      &#60;h2 class="text-primary"&#62;Liste des utilisateurs&#60;/h2&#62;
-      &#60;button class="btn btn-warning my-3" (click)="showUsers()"&#62;
-        Afficher Utilisateurs
-      &#60;/button&#62;
-      &#60;ul class="list-group" *ngIf="users.length &#62; 0" #userList&#62;
-        &#60;li
-          class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let user of users"
-        &#62;
-          &#60;span
-            &#62;&#60;strong&#62;&#123;&#123; user.name &#125;&#125;&#60;/strong&#62; - &#123;&#123; user.email &#125;&#125;&#60;/span
-          &#62;
-          &#60;span class="badge bg-info rounded-pill"&#62;ID: &#123;&#123; user.id &#125;&#125;&#60;/span&#62;
-        &#60;/li&#62;
-      &#60;/ul&#62;
+    &#60;div #myDiv class="box"&#62;
+      &#60;p&#62;Ce div sera manipulé après l'initialisation de la vue.&#60;/p&#62;
     &#60;/div&#62;
   &#96;,
+  styles: [&#96;
+    .box &#123;
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 200px;
+    &#125;
+  &#96;]
 &#125;)
-export class NgOnAfterViewInitComponent implements AfterViewInit &#123;
-  &#64;ViewChild('userList') userList!: ElementRef;
-
-  users: any[] = [];
-
-  showUsers() &#123;
-    this.users = [
-      &#123; id: 1, name: 'Alice', email: 'alice&#64;example.com' &#125;,
-      &#123; id: 2, name: 'Bob', email: 'bob&#64;example.com' &#125;,
-      &#123; id: 3, name: 'Charlie', email: 'charlie&#64;example.com' &#125;,
-    ];
-  &#125;
+export class ExampleComponent implements AfterViewInit &#123;
+  &#64;ViewChild('myDiv') myDiv!: ElementRef;
 
   ngAfterViewInit() &#123;
-    if (this.userList) &#123;
-      setTimeout(() =&#62; &#123;
-        this.userList.nativeElement.style.border = '2px solid blue';
-      &#125;);
-    &#125;
+    // Manipulation du DOM après la vue initialisée
+    const divElement = this.myDiv.nativeElement;
+
+    // Vérification de la taille du div
+    console.log('Dimensions du div:', divElement.offsetWidth, divElement.offsetHeight);
+
+    // Appliquer un effet après l'initialisation
+    divElement.style.backgroundColor = 'green';  // Change la couleur du fond après initialisation
+    divElement.style.transform = 'scale(1.1)';  // Appliquer une transformation
+    divElement.style.transition = 'transform 0.5s';  // Animation lors de la transformation
+
+    // Lancer une animation
+    setTimeout(() =&#62; &#123;
+      divElement.style.transform = 'scale(1)';
+    &#125;, 1000);
   &#125;
 &#125;</pre
           >
         </div>
       </div>
       <div class=" mt-4">
-        ****************************************<span class="fs-2">cours</span
+        ****************************************<span class="fs-2">Explication de l'exemple</span
         >*************************************************
       </div>
       <pre>
-        .......
-      </pre
-      >
+<h4>Ce que fait cet exemple :</h4>
+Manipulation du DOM après la vue initialisée :
+On modifie la couleur de fond du div et on applique une transformation CSS (scale)
+pour montrer qu'on peut interagir avec les éléments DOM une fois que la vue est complètement rendue.
+
+Mesure des éléments :
+Avant d'appliquer une animation ou une transformation, on peut mesurer des propriétés
+comme la largeur et la hauteur du div (avec offsetWidth et offsetHeight).
+
+Animations ou autres effets visuels :
+Grâce à ngAfterViewInit(), tu peux ajouter des animations, des transitions ou
+d'autres effets qui ne peuvent être appliqués que lorsque les éléments du DOM sont prêts.
+
+<h4>Pourquoi utiliser ngAfterViewInit() ici ?</h4>
+
+Accès sécurisé au DOM :
+Les actions sur le DOM avec &#64;ViewChild ou &#64;ViewChildren sont possibles uniquement
+après le cycle de vie complet de la vue, ce qui garantit que l'élément auquel tu fais
+référence est déjà présent dans le DOM.
+
+Calculs ou animations :
+Si tu as besoin de manipuler un élément (par exemple, pour obtenir sa taille ou
+appliquer une animation), ngAfterViewInit() est l'endroit idéal pour cela,
+car c'est après ce hook que tous les éléments de la vue sont initialisés.
+  </pre>
       <!-- --------------------Fin Template pour afficher le code source---------------- -->
     </div>
   `,
   styles: `
+
+    .box {
+      width: 400px;
+      height: 200px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 200px;
+      max-width: 100%;
+      white-space: normal;
+    }
     // -------------------------style pour afficher le code source----------------
-    pre{
+    pre,p{
       font-size:15px;
      }
     .fa-check {
@@ -177,24 +214,28 @@ export class NgOnAfterViewInitComponent implements AfterViewInit &#123;
              `,
 })
 export class NgOnAfterViewInitComponent implements AfterViewInit {
-  @ViewChild('userList') userList!: ElementRef;
-
-  users: any[] = [];
-
-  showUsers() {
-    this.users = [
-      { id: 1, name: 'Alice', email: 'alice@example.com' },
-      { id: 2, name: 'Bob', email: 'bob@example.com' },
-      { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-    ];
-  }
+  @ViewChild('myDiv') myDiv!: ElementRef;
 
   ngAfterViewInit() {
-    if (this.userList) {
-      setTimeout(() => {
-        this.userList.nativeElement.style.border = '2px solid blue';
-      });
-    }
+    // Manipulation du DOM après la vue initialisée
+    const divElement = this.myDiv.nativeElement;
+
+    // Vérification de la taille du div
+    console.log(
+      'Dimensions du div:',
+      divElement.offsetWidth,
+      divElement.offsetHeight
+    );
+
+    // Appliquer un effet après l'initialisation
+    divElement.style.backgroundColor = 'green'; // Change la couleur du fond après initialisation
+    divElement.style.transform = 'scale(1.1)'; // Appliquer une transformation
+    divElement.style.transition = 'transform 0.5s'; // Animation lors de la transformation
+
+    // Lancer une animation
+    setTimeout(() => {
+      divElement.style.transform = 'scale(1)';
+    }, 1000);
   }
   // ----------------------ts pour afficher le code source--------------------
   infoTab1 = viewChild<ElementRef>('tab1');

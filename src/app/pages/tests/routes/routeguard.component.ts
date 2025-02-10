@@ -6,8 +6,29 @@ import { Component, viewChild, ElementRef } from '@angular/core';
   imports: [CommonModule],
   template: `
   <div class="container">
-      <h1>Guard: contrôler l'accès à des routes spécifiques</h1>
+      <h1>Route Guards: Protéger les Pages</h1>
       <hr />
+      <p>Les Route Guards permettent d’empêcher l’accès à certaines pages (ex: page admin).</p>
+      <h2>Exemple: Bloquer l’accès aux utilisateurs non connectés:</h2>
+<h4>1. Création du Guard (auth.guard.ts) :</h4>
+<pre class="tab">import &#123; inject &#125; from '&#64;angular/core';
+import &#123; CanActivateFn, Router &#125; from '&#64;angular/router';
+
+export const authGuard: CanActivateFn = () =&#62; &#123;
+  const isAuthenticated = localStorage.getItem('token'); // Simule une connexion
+  const router = inject(Router);
+
+  if (!isAuthenticated) &#123;
+    router.navigate(['/login']);
+    return false;
+  &#125;
+  return true;
+&#125;;</pre>
+<h4>2. Application du Guard à une route (app.routes.ts) :</h4>
+<pre class="tab">&#123; path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] &#125;
+</pre>
+
+
 <!-- --------------------Template pour afficher le code source---------------- -->
     <!-- Nav Tabs -->
     <ul class="nav nav-tabs" id="codeTabs" role="tablist">
@@ -187,7 +208,7 @@ pour protéger page dashboard:
   // -------------------------Fin style pour afficher le code source----------------
            `
 })
-export class GuardComponent {
+export class RouteGuardComponent {
 // ----------------------ts pour afficher le code source--------------------
 infoTab1 = viewChild<ElementRef>('tab1');
 infoTab2 = viewChild<ElementRef>('tab2');

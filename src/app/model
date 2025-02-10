@@ -49,7 +49,7 @@ XXXXXXXXXXX
 
 styles: `
 // -------------------------style pour afficher le code source----------------
-pre{
+pre,p{
   font-size:15px;
  }
 .fa-check {

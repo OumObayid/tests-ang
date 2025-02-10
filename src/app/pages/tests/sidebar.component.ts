@@ -89,6 +89,9 @@ import { RouterLink, RouterModule } from '@angular/router';
 .accordion-body{
   padding: 0 !important;
 }
+.accordion-button::after {
+  background-size:10px 20px !important;
+}
   `,
 })
 export class SidebarComponent {
@@ -98,8 +101,7 @@ export class SidebarComponent {
   menuItems: any = {
     Angular: [
       'data binding',
-      'Les routes',
-      'Les guards',
+      'Routing',
       'Les cycles de vie',
       'Services et Resolver',
       'Les classes',
@@ -120,16 +122,28 @@ export class SidebarComponent {
     ],
     Laravel: ['Controllers', 'Models', 'Routes'],
     'React.js': ['Components', 'Hooks', 'State Management'],
-    Déploiement: ['Deployement vers github', 'Deployement vers un hebergeur', 'Laravel'],
+    Wordpress: ['wordpress1', 'wordpress2'],
+    Déploiement: ['GitHub', 'Hébergeur partagé', 'VPS', 'Cloud dédié']
   };
-
   subMenus: any = {
     Angular: {
       'data binding': ['data binding'],
-      'Les routes':['Les routes'],
-      'Les guards':['C\'est quoi un guard','Exemple de connexion'],
-      'Les cycles de vie':['NgOnInit','NgOnChanges','ngAfterViewInit','ngOnDestroy'],
-      'Services et Resolver':['Les services', 'Les resolvers'],
+      Routing: [
+        'Introduction au Routing',
+        'Routes avec des Paramètres',
+        'Route avec Paramètres de requête',
+        'Redirections et Pages 404',
+        'Route Guards Protéger les Pages',
+        'Exemple de protection',
+        'Chargement de Modules avec Lazy Loading',
+      ],
+      'Les cycles de vie': [
+        'NgOnInit',
+        'NgOnChanges',
+        'ngAfterViewInit',
+        'ngOnDestroy',
+      ],
+      'Services et Resolver': ['Les services', 'Les resolvers'],
       'Les classes': [
         'Liaison conditionnelle',
         'Liaison une chaîne de caractères',
@@ -155,13 +169,19 @@ export class SidebarComponent {
       'Input et Output': ['les inputs', 'les outputs'],
       'ng-content': ['projection avec ng-content'],
       'ng-container - ng-template': ['ng-container - ng-template'],
-      'Viewchild': [
+      Viewchild: [
         'Accéder à un élément du DOM',
         'Accéder à un composant enfant',
         'ViewChild avec ng-template',
       ],
-      'Viewchildren':['accéder à plusieurs éléments','Accéder aux composants enfants'],
-      'ContentChild':['Accéder aux éléments enfants d\'un composant','Accéder à un composant enfant dans la projection de contenu'],
+      Viewchildren: [
+        'accéder à plusieurs éléments',
+        'Accéder aux composants enfants',
+      ],
+      ContentChild: [
+        "Accéder aux éléments enfants d'un composant",
+        'Accéder à un composant enfant dans la projection de contenu',
+      ],
       'Les formulaires': [
         'ngForm dans ngSubmit',
         'Utiliser ViewChild pour ngForm',
@@ -192,9 +212,28 @@ export class SidebarComponent {
       Hooks: ['Hook1', 'Hook2'],
       'State Management': ['Redux', 'Context API'],
     },
+    Wordpress: {
+      wordpress1: ['aaa1', 'bbb1'],
+      wordpress2: ['aaa2', 'bbb2'],
+    },
     Déploiement: {
-      'Deployement vers github': ['Deployement vers github'],
-      'Deployement vers un hebergeur': ['Angular avec api rest php', 'Laravel', 'React js']
+      GitHub: ['deployement github Reactjs', 'deployement github Angular'],
+      'Hébergeur partagé': [
+        'deployement hebergeur Angular API REST',
+        'deployement hebergeur Reactjs API REST',
+        'deployement hebergeur Laravel',
+      ],
+      VPS: [
+        'deployement vps API Node.js',
+        'deployement vps Laravel Nginx-Apache',
+        'deployement vps Full Stack sur VPS',
+      ],
+      'Cloud dédié': [
+        'deployement cloud Laravel Heroku',
+        'deployement cloud Expressjs Railway',
+        'deployement cloud Firebase Functions',
+        'deployement cloud Supabase',
+      ],
     },
   };
 

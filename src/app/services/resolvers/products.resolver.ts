@@ -1,36 +1,20 @@
-import { ProductsService } from '../http/apiphp/products/products.service';
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../../interfaces/product';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsResolver implements Resolve<Product[]> {
-  constructor(private productService: ProductsService) {}
+export class ProductsResolver implements Resolve<any[]> {
+  // Utilisation de JSONPlaceholder pour simuler une API de produits
+  private apiUrl = 'https://fakestoreapi.com/products';  // URL de l'API simulée pour récupérer des "produits"
 
-  resolve(): Observable<Product[]> {
-    // Appelle le service pour récupérer les produits
-    return this.productService.getProducts()
-    .pipe(
-      map((response: any) => {
-        // Vérifie si la réponse est valide et contient des produits
-        if (response.success && response.dataProd) {
-          return response.dataProd; // Retourne les produits extraits comme étant la valeur de l'observable
-        } else {
-          console.warn('No products found or API returned an error.');
-          return []; // Retourne un tableau vide si la réponse n'est pas valide
-        }
-      })
-    );
+  constructor(private http: HttpClient) {}
+
+  resolve(): Observable<any[]> {
+    // Appel direct à l'API pour récupérer les produits
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
-// export const userResolver: ResolveFn<Product> = (
-//   route,
-//   state
-// ): Observable<Product> => {
-//   const productsService = inject(ProductsService);
-//   return productsService.getProducts();
-// };

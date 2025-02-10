@@ -13,7 +13,7 @@ export interface Product {
 @Injectable({
   providedIn: 'root', // Rend ce service disponible partout dans l'application
 })
-export class ProductService {
+export class ProductNodeService {
   private apiUrl = 'http://localhost:5000/api/products'; // URL de base de l'API
 
   constructor(private http: HttpClient) {}

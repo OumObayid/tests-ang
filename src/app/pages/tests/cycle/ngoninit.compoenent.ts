@@ -8,7 +8,15 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule],
   template: `
     <div class="container mt-4">
-      <h2 class="text-primary">Liste des utilisateurs</h2>
+      <h1>ngOnInit() : Exécuter du code au chargement</h1>
+      <hr>
+      <p>➡️ Déclenché une seule fois après l'initialisation du composant.</p>
+      <p>➡️ Utilisation principale : récupérer des données (ex: via une API) ou initialiser des variables.</p>
+      <h2> Pourquoi utiliser ngOnInit() au lieu du constructeur ?</h2>
+      <p>➡️ Le constructeur sert à initialiser la classe</p>
+      <p>➡️ ngOnInit() est appelé quand Angular a terminé d’initialiser le composant</p>
+      <hr>
+      <h2>Exemple : Chargement d’une liste d’utilisateurs depuis une API</h2>
 
       <ul class="list-group" *ngIf="users.length > 0">
         <li
@@ -132,7 +140,7 @@ export class NgOnInitComponent implements OnInit &#123;
 
   styles: `
   // -------------------------style pour afficher le code source----------------
-  pre{
+  pre,p{
     font-size:15px;
    }
   .fa-check {

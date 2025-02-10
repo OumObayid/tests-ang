@@ -5,8 +5,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   selector: 'app-video',
   template: `
     <div class="container mt-4">
-      <h2 class="text-center mb-4">Tutoriel Vidéo</h2>
-
+      <h1 class="text-center mb-4">Hebergement d'un site angulaire et d'une api php mysql </h1>
+<hr>
       <!-- Boutons pour sélectionner la vidéo -->
       <div class="text-center mb-3">
         <button class="btn btn-success mx-2" (click)="selectVideo(0)">
@@ -15,7 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
         <button class="btn btn-success mx-2" (click)="selectVideo(1)">
           Étape 2
         </button>
-        <button class="btn btn-danger mx-2" (click)="selectVideo(2)">
+        <button class="btn btn-success mx-2" (click)="selectVideo(2)">
           Étape 3
         </button>
       </div>
@@ -45,7 +45,7 @@ button {
 }
   `,
 })
-export class AngPhpComponent implements OnInit {
+export class AngularDeplHebergeurComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {
     this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl('');
   }
@@ -70,3 +70,6 @@ export class AngPhpComponent implements OnInit {
       this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
   }
 }
+
+
+

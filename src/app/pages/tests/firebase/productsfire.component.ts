@@ -22,6 +22,9 @@ interface Product {
     <div class="container mt-3">
       <h1>CRUD avec Api firebase</h1>
       <hr />
+      <p>Dans ce cours, vous allez apprendre à connecter une application Angular avec Firebase, une plateforme Backend-as-a-Service de Google. Nous allons voir comment créer, lire, mettre à jour et supprimer (CRUD) des données en utilisant Firestore Database</p>
+      <p>(voir démarche à suivre)</p>
+      <hr>
       <h3>Ajouter un nouveau produit</h3>
       <!-- Formulaire d'ajout -->
       <form (ngSubmit)="addProduct()" #productForm="ngForm" class="mb-4">
@@ -612,7 +615,7 @@ firebaseConfig : &#123;
 
   styles: `
 // -------------------------style pour afficher le code source----------------
-      pre{
+      pre,p{
           font-size:15px;
          }
 .fa-check  {

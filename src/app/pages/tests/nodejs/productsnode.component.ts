@@ -1,9 +1,9 @@
+import { ProductNodeService } from './../../../services/http/apinodejs/productnode.service';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit, viewChild, ElementRef } from '@angular/core';
 import {
   Product,
-  ProductService,
-} from '../../../services/http/apinodejs/product.service';
+} from '../../../services/http/apinodejs/productnode.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -13,8 +13,12 @@ import { RouterLink } from '@angular/router';
   template: `
     <div class="container mt-3">
       <h1>crud-angular-nodejs-mongodb</h1>
+      <hr>
+      <p>(Voir démarche à suivre en bas)</p>
+      <p>Dans ce cours, vous apprendrez à construire une application complète avec Angular, un backend Node.js/Express et une base de données MongoDB. Vous développerez un système CRUD (Create, Read, Update, Delete) permettant de gérer des produits.</p>
+      <p>Avant tout pour tester, il faut demarrer le serveur node js et se connecter a mongodb</p>
       <hr />
-      <h3>Products</h3>
+      <h3>Liste des Produits</h3>
       <div class="row">
         <div
           class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"
@@ -758,7 +762,7 @@ et recupérer la chaîne de connexion.
   `,
   styles: `
 // -------------------------style pour afficher le code source----------------
-      pre{
+      pre,p{
           font-size:15px;
          }
 .fa-check  {
@@ -816,7 +820,7 @@ export class ProductsnodeComponent implements OnInit {
     categorie_nom: '',
   };
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductNodeService) {}
 
   ngOnInit(): void {
     this.fetchProducts();
