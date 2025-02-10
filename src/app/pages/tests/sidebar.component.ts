@@ -122,8 +122,14 @@ export class SidebarComponent {
     ],
     Laravel: ['Controllers', 'Models', 'Routes'],
     'React.js': ['Components', 'Hooks', 'State Management'],
-    Wordpress: ['Niveau 1 : Introduction à WordPress', 'Niveau 2 : Création et Personnalisation de Sites','Niveau 3 : E-commerce, SEO, Sécurité','Niveau 4 : Développement WordPress (Thèmes & Plugins)','Niveau 5 : Déploiement et Maintenance'],
-    Déploiement: ['GitHub', 'Hébergeur partagé', 'VPS', 'Cloud dédié']
+    Wordpress: [
+      'Introduction à WordPress',
+      'Création et Personnalisation',
+      'E-commerce, SEO, Sécurité',
+      'Développement WordPress',
+      'Déploiement et Maintenance',
+    ],
+    Déploiement: ['GitHub', 'Hébergeur partagé', 'VPS', 'Cloud dédié'],
   };
   subMenus: any = {
     Angular: {
@@ -213,8 +219,11 @@ export class SidebarComponent {
       'State Management': ['Redux', 'Context API'],
     },
     Wordpress: {
-      'Niveau 1 - Introduction à WordPress': ['aaa1', 'bbb1'],
-      wordpress2: ['aaa2', 'bbb2'],
+      'Introduction à WordPress': ['C\'est quoi WordPress','Installation de WordPress','Découverte de l’interface'],
+      'Création et Personnalisation': ['Gestion des contenus','Thèmes WordPress','Plugins WordPress','Editeur de blocs'],
+      'E-commerce, SEO, Sécurité': ['Création d’une boutique','Optimisation SEO',' Sécurisation et optimisation'],
+      'Développement WordPress': ['Développement d’un thème','Création d’un plugin','WordPress et l’API REST'],
+      'Déploiement et Maintenance': ['Migration d’un site WordPress','Hébergement et mise en ligne','Maintenance et mises à jour'],
     },
     Déploiement: {
       GitHub: ['deployement github Reactjs', 'deployement github Angular'],
