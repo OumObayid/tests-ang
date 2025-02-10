@@ -122,7 +122,7 @@ export class SidebarComponent {
     ],
     Laravel: ['Controllers', 'Models', 'Routes'],
     'React.js': ['Components', 'Hooks', 'State Management'],
-    Wordpress: ['wordpress1', 'wordpress2'],
+    Wordpress: ['Niveau 1 : Introduction à WordPress', 'Niveau 2 : Création et Personnalisation de Sites','Niveau 3 : E-commerce, SEO, Sécurité','Niveau 4 : Développement WordPress (Thèmes & Plugins)','Niveau 5 : Déploiement et Maintenance'],
     Déploiement: ['GitHub', 'Hébergeur partagé', 'VPS', 'Cloud dédié']
   };
   subMenus: any = {
@@ -213,7 +213,7 @@ export class SidebarComponent {
       'State Management': ['Redux', 'Context API'],
     },
     Wordpress: {
-      wordpress1: ['aaa1', 'bbb1'],
+      'Niveau 1 - Introduction à WordPress': ['aaa1', 'bbb1'],
       wordpress2: ['aaa2', 'bbb2'],
     },
     Déploiement: {

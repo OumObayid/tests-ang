@@ -11,7 +11,6 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
       <div class="navbar-nav d-flex justify-content-between w-100">
         <a class="nav-link"
-          class="nav-item"
           [ngClass]="{ active: router.url === '/' }"
           routerLink="/"
           >Home</a>
