@@ -71,7 +71,7 @@ export class HeadertestComponent {
   isloggedIn = signal(false);
 
   @Output() menuSelected = new EventEmitter<string>();
-  mainMenus = ['Angular', 'Laravel', 'React.js', 'Wordpress', 'Déploiement'];
+  mainMenus = ['Angular', 'React.js' , 'Laravel','Node.js', 'Wordpress', 'Déploiement'];
   activeMenu: string = 'Angular'; // Angular actif par défaut
 
   ngOnInit() {

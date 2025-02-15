@@ -5,13 +5,17 @@ import { Component, viewChild, ElementRef } from '@angular/core';
   selector: 'app-guard',
   imports: [CommonModule],
   template: `
-  <div class="container">
+    <div class="container">
       <h1>Route Guards: Protéger les Pages</h1>
       <hr />
-      <p>Les Route Guards permettent d’empêcher l’accès à certaines pages (ex: page admin).</p>
-      <h2>Exemple: Bloquer l’accès aux utilisateurs non connectés:</h2>
-<h4>1. Création du Guard (auth.guard.ts) :</h4>
-<pre class="tab">import &#123; inject &#125; from '&#64;angular/core';
+      <p>
+        Les Route Guards permettent d’empêcher l’accès à certaines pages (ex:
+        page admin).
+      </p>
+      <h2>📌 Exemple: Bloquer l’accès aux utilisateurs non connectés:</h2>
+      <h3>🔹 1. Création du Guard (auth.guard.ts) :</h3>
+      <pre class="tab">
+import &#123; inject &#125; from '&#64;angular/core';
 import &#123; CanActivateFn, Router &#125; from '&#64;angular/router';
 
 export const authGuard: CanActivateFn = () =&#62; &#123;
@@ -23,15 +27,17 @@ export const authGuard: CanActivateFn = () =&#62; &#123;
     return false;
   &#125;
   return true;
-&#125;;</pre>
-<h4>2. Application du Guard à une route (app.routes.ts) :</h4>
-<pre class="tab">&#123; path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] &#125;
-</pre>
+&#125;;</pre
+      >
+      <h3>🔹 2. Application du Guard à une route (app.routes.ts) :</h3>
+      <pre class="tab">
+&#123; path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] &#125;
+</pre
+      >
 
-
-<!-- --------------------Template pour afficher le code source---------------- -->
-    <!-- Nav Tabs -->
-    <ul class="nav nav-tabs" id="codeTabs" role="tablist">
+      <!-- --------------------Template pour afficher le code source---------------- -->
+      <!-- Nav Tabs -->
+      <ul class="nav nav-tabs" id="codeTabs" role="tablist">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
@@ -43,7 +49,7 @@ export const authGuard: CanActivateFn = () =&#62; &#123;
             aria-controls="c1"
             aria-selected="true"
           >
-          fichier guard
+            fichier guard
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -57,7 +63,7 @@ export const authGuard: CanActivateFn = () =&#62; &#123;
             aria-controls="c2"
             aria-selected="true"
           >
-          fichier route
+            fichier route
           </button>
         </li>
       </ul>
@@ -99,7 +105,8 @@ export const authGuard: CanActivateFn = () => &#123;
     router.navigate(['/login']);
     return false; // Bloque l'accès
   &#125;
-&#125;;</pre>
+&#125;;</pre
+          >
         </div>
         <!-- Composant C2 -->
         <div
@@ -123,15 +130,18 @@ export const routes: Routes = [
     //guard
     &#123; path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] &#125;,
   ];
-</pre>
+</pre
+          >
         </div>
-
       </div>
-<!-- --------------------Fin Template pour afficher le code source---------------- -->
-<div>
-____________________________________________________________________________<span class="fs-2">cours</span>____________________________________________________________________________
+      <!-- --------------------Fin Template pour afficher le code source---------------- -->
+      <div>
+        ____________________________________________________________________________<span
+          class="fs-2"
+          >cours</span
+        >____________________________________________________________________________
 
-<pre style="font-size:14px">
+        <pre style="font-size:14px">
 
 Un Guard sur Angular est une fonctionnalité qui vous permet de contrôler l'accès à des routes spécifiques dans votre application.
 Vous pouvez utiliser des guards pour exécuter certaines vérifications ou actions avant de permettre l'accès à une route,
@@ -153,13 +163,12 @@ false ne le permet pas
 pour protéger page dashboard:
 &#123;path: 'dashboard', component: DashboardComponent, <span class="text-danger">canActivate: [authGuard]</span>,&#125;,
 </pre>
-
-</div>
-</div>
+      </div>
+    </div>
   `,
   styles: `
   // -------------------------style pour afficher le code source----------------
-        pre{
+        pre,p{
           font-size:15px;
          }
 .fa-check  {
@@ -206,28 +215,28 @@ pour protéger page dashboard:
              margin-top: 20px;
            }
   // -------------------------Fin style pour afficher le code source----------------
-           `
+           `,
 })
 export class RouteGuardComponent {
-// ----------------------ts pour afficher le code source--------------------
-infoTab1 = viewChild<ElementRef>('tab1');
-infoTab2 = viewChild<ElementRef>('tab2');
-clicked: boolean = false;
-copy1() {
-  const element = this.infoTab1()?.nativeElement;
-  if (element) navigator.clipboard.writeText(element.textContent);
-  this.clicked = true;
-  setTimeout(() => {
-    this.clicked = false;
-  }, 1500);
-}
-copy2() {
-  const element = this.infoTab2()?.nativeElement;
-  if (element) navigator.clipboard.writeText(element.textContent);
-  this.clicked = true;
-  setTimeout(() => {
-    this.clicked = false;
-  }, 1500);
-}
-// ----------------------Fin ts pour afficher le code source--------------------
+  // ----------------------ts pour afficher le code source--------------------
+  infoTab1 = viewChild<ElementRef>('tab1');
+  infoTab2 = viewChild<ElementRef>('tab2');
+  clicked: boolean = false;
+  copy1() {
+    const element = this.infoTab1()?.nativeElement;
+    if (element) navigator.clipboard.writeText(element.textContent);
+    this.clicked = true;
+    setTimeout(() => {
+      this.clicked = false;
+    }, 1500);
+  }
+  copy2() {
+    const element = this.infoTab2()?.nativeElement;
+    if (element) navigator.clipboard.writeText(element.textContent);
+    this.clicked = true;
+    setTimeout(() => {
+      this.clicked = false;
+    }, 1500);
+  }
+  // ----------------------Fin ts pour afficher le code source--------------------
 }

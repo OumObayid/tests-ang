@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
   <h1>Redirections et Pages 404 (Not Found)</h1>
   <hr>
   <p>On peut rediriger une URL et gérer les erreurs 404.</p>
-  <h2>Exemple: Page 404</h2>
-  <h4>1. Définition des routes avec une redirection (app.routes.ts) :</h4>
+  <h2>📌 Exemple: Page 404</h2>
+  <h3>🔹 1. Définition des routes avec une redirection (app.routes.ts) :</h3>
   <pre class="tab">&#123; path: '', redirectTo: '/home', pathMatch: 'full' &#125;,
 &#123; path: '**', component: NotFoundComponent &#125; // Gère les pages inexistantes
 </pre>
-<h4>2. Création du composant NotFoundComponent.ts :</h4>
+<h3>🔹 2. Création du composant NotFoundComponent.ts :</h3>
 <pre class="tab">import &#123; Component &#125; from '&#64;angular/core';
 
 &#64;Component(&#123;

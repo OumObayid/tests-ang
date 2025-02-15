@@ -146,7 +146,7 @@ export class ProductListComponent implements OnInit &#123;
     <p>✅ Optimisation des performances : Évite les appels API redondants.</p>
   `,
   styles: `
-  .tab,p{
+  .tab,p,li{
     font-size:15px;
   }
  .tab {

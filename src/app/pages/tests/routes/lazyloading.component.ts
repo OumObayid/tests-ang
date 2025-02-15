@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
 <h1>Chargement de Modules avec Lazy Loading</h1>
 <hr>
 <p>Lazy loading charge des modules uniquement quand l’utilisateur en a besoin.</p>
-<h2>Exemple: Lazy Loading d’un Module Admin</h2>
-<h4>1. Définition de la route en Lazy Loading (app.routes.ts) :</h4>
+<h2>📌 Exemple: Lazy Loading d’un Module Admin</h2>
+<h3>🔹 1. Définition de la route en Lazy Loading (app.routes.ts) :</h3>
 <pre class="tab">
 &#123; path: 'admin', loadChildren: () =&#62; import('./admin/admin.routes').then(m =&#62; m.routes) &#125;</pre>
-<h4>2. Création du fichier admin.routes.ts :</h4>
+<h3>🔹 2. Création du fichier admin.routes.ts :</h3>
 <pre class="tab">import &#123; Routes &#125; from '&#64;angular/router';
 import &#123; AdminComponent &#125; from './admin.component';
 
@@ -25,7 +25,20 @@ export const routes: Routes = [&#123; path: '', component: AdminComponent &#125;
 export class AdminComponent &#123;&#125;</pre>
 
   `,
-  styles:``,
+  styles: `
+  pre,p{
+    font-size:15px;
+  }
+.tab {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-weight:bold;
+        }
+  `,
 })
 export class LazyLoadingComponent implements OnInit {
   constructor() { }

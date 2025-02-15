@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   <h1>Route avec Query Parameters (Paramètres de requête)</h1>
   <hr>
   <p>Les Query Params permettent de passer des informations supplémentaires dans l'URL.</p>
-  <h2>Exemple: Filtres dans une liste de produits</h2>
-  <h4>1. Définition de la route (app.routes.ts) :</h4>
+  <h2>📌 Exemple: Filtres dans une liste de produits</h2>
+  <h3>🔹 1. Définition de la route (app.routes.ts) :</h3>
   <pre class="tab">&#123; path: 'products', component: ProductListComponent &#125;</pre>
-  <h4>2. Récupération des Query Params (ProductListComponent.ts) :</h4>
+  <h3>🔹 2. Récupération des Query Params (ProductListComponent.ts) :</h3>
   <pre class="tab">import &#123; Component &#125; from '&#64;angular/core';
 import &#123; ActivatedRoute &#125; from '&#64;angular/router';
 
@@ -27,7 +27,7 @@ export class ProductListComponent &#123;
     &#125;);
   &#125;
 &#125;</pre>
-<h4>3. Lien avec Query Params :</h4>
+<h3>🔹 3. Lien avec Query Params :</h3>
 <pre class="tab">&#60;a [routerLink]="['/products']" [queryParams]="&#123; category: 'electronics' &#125;"&#62;oir les Électroniques&#62;/a&#62;</pre>
   `,
  styles: `

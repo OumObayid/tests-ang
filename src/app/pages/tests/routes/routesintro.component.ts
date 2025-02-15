@@ -11,8 +11,8 @@ import { Component } from '@angular/core';
         Le routing permet de naviguer entre différentes pages sans recharger
         l'application. Angular utilise RouterModule pour gérer cette navigation.
       </p>
-      <h2>Exemple d’une application avec le routing</h2>
-      <h3>Définition des routes (app.routes.ts) :</h3>
+      <h2>📌Exemple d’une application avec le routing</h2>
+      <h3>🔹 1. Définition des routes (app.routes.ts) :</h3>
       <pre class="tab">
 // Importation du module Routes d'Angular pour définir les routes
 import &#123; Routes &#125; from '&#64;angular/router';
@@ -33,7 +33,7 @@ export const routes: Routes = [
   &#125;
 ];
 </pre>
-      <h3>Ajout du router dans app.config.ts :</h3>
+      <h3>🔹 2. Ajout du router dans app.config.ts :</h3>
       <pre class="tab">
 import &#123; ApplicationConfig &#125; from '&#64;angular/core';
 import &#123; provideRouter &#125; from '&#64;angular/router';

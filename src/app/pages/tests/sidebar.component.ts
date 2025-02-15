@@ -116,11 +116,19 @@ export class SidebarComponent {
       'Viewchildren',
       'ContentChild',
       'Les formulaires',
+      'Composants réutilisables',
       'Ngrx',
       'Rxjs',
       'Angulaire et api rest',
     ],
-    Laravel: ['Controllers', 'Models', 'Routes'],
+    Laravel: [
+      'Introduction et Pré-requis',
+      'Gestion de la Base de Données',
+      'Développement de l’Application',
+      'Fonctionnalités Avancées',
+      'Déploiement et Optimisation',
+    ],
+    'Node.js':['Introduction à Node.js','le JavaScript côté serveur','Lire et écrire des fichiers avec fs','Le serveur HTTP en Node.js','Introduction à Express.js','Interagir avec une dbase','Mini API avec Node.js et Express'],
     'React.js': ['Components', 'Hooks', 'State Management'],
     Wordpress: [
       'Introduction à WordPress',
@@ -129,7 +137,13 @@ export class SidebarComponent {
       'Développement WordPress',
       'Déploiement et Maintenance',
     ],
-    Déploiement: ['GitHub', 'Hébergeur partagé', 'VPS', 'Cloud dédié'],
+    Déploiement: [
+      'GitHub',
+      'Hébergeur partagé',
+      'VPS',
+      'Cloud Managé',
+      'Cloud dédié',
+    ],
   };
   subMenus: any = {
     Angular: {
@@ -193,6 +207,7 @@ export class SidebarComponent {
         'Utiliser ViewChild pour ngForm',
         'FormGroup et FormControl',
       ],
+      'Composants réutilisables':['Créer un boutton','Créer un layout'],
       Ngrx: ['les states et les reducers'],
       Rxjs: [
         'Les observables',
@@ -201,6 +216,9 @@ export class SidebarComponent {
         'Http',
         'Les operateurs de création',
         'Les opérateurs de transformation',
+        'Les opérateurs de filter',
+        'Les opérateurs de combine',
+        'Les opérateurs utilitaires',
       ],
       'Angulaire et api rest': [
         'Crud nodejs mongodb',
@@ -208,22 +226,55 @@ export class SidebarComponent {
         'Crud json',
       ],
     },
-    Laravel: {
-      Controllers: ['Controller1', 'Controller2'],
-      Models: ['Model1', 'Model2'],
-      Routes: ['Route1', 'Route2'],
-    },
     'React.js': {
       Components: ['ComponentA', 'ComponentB'],
       Hooks: ['Hook1', 'Hook2'],
       'State Management': ['Redux', 'Context API'],
     },
+    Laravel: {
+      'Introduction et Pré-requis': ['C\'est quoi Laravel', 'Pré-requis techniques', 'Installation et Decouverte'],
+      'Gestion de la Base de Données': ['Configuration de la dbase','Création des migrations', 'Création des modèles','Création des factorys et des seeders','Manipuler les données avec Eloquent'],
+      'Développement de l’Application': ['Routes et Contrôleurs','Vues et Blade','Formulaires et Validation'],
+      'Fonctionnalités Avancées': ['Relations entre les modèles','Utilisation des Observers','Utilisation des Policies et Gates','Gestion des Evénements et Listeners','Les Jobs et les Queues','Les Task Scheduling','Envoi Emails et notifications',],
+      'Déploiement et Optimisation': ['Optimisation','Sécurité','Déploiement Laravel'],
+    },
+    'Node.js':{
+      'Introduction à Node.js':['C\'est quoi Node js','Pourquoi utiliser Node.js','Installation de Node.js et NPM','Exécuter son premier script Node.js'],
+      'le JavaScript côté serveur':['Différence entre JavaScript en navigateur et Node.js','Les modules en Node.js','Utilisation de package.json','Installation et gestion des packages'],
+      'Lire et écrire des fichiers avec fs':['Lire un fichier','Écrire dans un fichier','Créer et supprimer des fichiers/dossiers'],
+      'Le serveur HTTP en Node.js':['Créer un serveur avec le module http','Répondre aux requêtes du navigateur','Envoyer des pages HTML simples'],
+      'Introduction à Express.js':['Installation d\’Express','Création d\’un serveur Express','Gestion des routes (app.get, app.post)'],
+      'Interagir avec une dbase':['Connecter Node.js à une dbase','Effectuer des opérations simples (CRUD)'],
+      'Mini API avec Node.js et Express':['Créer une API REST simple','Ajouter des routes','Tester avec Postman']
+    },
+
     Wordpress: {
-      'Introduction à WordPress': ['C\'est quoi WordPress','Installation de WordPress','Découverte de l’interface'],
-      'Création et Personnalisation': ['Gestion des contenus','Thèmes WordPress','Plugins WordPress','Editeur de blocs'],
-      'E-commerce, SEO, Sécurité': ['Création d’une boutique','Optimisation SEO',' Sécurisation et optimisation'],
-      'Développement WordPress': ['Développement d’un thème','Création d’un plugin','WordPress et l’API REST'],
-      'Déploiement et Maintenance': ['Migration d’un site WordPress','Hébergement et mise en ligne','Maintenance et mises à jour'],
+      'Introduction à WordPress': [
+        "C'est quoi WordPress",
+        'Installation de WordPress',
+        'Découverte de l’interface',
+      ],
+      'Création et Personnalisation': [
+        'Gestion des contenus',
+        'Thèmes WordPress',
+        'Plugins WordPress',
+        'Editeur de blocs',
+      ],
+      'E-commerce, SEO, Sécurité': [
+        'Création d’une boutique',
+        'Optimisation SEO',
+        ' Sécurisation et optimisation',
+      ],
+      'Développement WordPress': [
+        'Développement d’un thème',
+        'Création d’un plugin',
+        'WordPress et l’API REST',
+      ],
+      'Déploiement et Maintenance': [
+        'Migration d’un site WordPress',
+        'Hébergement et mise en ligne',
+        'Maintenance et mises à jour',
+      ],
     },
     Déploiement: {
       GitHub: ['deployement github Reactjs', 'deployement github Angular'],
@@ -237,6 +288,7 @@ export class SidebarComponent {
         'deployement vps Laravel Nginx-Apache',
         'deployement vps Full Stack sur VPS',
       ],
+      'Cloud Managé': ['deployer une api node.js mongodb'],
       'Cloud dédié': [
         'deployement cloud Laravel Heroku',
         'deployement cloud Expressjs Railway',
@@ -256,6 +308,8 @@ export class SidebarComponent {
       .normalize('NFD') // Décompose les caractères accentués
       .replace(/[\u0300-\u036f]/g, '') // Supprime les accents
       .replace(/'/g, '-') // remplace les apostrophes par des tirets
+      .replace(/l'/g, 'l-') // remplace les apostrophes par des tirets
+      .replace(/d'/g, 'd-') // remplace les apostrophes par des tirets
       .replace(/\s+/g, '-'); // Remplace les espaces par des tirets
   }
 }

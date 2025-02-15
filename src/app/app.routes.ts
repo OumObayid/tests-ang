@@ -1,7 +1,40 @@
-import { SurabaseDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudsurabase';
-import { LaravelDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudlaravel.component';
-import { FirebaseDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudfirebase.component';
-import { ExpressRaylwayDeplCloudComponent } from './pages/tests/deployements/cloud/deplcloudexpressrailway.component';
+import { LayoutCoursComponent } from './pages/tests/shared/layout/layoutCours.component';
+import {ButtonCoursComponent } from './pages/tests/shared/button/buttonCours.component';
+import { DeployementComponent } from './pages/tests/deployements/deployement.component';
+import { WordpressComponent } from './pages/tests/wordpressModule/wordpress.component';
+import { NodeComponent } from './pages/tests/nodeModule/node.component';
+import { ReactComponent } from './pages/tests/reactModule/react.component';
+import { AngularComponent } from './pages/tests/angularModule/angular.component';
+import { LaravelComponent } from './pages/tests/laravelModule/laravel.component';
+import { LaravelOptimisationComponent } from './pages/tests/laravelModule/laravelOptimisation.component';
+import { LaravelSecuriteComponent } from './pages/tests/laravelModule/laravelSecurite.component';
+import { LaravelRelationModelsComponent } from './pages/tests/laravelModule/laravelRelationModels.component';
+import { LaravelTaskShedulingComponent } from './pages/tests/laravelModule/laravelTaskSheduling.component';
+import { LaravelJobsQueuesComponent } from './pages/tests/laravelModule/laravelJobsQueues.component';
+import { LaravelEventListenersComponent } from './pages/tests/laravelModule/LaravelEventListeners.component';
+import { LaravelPoliciesGatesComponent } from './pages/tests/laravelModule/laravelPoliciesGates.component';
+import { LaravelObserversComponent } from './pages/tests/laravelModule/laravelObservers.component';
+import { LaravelDonneesEloquentComponent } from './pages/tests/laravelModule/LaravelDonneesEloquent.component';
+import { LaravelDeployementComponent } from './pages/tests/laravelModule/laravelDeployement.component';
+import { LaravelFormsComponent } from './pages/tests/laravelModule/laravelForms.component';
+import { LaravelIntroComponent } from './pages/tests/laravelModule/laravelIntro.component';
+import { LaravelConfigurationComponent } from './pages/tests/laravelModule/laravelConfiguration.component';
+import { LaravelMigrationComponent } from './pages/tests/laravelModule/laravelMigration.component';
+import { LaravelSeederFactotiesComponent } from './pages/tests/laravelModule/laravelSeederFactoties.component';
+import { LaravelModelsEloquentComponent } from './pages/tests/laravelModule/laravelModelsEloquent.component';
+import { LaravelRouteControllerComponent } from './pages/tests/laravelModule/laravelRouteController.component';
+import { LaravelVuesComponent } from './pages/tests/laravelModule/laravelVues.component';
+import { LaravelEmailsComponent } from './pages/tests/laravelModule/laravelEmails.component';
+import { LaravelInstallationComponent } from './pages/tests/laravelModule/laravelInstallation.component';
+import { LaravelPrerequisComponent } from './pages/tests/laravelModule/laravelPrerequis.component';
+import { DeplApiNodMongodbComponent } from './pages/tests/deployements/cloudManage/deplapinodemongodb.component';
+import { RxjsUtilitairesComponent } from './pages/tests/rxjs/rxjsutilitaires.component';
+import { RxjsCombinerComponent } from './pages/tests/rxjs/rxjscombiner.component';
+import { RxjsFilterComponent } from './pages/tests/rxjs/rxjsfilter.component';
+import { SurabaseDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudsurabase';
+import { LaravelDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudlaravel.component';
+import { FirebaseDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudfirebase.component';
+import { ExpressRaylwayDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudexpressrailway.component';
 import { DeplVpsFullstackComponent } from './pages/tests/deployements/vps/deplvpsfullstack';
 import { DeplVpsLaravelNginxApacheComponent } from './pages/tests/deployements/vps/deplvpslaravel.component';
 import { DeplVpsApiNodejsComponent } from './pages/tests/deployements/vps/deplvpsapinode.component';
@@ -179,6 +212,19 @@ export const routes: Routes = [
     path: 'les-operateurs-de-transformation',
     component: RxjsTransformationComponent,
   },
+  {
+    path: 'les-operateurs-de-filter',
+    component: RxjsFilterComponent,
+  },
+  {
+    path: 'les-operateurs-de-combine',
+    component: RxjsCombinerComponent,
+  },
+  {
+    path: 'les-operateurs-utilitaires',
+    component: RxjsUtilitairesComponent,
+  },
+
   //nodejs
   { path: 'crud-nodejs-mongodb', component: ProductsnodeComponent },
   { path: 'update-node/:id', component: UpdateProductnodeComponent },
@@ -192,6 +238,33 @@ export const routes: Routes = [
   { path: 'crud-json', component: JsonProductsComponent },
   { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
 
+//laravel
+{ path: 'c-est-quoi-laravel', component: LaravelIntroComponent },
+{ path: 'pre-requis-techniques', component: LaravelPrerequisComponent },
+{ path: 'installation-et-decouverte', component: LaravelInstallationComponent },
+
+{ path: 'configuration-de-la-dbase', component: LaravelConfigurationComponent },
+{ path: 'creation-des-migrations', component: LaravelMigrationComponent },
+{ path: 'creation-des-modeles', component: LaravelModelsEloquentComponent },
+{ path: 'creation-des-factorys-et-des-seeders', component: LaravelSeederFactotiesComponent },
+{ path: 'manipuler-les-donnees-avec-eloquent', component: LaravelDonneesEloquentComponent},
+
+
+{ path: 'routes-et-controleurs', component: LaravelRouteControllerComponent },
+{ path: 'vues-et-blade', component: LaravelVuesComponent },
+{ path: 'formulaires-et-validation', component: LaravelFormsComponent },
+
+{ path: 'relations-entre-les-modeles', component: LaravelRelationModelsComponent },
+{ path: 'utilisation-des-observers', component: LaravelObserversComponent },
+{ path: 'utilisation-des-policies-et-gates', component: LaravelPoliciesGatesComponent },
+{ path: 'gestion-des-evenements-et-listeners', component: LaravelEventListenersComponent },
+{ path: 'les-jobs-et-les-queues', component: LaravelJobsQueuesComponent },
+{ path: 'les-task-scheduling', component: LaravelTaskShedulingComponent },
+{ path: 'envoi-emails-et-notifications', component: LaravelEmailsComponent },
+
+{ path: 'optimisation', component: LaravelOptimisationComponent },
+{ path: 'securite', component: LaravelSecuriteComponent },
+{ path: 'deploiement-laravel', component: LaravelDeployementComponent },
 
 
   //deployement
@@ -207,5 +280,18 @@ export const routes: Routes = [
   { path: 'deployement-cloud-expressjs-railway', component: ExpressRaylwayDeplCloudComponent },
   { path: 'deployement-cloud-firebase-functions', component: FirebaseDeplCloudComponent },
   { path: 'deployement-cloud-supabase', component: SurabaseDeplCloudComponent },
+  { path: 'deployer-une-api-node.js-mongodb', component: DeplApiNodMongodbComponent },
+
+  //routes pour les pages d'accueil d'un cours
+  { path: 'angular', component: AngularComponent },
+  { path: 'react.js', component: ReactComponent },
+  { path: 'laravel', component: LaravelComponent },
+  { path: 'node.js', component: NodeComponent },
+  { path: 'wordpress', component: WordpressComponent },
+  { path: 'deploiement', component: DeployementComponent },
+
+  //pour les components réutilisables
+  { path: 'creer-un-boutton', component: ButtonCoursComponent },
+  { path: 'creer-un-layout', component: LayoutCoursComponent },
 
 ];

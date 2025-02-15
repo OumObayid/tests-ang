@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   <h1>Routes Dynamiques avec des Paramètres</h1>
   <hr>
   <p>Les routes peuvent accepter des paramètres pour afficher du contenu dynamique.</p>
-<h2>Exemple: Route avec un ID utilisateur</h2>
-<h4>1. Définition de la route (app.routes.ts) :</h4>
+<h2>📌 Exemple: Route avec un ID utilisateur</h2>
+<h3>🔹 1. Définition de la route (app.routes.ts) :</h3>
 <pre class="tab">
 &#123; path: 'user/:id', component: UserComponent &#125;</pre>
-<h4>2. Récupération du paramètre dans UserComponent :</h4>
+<h3>🔹 2. Récupération du paramètre dans UserComponent :</h3>
 <pre class="tab">
 import &#123; Component &#125; from '&#64;angular/core';
 import &#123; ActivatedRoute &#125; from '&#64;angular/router';
@@ -29,7 +29,7 @@ export class UserComponent &#123;
     &#125;);
   &#125;
 &#125;</pre>
-<h4>3. Lien dynamique pour naviguer vers un utilisateur :</h4>
+<h3>🔹 3. Lien dynamique pour naviguer vers un utilisateur :</h3>
 <pre class="tab">
 &#60;a [routerLink]="['/user', 42]"&#62;Voir l'utilisateur 42&#60;/a&#62;</pre>
 
