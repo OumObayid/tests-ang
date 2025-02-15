@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { ProductService } from './products.service';
 import { ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Component, viewChild } from '@angular/core';
@@ -20,7 +20,7 @@ import { Component, viewChild } from '@angular/core';
         provideHttpClient() dans le tableau de providers de appConfig.
       </p>
       <pre class="tab">
-export const appConfig: ApplicationConfig = %#123;
+export const appConfig: ApplicationConfig = &#123;
   providers: [provideHttpClient()],
 &#125;;</pre
       >
@@ -193,117 +193,6 @@ export class ProductComponent implements OnInit &#123;
       </div>
       }
       <hr />
-
-      <!-- --------------------Template pour afficher le code source---------------- -->
-      <!-- Nav Tabs -->
-       <h2>Code source d'utilisation de http client get directement sans service</h2>
-      <ul class="nav nav-tabs" id="codeTabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link active"
-            id="c1-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#c1"
-            type="button"
-            role="tab"
-            aria-controls="c1"
-            aria-selected="true"
-          >
-            Composant Parent
-          </button>
-        </li>
-      </ul>
-
-      <!-- Tab Content -->
-      <div class="tab-content" id="codeTabsContent" style="position: relative;">
-        <!-- Composant C1 -->
-        <div
-          class="tab-pane fade show active "
-          id="c1"
-          role="tabpanel"
-          aria-labelledby="c1-tab"
-          style="position: relative;"
-        >
-          <!-- Bouton de copie pour C1 -->
-          <i (click)="copy1()" class="fas fa-copy"></i>
-          <span class="confirm" *ngIf="clicked"
-            >copied <i class="fas fa-check"></i>
-          </span>
-          <pre #tab1 class="tab fw-bold" ngNonBindable>
-import &#123; HttpClient &#125; from "&#64;angular/common/http";
-import &#123; ElementRef &#125; from "&#64;angular/core";
-import &#123; CommonModule &#125; from "&#64;angular/common";
-import &#123; Component, viewChild &#125; from "&#64;angular/core";
-
-&#64;Component(&#123;
-  selector: "app-http",
-  standalone: true,
-  imports: [CommonModule],
-  template: &#96;
-    &#60;div class="container mt-3"&#62;
-      &#60;h1&#62;Test de la requête Http&#60;/h1&#62;
-      &#64;if (products.length &#62; 0) &#123;
-      &#60;div class="row mt-3"&#62;
-        &#64;for (product of products; track $index) &#123; &#64;if ($index &#60; 9) &#123;
-        &#60;!-- Afficher uniquement les 10 premiers produits --&#62;
-        &#60;div class="col-md-4 mb-4"&#62;
-          &#60;div class="card"&#62;
-            &#60;img
-              [src]="
-                product.thumbnail ||
-                (product.images?.length ? product.images[0] : '')
-              "
-              [alt]="product.nom"
-              class="card-img-top img-fluid"
-              style="max-height: 150px; object-fit: cover;"
-            /&#62;
-            &#60;div class="card-body"&#62;
-              &#60;h5 class="card-title"&#62;&#123;&#123; product.title &#125;&#125;&#60;/h5&#62;
-              &#60;p class="card-text"&#62;
-                &#123;&#123; product.description.substring(0, 100) + "..." &#125;&#125;
-                &#60;!-- Description raccourcie --&#62;
-              &#60;/p&#62;
-              &#60;p class="card-text"&#62;
-                &#60;strong&#62;Catégorie :&#60;/strong&#62; &#123;&#123; product.category &#125;&#125;
-              &#60;/p&#62;
-              &#60;p class="card-text"&#62;
-                &#60;strong&#62;Prix :&#60;/strong&#62; &#123;&#123; product.price &#125;&#125; €
-              &#60;/p&#62;
-              &#60;a href="#" class="btn btn-primary"&#62;Voir le produit&#60;/a&#62;
-            &#60;/div&#62;
-          &#60;/div&#62;
-        &#60;/div&#62;
-        &#125; &#125;
-      &#60;/div&#62;
-      &#125; &#64;if (products.length === 0 && hasError) &#123;
-      &#60;div class="alert alert-danger"&#62;
-        Une erreur est survenue lors de la récupération des produits.
-      &#60;/div&#62;
-      &#125;
-    &#60;/div&#62;
-  &#96;,
-&#125;)
-export class ClienthttpComponent &#123;
-  constructor(private http: HttpClient) &#123;&#125;
-  products: any[] = [];
-  hasError: boolean = false;
-  ngOnInit(): void &#123;
-    const response = this.http.get("https://dummyjson.com/products");
-    response.subscribe(&#123;
-      next: (response: any) =&#62; &#123;
-        console.log("response :", response);
-        this.products = response.products || []; // Assurez-vous que la clé existe
-        console.log("response :", this.products);
-      &#125;,
-      error: () =&#62; &#123;
-        this.hasError = true;
-      &#125;,
-    &#125;);
-  &#125;
-&#125;</pre
-          >
-        </div>
-      </div>
     </div>
   `,
   styles: `
@@ -356,18 +245,19 @@ i.fa-copy:hover{
   // -------------------------style pour afficher le code source----------------
 })
 export class ClienthttpComponent {
-  constructor(private http: HttpClient) {}
-  products: any[] = [];
-  hasError: boolean = false;
+  products: any[] = []; // Stockage des produits
+  hasError: boolean = false; // Gestion des erreurs
+
+  constructor(private productService: ProductService) {}
+
   ngOnInit(): void {
-    const response = this.http.get('https://dummyjson.com/products');
-    response.subscribe({
-      next: (response: any) => {
-        console.log('response :', response);
-        this.products = response.products || []; // Assurez-vous que la clé existe
-        console.log('response :', this.products);
+    this.productService.getProducts().subscribe({
+      next: (response) => {
+        this.products = response.products; // L'API retourne un objet avec `products`
+        console.log('Produits récupérés:', this.products);
       },
-      error: () => {
+      error: (err) => {
+        console.error('Erreur lors de la récupération:', err);
         this.hasError = true;
       },
     });

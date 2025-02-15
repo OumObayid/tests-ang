@@ -166,8 +166,8 @@ Ici, si l’utilisateur écrit dans l’input, cela modifiera la propriété nam
           <tbody>
             <tr>
               <td><strong>Interpolation</strong></td>
-              <td>&#123;&#123; expression %#125;%#125;</td>
-              <td>&lt;p&gt;&#123;&#123; title %#125;%#125;&lt;/p&gt;</td>
+              <td>&#123;&#123; expression &#125;&#125;</td>
+              <td>&lt;p&gt;&#123;&#123; title &#125;&#125;&lt;/p&gt;</td>
             </tr>
             <tr>
               <td><strong>Property Binding</strong></td>
