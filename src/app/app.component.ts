@@ -14,50 +14,34 @@ import { Component } from '@angular/core';
   ],
   template: `
     <app-headertest (menuSelected)="onMenuSelected($event)"></app-headertest>
-    <div class="d-flex">
-      <div class="sidebar col-lg-2 custom-col">
-        <app-sidebar [selectedMenu]="selectedMenu"></app-sidebar>
-      </div>
-      <div class="content flex-grow-1 flex-wrap col-lg-9">
-        <router-outlet></router-outlet>
+
+    <div class="container-fluid px-0">
+      <div class="row gx-0 bod">
+        <div class="sidebar col-12 col-md-3 col-lg-2 p-0 m-0">
+          <app-sidebar [selectedMenu]="selectedMenu"></app-sidebar>
+        </div>
+        <div class="col-12 col-md-9 col-lg-10 p-3">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
-
     <app-footer></app-footer>
   `,
   styles: `
-  .custom-col {
-  width: 20.8333%; /* (2.5 / 12) * 100 */
-}
-h1 {
-  color: rgb(245, 156, 3);
-}
 
-p {
-  font-size: 16px;
-}
-
-.main-container {
-  flex: 1; /* Permet au router-outlet de prendre tout l'espace disponible */
-  min-height: calc(100vh - 110px); /* Ajustez la hauteur du footer ici */
-}
-
-.footer {
-  height: 60px; /* Hauteur fixe du footer */
-}
-.main-container {
+/* Conteneur principal */
+.container-fluid {
   display: flex;
-}
+  margin-top: 50px; /* Évite que le sidebar soit masqué par le nav */
+  margin-bottom: 50px; /* Évite que le sidebar soit masqué par le footer */
+  // min-height: calc(100vh - 110px);
 
-.sidebar {
+}
+.bod {
+  width:100%;
   background-color: #f8f9fa;
-  padding: 10px;
-  min-height: 100vh;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 20px;
+  height: calc(100vh - 100px); /* Ajustement total */
+  overflow-y: auto;
 }
 
   `,

@@ -8,44 +8,53 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
   selector: 'app-headertest',
   imports: [CommonModule, RouterLink],
   template: `
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
-      <div class="navbar-nav d-flex justify-content-between w-100">
-        <a class="nav-link"
-          [ngClass]="{ active: router.url === '/' }"
-          routerLink="/"
-          >Home</a>
-        <span class="d-flex">
-          <a class="nav-link"
-            *ngFor="let menu of mainMenus"
-            [class.active]="menu === activeMenu"
-            (click)="selectMenu(menu)"
-          >
-            {{ menu }}
-          </a>
-          <a class="nav-link"
-            *ngIf="!isloggedIn()"
-            [ngClass]="{ active: router.url === '/exemple-de-protection' }"
-            routerLink="/exemple-de-protection"
-            >se connecter
-          </a>
-          <a class="nav-link"
-            *ngIf="isloggedIn()"
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+  <div class="container-fluid">
+    <!-- Bouton pour le mode mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            style="cursor: pointer;"
-            (click)="lougout()"
-          >
-            se deconnecter
+    <!-- Liens de navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 d-flex justify-content-between">
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{ active: router.url === '/' }" routerLink="/">Home</a>
+        </li>
+
+        <li class="nav-item d-flex">
+          <ng-container *ngFor="let menu of mainMenus">
+            <a class="nav-link" [class.active]="menu === activeMenu" (click)="selectMenu(menu)">
+              {{ menu }}
+            </a>
+          </ng-container>
+
+          <a class="nav-link" *ngIf="!isloggedIn()" [ngClass]="{ active: router.url === '/exemple-de-protection' }" routerLink="/exemple-de-protection">
+            Se connecter
           </a>
-          <a class="nav-link"
-            *ngIf="isloggedIn()"
-            [ngClass]="{ active: router.url === '/dashboard' }"
-            routerLink="/dashboard"
-            >dashboard</a>
-        </span>
-      </div>
-    </nav>
+
+          <a class="nav-link" *ngIf="isloggedIn()" style="cursor: pointer;" (click)="lougout()">
+            Se déconnecter
+          </a>
+
+          <a class="nav-link" *ngIf="isloggedIn()" [ngClass]="{ active: router.url === '/dashboard' }" routerLink="/dashboard">
+            Dashboard
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   `,
   styles: `
+  nav{
+    position: fixed;
+    top:0;
+    left: 0;
+    width:100%;
+    z-index:1000;
+  }
   .nav-link {
     cursor: pointer;
   }
@@ -79,7 +88,6 @@ export class HeadertestComponent {
     this.store
       .select(selectIsLoggedIn)
       .subscribe((islog) => this.isloggedIn.set(islog));
-    console.log('this.isloggedIn :', this.isloggedIn());
     this.detectActiveMenu();
   }
 

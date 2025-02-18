@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
-
+import {
+  RouterLink,
+  RouterModule,
+  ActivatedRoute,
+  Router,
+} from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
@@ -30,7 +34,7 @@ import { RouterLink, RouterModule } from '@angular/router';
           <div
             [id]="'collapse' + i"
             class="accordion-collapse collapse"
-            [class.show]="openedSubmenu === item"
+            [class.show]="item === 'Node.js' || openedSubmenu === item"
             [attr.aria-labelledby]="'heading' + i"
             data-bs-parent="#menuAccordion"
           >
@@ -52,7 +56,6 @@ import { RouterLink, RouterModule } from '@angular/router';
   `,
   styles: `
 .sidebar  {
-
   background-color: #f8f9fa;
   border-right: 1px solid #ddd;
 }
@@ -95,9 +98,10 @@ import { RouterLink, RouterModule } from '@angular/router';
   `,
 })
 export class SidebarComponent {
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   @Input() selectedMenu!: string;
   openedSubmenu: string | null = null;
-
   menuItems: any = {
     Angular: [
       'data binding',
@@ -128,14 +132,27 @@ export class SidebarComponent {
       'Fonctionnalités Avancées',
       'Déploiement et Optimisation',
     ],
-    'Node.js':['Introduction à Node.js','le JavaScript côté serveur','Lire et écrire des fichiers avec fs','Le serveur HTTP en Node.js','Introduction à Express.js','Interagir avec une dbase','Mini API avec Node.js et Express'],
-    'React.js': ['Components', 'Hooks', 'State Management'],
+    'Node.js': ['Node.js'],
+    'React.js': [
+      'Introduction à React.js',
+      'Composants et Props',
+      'État et gestion de l\'état',
+      'Gestion des événements',
+      'Le Hook useEffect',
+      'Routage avec React Router',
+      'Gestion des formulaires',
+      "Context et gestion de l\'état",
+      'Hooks Avancés',
+      'Tests avec React',
+      'Déploiement',
+    ],
     Wordpress: [
       'Introduction à WordPress',
       'Création et Personnalisation',
       'E-commerce, SEO, Sécurité',
       'Développement WordPress',
       'Déploiement et Maintenance',
+      'Formation Complete'
     ],
     Déploiement: [
       'GitHub',
@@ -207,7 +224,7 @@ export class SidebarComponent {
         'Utiliser ViewChild pour ngForm',
         'FormGroup et FormControl',
       ],
-      'Composants réutilisables':['Créer un boutton','Créer un layout'],
+      'Composants réutilisables': ['Créer un boutton', 'Créer un layout'],
       Ngrx: ['les states et les reducers'],
       Rxjs: [
         'Les observables',
@@ -227,54 +244,100 @@ export class SidebarComponent {
       ],
     },
     'React.js': {
-      Components: ['ComponentA', 'ComponentB'],
-      Hooks: ['Hook1', 'Hook2'],
-      'State Management': ['Redux', 'Context API'],
+      'Introduction à React.js': [
+        "Qu'est-ce que React.js",
+        'Installation de React.js',
+        'Concepts clés',
+      ],
+      'Composants et Props': ['Création de Composants','Props','Composition de Composants'],
+      'État et gestion de l\'état': ['useState Hook','État dans les composants de classe','Gestion d\'état complexe'],
+      'Gestion des événements': ['Gestion d\'événements','Liens entre les événements et l\'état'],
+      'Le Hook useEffect': ['Cycle de vie dans React','Effectuer des appels API'],
+      'Routage avec React Router': ['Installation et configuration de React Router','Création de routes','Gestion des redirections et des liens actifs'],
+      'Gestion des formulaires': ['Formulaires contrôlés','Validation de formulaire'],
+      'Context et gestion de l\'état': ['Introduction au Context API','Utilisation du Context pour gérer l\'état global'],
+      'Hooks Avancés': ['useReducer','Custom Hooks','UseMemo et useCallback'],
+      'Tests avec React':['Introduction aux tests en React','Tests unitaires et tests d\'intégration'],
+      'Déploiement':['Déploiement avec Netlify','Déploiement avec Vercel']
     },
     Laravel: {
-      'Introduction et Pré-requis': ['C\'est quoi Laravel', 'Pré-requis techniques', 'Installation et Decouverte'],
-      'Gestion de la Base de Données': ['Configuration de la dbase','Création des migrations', 'Création des modèles','Création des factorys et des seeders','Manipuler les données avec Eloquent'],
-      'Développement de l’Application': ['Routes et Contrôleurs','Vues et Blade','Formulaires et Validation'],
-      'Fonctionnalités Avancées': ['Relations entre les modèles','Utilisation des Observers','Utilisation des Policies et Gates','Gestion des Evénements et Listeners','Les Jobs et les Queues','Les Task Scheduling','Envoi Emails et notifications',],
-      'Déploiement et Optimisation': ['Optimisation','Sécurité','Déploiement Laravel'],
+      'Introduction et Pré-requis': [
+        "C'est quoi Laravel",
+        'Pré-requis techniques',
+        'Installation et Decouverte',
+      ],
+      'Gestion de la Base de Données': [
+        'Configuration de la dbase',
+        'Création des migrations',
+        'Création des modèles',
+        'Création des factorys et des seeders',
+        'Manipuler les données avec Eloquent',
+      ],
+      'Développement de l’Application': [
+        'Routes et Contrôleurs',
+        'Vues et Blade',
+        'Formulaires et Validation',
+      ],
+      'Fonctionnalités Avancées': [
+        'Relations entre les modèles',
+        'Utilisation des Observers',
+        'Utilisation des Policies et Gates',
+        'Gestion des Evénements et Listeners',
+        'Les Jobs et les Queues',
+        'Les Task Scheduling',
+        'Envoi Emails et notifications',
+      ],
+      'Déploiement et Optimisation': [
+        'Optimisation',
+        'Sécurité',
+        'Déploiement Laravel',
+      ],
     },
-    'Node.js':{
-      'Introduction à Node.js':['C\'est quoi Node js','Pourquoi utiliser Node.js','Installation de Node.js et NPM','Exécuter son premier script Node.js'],
-      'le JavaScript côté serveur':['Différence entre JavaScript en navigateur et Node.js','Les modules en Node.js','Utilisation de package.json','Installation et gestion des packages'],
-      'Lire et écrire des fichiers avec fs':['Lire un fichier','Écrire dans un fichier','Créer et supprimer des fichiers/dossiers'],
-      'Le serveur HTTP en Node.js':['Créer un serveur avec le module http','Répondre aux requêtes du navigateur','Envoyer des pages HTML simples'],
-      'Introduction à Express.js':['Installation d\’Express','Création d\’un serveur Express','Gestion des routes (app.get, app.post)'],
-      'Interagir avec une dbase':['Connecter Node.js à une dbase','Effectuer des opérations simples (CRUD)'],
-      'Mini API avec Node.js et Express':['Créer une API REST simple','Ajouter des routes','Tester avec Postman']
+    'Node.js': {
+      'Node.js': [
+        'Introduction à Node.js',
+        'le JavaScript côté serveur',
+        'Lire et écrire des fichiers avec fs',
+        'Le serveur HTTP en Node.js',
+        'Introduction à Express.js',
+        'Interagir avec une dbase',
+        'Mini API avec Node.js et Express',
+      ],
     },
 
     Wordpress: {
       'Introduction à WordPress': [
         "C'est quoi WordPress",
         'Installation de WordPress',
-        'Découverte de l’interface',
+        'Découverte de l interface',
       ],
       'Création et Personnalisation': [
         'Gestion des contenus',
+        'Gestion des menus',
+        'Gestion des blogs',
+        'Gestion des pages',
+        'Gestion des widgets',
         'Thèmes WordPress',
+        'Gestion des medias',
         'Plugins WordPress',
         'Editeur de blocs',
       ],
       'E-commerce, SEO, Sécurité': [
-        'Création d’une boutique',
+        'Création d une boutique',
         'Optimisation SEO',
         ' Sécurisation et optimisation',
       ],
       'Développement WordPress': [
-        'Développement d’un thème',
-        'Création d’un plugin',
-        'WordPress et l’API REST',
+        'Développement d un thème',
+        'Création d un plugin',
+        'WordPress et API REST',
       ],
       'Déploiement et Maintenance': [
-        'Migration d’un site WordPress',
+        'Migration d un site WordPress',
         'Hébergement et mise en ligne',
         'Maintenance et mises à jour',
       ],
+      'Formation Complete':['Formation Complete']
     },
     Déploiement: {
       GitHub: ['deployement github Reactjs', 'deployement github Angular'],
@@ -297,6 +360,25 @@ export class SidebarComponent {
       ],
     },
   };
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      this.expandSubMenu();
+    });
+    this.expandSubMenu();
+  }
+  expandSubMenu() {
+    const currentUrl = this.router.url.split('/').pop() || ''; // Utilisez 'this.router.url' directement
+    for (const item in this.subMenus[this.selectedMenu]) {
+      if (
+        this.subMenus[this.selectedMenu][item].some(
+          (sub: string) => this.formatRoute(sub) === currentUrl
+        )
+      ) {
+        this.openedSubmenu = item;
+        break;
+      }
+    }
+  }
 
   toggleSubmenu(item: string) {
     this.openedSubmenu = this.openedSubmenu === item ? null : item;

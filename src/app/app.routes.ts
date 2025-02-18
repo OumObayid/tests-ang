@@ -1,11 +1,70 @@
-import { LayoutCoursComponent } from './pages/tests/shared/layout/layoutCours.component';
-import {ButtonCoursComponent } from './pages/tests/shared/button/buttonCours.component';
-import { DeployementComponent } from './pages/tests/deployements/deployement.component';
-import { WordpressComponent } from './pages/tests/wordpressModule/wordpress.component';
-import { NodeComponent } from './pages/tests/nodeModule/node.component';
-import { ReactComponent } from './pages/tests/reactModule/react.component';
-import { AngularComponent } from './pages/tests/angularModule/angular.component';
-import { LaravelComponent } from './pages/tests/laravelModule/laravel.component';
+import { WordpressFormationCompleteComponent } from './pages/tests/wordpressModule/wordpressFormationComplete.component';
+import { wordpressMediaComponent } from './pages/tests/wordpressModule/wordpressMedia.component';
+import { WordpressWidgetComponent } from './pages/tests/wordpressModule/wordpressWidget.component';
+import { WordpressPageComponent } from './pages/tests/wordpressModule/wordpressPage.component';
+import { WordpressBlogComponent } from './pages/tests/wordpressModule/wordpressBlog.component';
+import { WordpressMenuComponent } from './pages/tests/wordpressModule/wordpressMenu.component';
+import { wordpressThemesComponent } from './pages/tests/wordpressModule/wordpressThemes.component';
+import { WordpressSeoComponent } from './pages/tests/wordpressModule/wordpressSeo.component';
+import { wordpressSecuriteOptimiseComponent } from './pages/tests/wordpressModule/wordpressSecuriteOptimise.component';
+import { WordpressPlugingComponent } from './pages/tests/wordpressModule/wordpressPluging.component';
+import { WordpressMigrationComponent } from './pages/tests/wordpressModule/wordpressMigration.component';
+import { WordpressMaintenanceComponent } from './pages/tests/wordpressModule/wordpressMaintenance.component';
+import { WordpressInstallComponent } from './pages/tests/wordpressModule/wordpressInstall.component';
+import { WordpressHebergementComponent } from './pages/tests/wordpressModule/wordpressHebergement.component';
+import { wordpressGestionContenusComponent } from './pages/tests/wordpressModule/wordpressGestionContenus.component';
+import { WordpressEditeurComponent } from './pages/tests/wordpressModule/wordpressEditeur.component';
+import { WordpressDecouverteComponent } from './pages/tests/wordpressModule/wordpressDecouverte.component';
+import { WordpressCreatePlugingComponent } from './pages/tests/wordpressModule/wordpressCreatePluging.component';
+import { WordpressBoutiqueComponent } from './pages/tests/wordpressModule/wordpressBoutique.component';
+import { WordpressApiRestComponent } from './pages/tests/wordpressModule/wordpressApiRest.component';
+import { WordpressDEvThemeComponent } from './pages/tests/wordpressModule/wordpressDEvTheme.component';
+import { ReactAppelApiComponent } from './pages/tests/reactModule/reactAppelApi.component';
+import { ReactComposantComponent } from './pages/tests/reactModule/reactِComposant.component';
+import { ReactDeplVercelComponent } from './pages/tests/reactModule/reactDeplVercel.component';
+import { ReactDeplNetlifyComponent } from './pages/tests/reactModule/reactDeplNetlify.component';
+import { ReactTestsUnitIntegrComponent } from './pages/tests/reactModule/reactTestsUnitIntegr.component';
+import { ReactTestsComponent } from './pages/tests/reactModule/reactTests.component';
+import { ReactMemoCallbackComponent } from './pages/tests/reactModule/reactMemoCallback.component';
+import { reactComposerComponent } from './pages/tests/reactModule/reactComposer.component';
+import { ReactInstallationComponent } from './pages/tests/reactModule/reactInstallation.component';
+import { ReactConceptsComponent } from './pages/tests/reactModule/reactConcepts.component';
+import { ReactPropsComponent } from './pages/tests/reactModule/reactProps.component';
+import { ReactUseStateComponent } from './pages/tests/reactModule/reactUseState.component';
+import { ReactEtatComponent } from './pages/tests/reactModule/reactEtat.component';
+import { ReactGestionEtatComponent } from './pages/tests/reactModule/reactGestionEtat.component';
+import { ReactEvenementComponent } from './pages/tests/reactModule/reactEvenement.component';
+import { ReactLienEventEtatComponent } from './pages/tests/reactModule/reactLienEventEtat.component';
+import { ReactCycleComponent } from './pages/tests/reactModule/reactCycle.component';
+import { ReactQuoiComponent } from './pages/tests/reactModule/reactQuoi.component';
+import { ReactInstRouterComponent } from './pages/tests/reactModule/reactInstRouter.component';
+import { ReactCreatRouteComponent } from './pages/tests/reactModule/reactِCreatRoute.component';
+import { ReactFormsComponent } from './pages/tests/reactModule/reactForms.component';
+import { ReactRedirectionComponent } from './pages/tests/reactModule/reactRedirection.component';
+import { ReactValidFormsComponent } from './pages/tests/reactModule/reactValidForms.component';
+import { ReactUtilisationContextComponent } from './pages/tests/reactModule/reactUtilisationContext.component';
+import { ReactContextComponent } from './pages/tests/reactModule/reactContext.component';
+import { ReactReducerComponent } from './pages/tests/reactModule/reactReducer.component';
+import { ReactCustumHookComponent } from './pages/tests/reactModule/reactCustumHook.component';
+import { WordpressIntroComponent } from './pages/tests/wordpressModule/wordpressIntro.component';
+import { NodeApiComponent } from './pages/tests/nodeModule/nodeApi.component';
+import { nodeDbaseComponent } from './pages/tests/nodeModule/nodeDbase.component';
+import { NodeExpressComponent } from './pages/tests/nodeModule/nodeExpress.component';
+import { NodeServeurHttpComponent } from './pages/tests/nodeModule/nodeServeurHttp.component';
+import { NodeLireEcrireFichierComponent } from './pages/tests/nodeModule/nodeLireEcrireFichier.component';
+import { NodeCoteServeurComponent } from './pages/tests/nodeModule/nodeCoteServeur.component';
+import { NodeIntroComponent } from './pages/tests/nodeModule/nodeIntro.component';
+import { NgrxComponent } from './pages/tests/angularModule/ngrx/ngrx.component';
+import { LoginComponent } from './pages/tests/angularModule/login/login.component';
+import { Test25Component } from './pages/tests/angularModule/ng-content/test25.component';
+import { LayoutCoursComponent } from './pages/tests/angularModule/shared/layout/layoutCours.component';
+import {ButtonCoursComponent } from './pages/tests/angularModule/shared/button/buttonCours.component';
+import { DeployementAccueilComponent } from './pages/tests/deployements/deployementAccueil.component';
+import { WordpressAccueilComponent } from './pages/tests/wordpressModule/wordpressAccueil.component';
+import { NodeAccueilComponent } from './pages/tests/nodeModule/nodeAccueil.component';
+import { ReactComponent } from './pages/tests/reactModule/reactAccueil.component';
+import { AngularAccueilComponent } from './pages/tests/angularModule/angularAccueil.component';
+import { LaravelAccueilComponent } from './pages/tests/laravelModule/laravelAccueil.component';
 import { LaravelOptimisationComponent } from './pages/tests/laravelModule/laravelOptimisation.component';
 import { LaravelSecuriteComponent } from './pages/tests/laravelModule/laravelSecurite.component';
 import { LaravelRelationModelsComponent } from './pages/tests/laravelModule/laravelRelationModels.component';
@@ -28,9 +87,9 @@ import { LaravelEmailsComponent } from './pages/tests/laravelModule/laravelEmail
 import { LaravelInstallationComponent } from './pages/tests/laravelModule/laravelInstallation.component';
 import { LaravelPrerequisComponent } from './pages/tests/laravelModule/laravelPrerequis.component';
 import { DeplApiNodMongodbComponent } from './pages/tests/deployements/cloudManage/deplapinodemongodb.component';
-import { RxjsUtilitairesComponent } from './pages/tests/rxjs/rxjsutilitaires.component';
-import { RxjsCombinerComponent } from './pages/tests/rxjs/rxjscombiner.component';
-import { RxjsFilterComponent } from './pages/tests/rxjs/rxjsfilter.component';
+import { RxjsUtilitairesComponent } from './pages/tests/angularModule/rxjs/rxjsutilitaires.component';
+import { RxjsCombinerComponent } from './pages/tests/angularModule/rxjs/rxjscombiner.component';
+import { RxjsFilterComponent } from './pages/tests/angularModule/rxjs/rxjsfilter.component';
 import { SurabaseDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudsurabase';
 import { LaravelDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudlaravel.component';
 import { FirebaseDeplCloudComponent } from './pages/tests/deployements/cloudDedie/deplcloudfirebase.component';
@@ -43,67 +102,64 @@ import { ReactjsDeplHebergeurComponent } from './pages/tests/deployements/heberg
 import { AngularDeplHebergeurComponent } from './pages/tests/deployements/hebergeur/angulardeplhebergeur.component';
 import { ReactjsDeplGithubComponent } from './pages/tests/deployements/github/reactjsdeplgithub.component';
 import { AngularDeplGithubComponent } from './pages/tests/deployements/github/angulardeplgithub.component';
-import { ResolverComponent } from './pages/tests/resolver/resolver.component';
+import { ResolverComponent } from './pages/tests/angularModule/resolver/resolver.component';
 import { ProductsResolver } from './services/resolvers/products.resolver';
-import { LazyLoadingComponent } from './pages/tests/routes/lazyloading.component';
-import { RouteGuardComponent } from './pages/tests/routes/routeguard.component';
-import { RedirectionEtPage404Component } from './pages/tests/routes/redirectionetpage404.component';
-import { RoutesAvecParametresReqComponent } from './pages/tests/routes/routesavecparametresrequ.component';
-import { RoutesAvecParametresComponent } from './pages/tests/routes/routesavecparametres.component';
-import { UtilisationServiceComponent } from './pages/tests/utilisation-service/utilisation-service.component';
-import { RoutesIntroComponent } from './pages/tests/routes/routesintro.component';
-import { NgOnChangesComponent } from './pages/tests/cycle/ngonchange.component';
-import { NgOnDestroyComponent } from './pages/tests/cycle/ngondestroy.component';
-import { NgOnAfterViewInitComponent } from './pages/tests/cycle/ngonafterviewinit.component';
-import { NgOnInitComponent } from './pages/tests/cycle/ngoninit.compoenent';
-import { UpdateProductFireComponent } from './pages/tests/firebase/updateproductfire.component';
-import { LoginComponent } from './pages/tests/login/login.component';
-import { RxjsTransformationComponent } from './pages/tests/rxjs/rxjstransformer.component';
-import { RxjscreationComponent } from './pages/tests/rxjs/rxjscreation.component';
-import { JsonUpdateProductComponent } from './pages/tests/json/jsonupdateproduct.component';
-import { JsonProductsComponent } from './pages/tests/json/jsonproducts.component';
-import { ProductsnodeComponent } from './pages/tests/nodejs/productsnode.component';
-import { ProductsfireComponent } from './pages/tests/firebase/productsfire.component';
-import { UpdateProductnodeComponent } from './pages/tests/nodejs/update-productnode.component';
-import { RxjsbservableComponent } from './pages/tests/rxjs/rxjsobservable.component';
+import { LazyLoadingComponent } from './pages/tests/angularModule/routes/lazyloading.component';
+import { RouteGuardComponent } from './pages/tests/angularModule/routes/routeguard.component';
+import { RedirectionEtPage404Component } from './pages/tests/angularModule/routes/redirectionetpage404.component';
+import { RoutesAvecParametresReqComponent } from './pages/tests/angularModule/routes/routesavecparametresrequ.component';
+import { RoutesAvecParametresComponent } from './pages/tests/angularModule/routes/routesavecparametres.component';
+import { UtilisationServiceComponent } from './pages/tests/angularModule/utilisation-service/utilisation-service.component';
+import { RoutesIntroComponent } from './pages/tests/angularModule/routes/routesintro.component';
+import { NgOnChangesComponent } from './pages/tests/angularModule/cycle/ngonchange.component';
+import { NgOnDestroyComponent } from './pages/tests/angularModule/cycle/ngondestroy.component';
+import { NgOnAfterViewInitComponent } from './pages/tests/angularModule/cycle/ngonafterviewinit.component';
+import { NgOnInitComponent } from './pages/tests/angularModule/cycle/ngoninit.compoenent';
+import { UpdateProductFireComponent } from './pages/tests/angularModule/firebase/updateproductfire.component';
+import { RxjsTransformationComponent } from './pages/tests/angularModule/rxjs/rxjstransformer.component';
+import { RxjscreationComponent } from './pages/tests/angularModule/rxjs/rxjscreation.component';
+import { JsonUpdateProductComponent } from './pages/tests/angularModule/json/jsonupdateproduct.component';
+import { JsonProductsComponent } from './pages/tests/angularModule/json/jsonproducts.component';
+import { ProductsnodeComponent } from './pages/tests/angularModule/nodejs/productsnode.component';
+import { ProductsfireComponent } from './pages/tests/angularModule/firebase/productsfire.component';
+import { UpdateProductnodeComponent } from './pages/tests/angularModule/nodejs/update-productnode.component';
+import { RxjsbservableComponent } from './pages/tests/angularModule/rxjs/rxjsobservable.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { FormcontrolgroupComponent } from './pages/tests/formControl-formGroup/formcontrolgroup.component';
-import { ViewchildNgFormComponent } from './pages/tests/ngForm/viewChild-ngForm.component';
-import { NgFormComponent } from './pages/tests/ngForm/ng-form.component';
-import { ContainerTemplateComponent } from './pages/tests/ngContainer-ngTemplate/container-template/container-template.component';
-import { NgrxComponent } from './pages/tests/ngrx/ngrx.component';
-import { ClienthttpComponent } from './pages/tests/http/Clienthttp.component';
-import { Test27Component } from './pages/tests/viewChild/test27.component';
-import { Test28Component } from './pages/tests/ViewChildren/test28.component';
-import { Test29Component } from './pages/tests/ViewChildren/test29.component';
-import { Test30Component } from './pages/tests/contentChild/test30.component';
-import { Test31Component } from './pages/tests/contentChild/test31.component';
-import { Test32Component } from './pages/tests/viewChild/test32.component';
-import { Test26Component } from './pages/tests/viewChild/test26.component';
-import { Test25Component } from './pages/tests/ng-content/test25.component';
-import { Test24Component } from './pages/tests/switch/test24.component';
-import { Test23Component } from './pages/tests/@ngif/test23.component';
-import { test22Component } from './pages/tests/@ngfor/test22.component';
-import { Test21Component } from './pages/tests/pipes-template/test21.component';
-import { Test19Component } from './pages/tests/style/test19.component';
-import { Test18Component } from './pages/tests/style/test18.component';
-import { Test17Component } from './pages/tests/style/test17.component';
-import { test16Component } from './pages/tests/style/test16.component';
-import { Test15Component } from './pages/tests/style/test15.component';
-import { test14Component } from './pages/tests/class/test14.component';
-import { Test13Component } from './pages/tests/class/test13.component';
-import { Test12Component } from './pages/tests/class/test12.component';
-import { Test11Component } from './pages/tests/class/test11.component';
-import { Test10Component } from './pages/tests/class/test10.component';
-import { Test9Component } from './pages/tests/signaux/test9.component';
-import { Test8Component } from './pages/tests/signaux/test8.component';
-import { Test6Component } from './pages/tests/input/test6.component';
-import { Test7Component } from './pages/tests/output/test7.component';
-import { Test5Component } from './pages/tests/signaux/test5.component';
-import { Test4Component } from './pages/tests/signaux/test4.component';
-import { AjaxComponent } from './pages/tests/ajax/ajax.component';
-import { Test1Component } from './pages/tests/binding/test1.component';
-import { Test2Component } from './pages/tests/interval/test2.component';
+import { FormcontrolgroupComponent } from './pages/tests/angularModule/formControl-formGroup/formcontrolgroup.component';
+import { ViewchildNgFormComponent } from './pages/tests/angularModule/ngForm/viewChild-ngForm.component';
+import { NgFormComponent } from './pages/tests/angularModule/ngForm/ng-form.component';
+import { ContainerTemplateComponent } from './pages/tests/angularModule/ngContainer-ngTemplate/container-template.component';
+import { ClienthttpComponent } from './pages/tests/angularModule/http/Clienthttp.component';
+import { Test27Component } from './pages/tests/angularModule/viewChild/test27.component';
+import { Test28Component } from './pages/tests/angularModule/ViewChildren/test28.component';
+import { Test29Component } from './pages/tests/angularModule/ViewChildren/test29.component';
+import { Test30Component } from './pages/tests/angularModule/contentChild/test30.component';
+import { Test31Component } from './pages/tests/angularModule/contentChild/test31.component';
+import { Test32Component } from './pages/tests/angularModule/viewChild/test32.component';
+import { Test26Component } from './pages/tests/angularModule/viewChild/test26.component';
+import { Test24Component } from './pages/tests/angularModule/switch/test24.component';
+import { Test23Component } from './pages/tests/angularModule/@ngif/test23.component';
+import { test22Component } from './pages/tests/angularModule/@ngfor/test22.component';
+import { Test21Component } from './pages/tests/angularModule/pipes-template/test21.component';
+import { Test19Component } from './pages/tests/angularModule/style/test19.component';
+import { Test18Component } from './pages/tests/angularModule/style/test18.component';
+import { Test17Component } from './pages/tests/angularModule/style/test17.component';
+import { test16Component } from './pages/tests/angularModule/style/test16.component';
+import { Test15Component } from './pages/tests/angularModule/style/test15.component';
+import { test14Component } from './pages/tests/angularModule/class/test14.component';
+import { Test13Component } from './pages/tests/angularModule/class/test13.component';
+import { Test12Component } from './pages/tests/angularModule/class/test12.component';
+import { Test11Component } from './pages/tests/angularModule/class/test11.component';
+import { Test10Component } from './pages/tests/angularModule/class/test10.component';
+import { Test9Component } from './pages/tests/angularModule/signaux/test9.component';
+import { Test8Component } from './pages/tests/angularModule/signaux/test8.component';
+import { Test6Component } from './pages/tests/angularModule/input/test6.component';
+import { Test7Component } from './pages/tests/angularModule/output/test7.component';
+import { Test5Component } from './pages/tests/angularModule/signaux/test5.component';
+import { Test4Component } from './pages/tests/angularModule/signaux/test4.component';
+import { AjaxComponent } from './pages/tests/angularModule/ajax/ajax.component';
+import { Test1Component } from './pages/tests/angularModule/binding/test1.component';
+import { Test2Component } from './pages/tests/angularModule/interval/test2.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
@@ -238,6 +294,35 @@ export const routes: Routes = [
   { path: 'crud-json', component: JsonProductsComponent },
   { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
 
+//react module
+{ path: 'qu-est-ce-que-react.js', component: ReactQuoiComponent },
+{ path: 'installation-de-react.js', component: ReactInstallationComponent },
+{ path: 'concepts-cles', component: ReactConceptsComponent },
+{ path: 'creation-de-composants', component: ReactComposantComponent },
+{ path: 'props', component: ReactPropsComponent },
+{ path: 'composition-de-composants', component: reactComposerComponent },
+{ path: 'usestate-hook', component: ReactUseStateComponent },
+{ path: 'etat-dans-les-composants-de-classe', component: ReactEtatComponent },
+{ path: 'gestion-d-etat-complexe', component: ReactGestionEtatComponent },
+{ path: 'gestion-d-evenements', component: ReactEvenementComponent },
+{ path: 'liens-entre-les-evenements-et-l-etat', component: ReactLienEventEtatComponent },
+{ path: 'cycle-de-vie-dans-react', component: ReactCycleComponent },
+{ path: 'effectuer-des-appels-api', component: ReactAppelApiComponent },
+{ path: 'installation-et-configuration-de-react-router', component: ReactInstRouterComponent },
+{ path: 'creation-de-routes', component: ReactCreatRouteComponent },
+{ path: 'gestion-des-redirections-et-des-liens-actifs', component: ReactRedirectionComponent },
+{ path: 'formulaires-controles', component: ReactFormsComponent },
+{ path: 'validation-de-formulaire', component: ReactValidFormsComponent },
+{ path: 'introduction-au-context-api', component: ReactContextComponent },
+{ path: 'utilisation-du-context-pour-gerer-l-etat-global', component: ReactUtilisationContextComponent },
+{ path: 'usereducer', component: ReactReducerComponent },
+{ path: 'custom-hooks', component: ReactCustumHookComponent },
+ { path: 'usememo-et-usecallback', component: ReactMemoCallbackComponent },
+ { path: 'introduction-aux-tests-en-react', component: ReactTestsComponent },
+ { path: 'tests-unitaires-et-tests-d-integration', component: ReactTestsUnitIntegrComponent },
+ { path: 'deploiement-avec-netlify', component: ReactDeplNetlifyComponent },
+ { path: 'deploiement-avec-vercel', component: ReactDeplVercelComponent },
+
 //laravel
 { path: 'c-est-quoi-laravel', component: LaravelIntroComponent },
 { path: 'pre-requis-techniques', component: LaravelPrerequisComponent },
@@ -266,6 +351,40 @@ export const routes: Routes = [
 { path: 'securite', component: LaravelSecuriteComponent },
 { path: 'deploiement-laravel', component: LaravelDeployementComponent },
 
+//node.js module
+
+{ path: 'introduction-a-node.js', component: NodeIntroComponent },
+{ path: 'le-javascript-cote-serveur', component: NodeCoteServeurComponent },
+{ path: 'lire-et-ecrire-des-fichiers-avec-fs', component: NodeLireEcrireFichierComponent },
+{ path: 'le-serveur-http-en-node.js', component: NodeServeurHttpComponent },
+{ path: 'introduction-a-express.js', component: NodeExpressComponent },
+{ path: 'interagir-avec-une-dbase', component: nodeDbaseComponent },
+{ path: 'mini-api-avec-node.js-et-express', component: NodeApiComponent },
+
+//Wordpress
+{ path: 'c-est-quoi-wordpress', component: WordpressIntroComponent },
+{ path: 'developpement-d-un-theme', component: WordpressDEvThemeComponent },
+{ path: 'wordpress-et-api-rest', component: WordpressApiRestComponent },
+{ path: 'creation-d-une-boutique', component: WordpressBoutiqueComponent },
+{ path: 'creation-d-un-plugin', component: WordpressCreatePlugingComponent },
+{ path: 'decouverte-de-l-interface', component: WordpressDecouverteComponent },
+{ path: 'editeur-de-blocs', component: WordpressEditeurComponent },
+{ path: 'gestion-des-contenus', component: wordpressGestionContenusComponent },
+{ path: 'gestion-des-menus', component: WordpressMenuComponent},
+{ path: 'gestion-des-blogs', component: WordpressBlogComponent},
+{ path: 'gestion-des-pages', component: WordpressPageComponent},
+{ path: 'gestion-des-widgets', component: WordpressWidgetComponent},
+{ path: 'gestion-des-medias', component: wordpressMediaComponent},
+{ path: 'hebergement-et-mise-en-ligne', component: WordpressHebergementComponent },
+{ path: 'installation-de-wordpress', component: WordpressInstallComponent },
+{ path: 'maintenance-et-mises-a-jour', component: WordpressMaintenanceComponent },
+{ path: 'migration-d-un-site-wordpress', component: WordpressMigrationComponent },
+{ path: 'plugins-wordpress', component: WordpressPlugingComponent },
+{ path: '-securisation-et-optimisation', component: wordpressSecuriteOptimiseComponent },
+{ path: 'optimisation-seo', component: WordpressSeoComponent },
+{ path: 'themes-wordpress', component: wordpressThemesComponent },
+{ path: 'formation-complete', component: WordpressFormationCompleteComponent },
+
 
   //deployement
   { path: 'deployement-github-angular', component: AngularDeplGithubComponent },
@@ -283,12 +402,12 @@ export const routes: Routes = [
   { path: 'deployer-une-api-node.js-mongodb', component: DeplApiNodMongodbComponent },
 
   //routes pour les pages d'accueil d'un cours
-  { path: 'angular', component: AngularComponent },
+  { path: 'angular', component: AngularAccueilComponent },
   { path: 'react.js', component: ReactComponent },
-  { path: 'laravel', component: LaravelComponent },
-  { path: 'node.js', component: NodeComponent },
-  { path: 'wordpress', component: WordpressComponent },
-  { path: 'deploiement', component: DeployementComponent },
+  { path: 'laravel', component: LaravelAccueilComponent },
+  { path: 'node.js', component: NodeAccueilComponent },
+  { path: 'wordpress', component: WordpressAccueilComponent },
+  { path: 'deploiement', component: DeployementAccueilComponent },
 
   //pour les components réutilisables
   { path: 'creer-un-boutton', component: ButtonCoursComponent },
