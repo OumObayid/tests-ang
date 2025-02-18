@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import {
   RouterLink,
   RouterModule,
@@ -20,7 +20,7 @@ import {
           <h2 class="accordion-header" id="heading{{ i }}">
             <button
               class="accordion-button"
-              [class.collapsed]="openedSubmenu !== item"
+              [class.collapsed]="showed"
               type="button"
               (click)="toggleSubmenu(item)"
               data-bs-toggle="collapse"
@@ -34,7 +34,7 @@ import {
           <div
             [id]="'collapse' + i"
             class="accordion-collapse collapse"
-            [class.show]="item === 'Node.js' || openedSubmenu === item"
+            [class.show]="item === 'Node.js' || false"
             [attr.aria-labelledby]="'heading' + i"
             data-bs-parent="#menuAccordion"
           >
@@ -97,7 +97,7 @@ import {
 }
   `,
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit,OnDestroy{
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   @Input() selectedMenu!: string;
@@ -127,8 +127,8 @@ export class SidebarComponent {
     ],
     Laravel: [
       'Introduction et Pré-requis',
-      'Gestion de la Base de Données',
-      'Développement de l’Application',
+      'Gestion de la BdD',
+      'Développement ',
       'Fonctionnalités Avancées',
       'Déploiement et Optimisation',
     ],
@@ -266,14 +266,14 @@ export class SidebarComponent {
         'Pré-requis techniques',
         'Installation et Decouverte',
       ],
-      'Gestion de la Base de Données': [
+      'Gestion de la BdD': [
         'Configuration de la dbase',
         'Création des migrations',
         'Création des modèles',
         'Création des factorys et des seeders',
         'Manipuler les données avec Eloquent',
       ],
-      'Développement de l’Application': [
+      'Développement': [
         'Routes et Contrôleurs',
         'Vues et Blade',
         'Formulaires et Validation',
@@ -393,5 +393,10 @@ export class SidebarComponent {
       .replace(/l'/g, 'l-') // remplace les apostrophes par des tirets
       .replace(/d'/g, 'd-') // remplace les apostrophes par des tirets
       .replace(/\s+/g, '-'); // Remplace les espaces par des tirets
+  }
+  showed:string="true"
+  ngOnDestroy(): void {
+this.showed="false";
+
   }
 }

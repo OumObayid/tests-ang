@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output, effect, signal } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild, effect, signal, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
@@ -8,36 +8,78 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
   selector: 'app-headertest',
   imports: [CommonModule, RouterLink],
   template: `
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
   <div class="container-fluid">
     <!-- Bouton pour le mode mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Liens de navigation -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav w-100 d-flex justify-content-between">
+      <ul class="navbar-nav w-100">
+        <!-- Menu Home à gauche -->
         <li class="nav-item">
-          <a class="nav-link" [ngClass]="{ active: router.url === '/' }" routerLink="/">Home</a>
+          <a
+            class="nav-link"
+            [ngClass]="{ active: router.url === '/' }"
+            routerLink="/"
+          >
+            Home
+          </a>
         </li>
 
-        <li class="nav-item d-flex">
-          <ng-container *ngFor="let menu of mainMenus">
-            <a class="nav-link" [class.active]="menu === activeMenu" (click)="selectMenu(menu)">
-              {{ menu }}
-            </a>
-          </ng-container>
+        <!-- Menus à droite -->
+        <li class="nav-item" *ngFor="let menu of mainMenus">
+          <a
+            class="nav-link"
+            [class.active]="menu === activeMenu"
+            (click)="selectMenu(menu); closeNavbar()"
+          >
+            {{ menu }}
+          </a>
+        </li>
 
-          <a class="nav-link" *ngIf="!isloggedIn()" [ngClass]="{ active: router.url === '/exemple-de-protection' }" routerLink="/exemple-de-protection">
+        <!-- Connexion/ Déconnexion -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="!isloggedIn()"
+            [ngClass]="{ active: router.url === '/exemple-de-protection' }"
+            routerLink="/exemple-de-protection"
+
+          >
             Se connecter
           </a>
+        </li>
 
-          <a class="nav-link" *ngIf="isloggedIn()" style="cursor: pointer;" (click)="lougout()">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="isloggedIn()"
+            style="cursor: pointer"
+            (click)="lougout(); closeNavbar()"
+          >
             Se déconnecter
           </a>
+        </li>
 
-          <a class="nav-link" *ngIf="isloggedIn()" [ngClass]="{ active: router.url === '/dashboard' }" routerLink="/dashboard">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            *ngIf="isloggedIn()"
+            [ngClass]="{ active: router.url === '/dashboard' }"
+            routerLink="/dashboard"
+
+          >
             Dashboard
           </a>
         </li>
@@ -46,12 +88,19 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
   </div>
 </nav>
 
+
+
   `,
   styles: `
-  nav{
+  @media (min-width: 768px){
+    nav{
     position: fixed;
     top:0;
-    left: 0;
+     left: 0;
+    }
+  }
+  nav{
+
     width:100%;
     z-index:1000;
   }
@@ -132,6 +181,15 @@ export class HeadertestComponent {
     this.isloggedIn.set(false);
     this.store.dispatch(removeActiveUser());
     this.router.navigate(['/exemple-de-protection']);
+
+  }
+
+  //navbar mode mobile
+
+  // Méthode pour fermer le navbar en mode mobile
+  closeNavbar() {
+  const navbar = document.getElementById('navbarNav');
+  navbar?.classList.remove('show');
 
   }
 }

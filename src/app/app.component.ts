@@ -30,12 +30,14 @@ import { Component } from '@angular/core';
   styles: `
 
 /* Conteneur principal */
-.container-fluid {
-  display: flex;
+@media (min-width: 768px){
+  .container-fluid {
   margin-top: 50px; /* Évite que le sidebar soit masqué par le nav */
   margin-bottom: 50px; /* Évite que le sidebar soit masqué par le footer */
-  // min-height: calc(100vh - 110px);
-
+  }
+}
+.container-fluid {
+  display: flex;
 }
 .bod {
   width:100%;
