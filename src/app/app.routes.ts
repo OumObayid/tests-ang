@@ -1,3 +1,4 @@
+import { ReactDeplHebergeurComponent } from './pages/tests/reactModule/reactDeplHebergeur.component';
 import { WordpressFormationCompleteComponent } from './pages/tests/wordpressModule/wordpressFormationComplete.component';
 import { wordpressMediaComponent } from './pages/tests/wordpressModule/wordpressMedia.component';
 import { WordpressWidgetComponent } from './pages/tests/wordpressModule/wordpressWidget.component';
@@ -166,6 +167,8 @@ import { authGuard } from './guards/auth.guard';
 import { authGuard2 } from './guards/auth2.guard';
 
 export const routes: Routes = [
+
+  // ----------------------------Angular-------------------------
   { path: '', component: HomeComponent },
 
   //test
@@ -293,8 +296,12 @@ export const routes: Routes = [
   //json
   { path: 'crud-json', component: JsonProductsComponent },
   { path: 'updateproduct-json/:id', component: JsonUpdateProductComponent },
+  //deploiement
+  { path: 'angular-sur-github', component: AngularDeplGithubComponent },
+  { path: 'angular-sur-hebergeur', component: AngularDeplHebergeurComponent },
 
-//react module
+
+// ------------------------------------react module-----------------------
 { path: 'qu-est-ce-que-react.js', component: ReactQuoiComponent },
 { path: 'installation-de-react.js', component: ReactInstallationComponent },
 { path: 'concepts-cles', component: ReactConceptsComponent },
@@ -320,10 +327,12 @@ export const routes: Routes = [
  { path: 'usememo-et-usecallback', component: ReactMemoCallbackComponent },
  { path: 'introduction-aux-tests-en-react', component: ReactTestsComponent },
  { path: 'tests-unitaires-et-tests-d-integration', component: ReactTestsUnitIntegrComponent },
- { path: 'deploiement-avec-netlify', component: ReactDeplNetlifyComponent },
- { path: 'deploiement-avec-vercel', component: ReactDeplVercelComponent },
+ { path: 'react-sur-github', component:  ReactjsDeplGithubComponent},
+ { path: 'react-sur-hebergeur', component: ReactDeplHebergeurComponent },
+ { path: 'react-avec-netlify', component:  ReactDeplNetlifyComponent},
+ { path: 'react-avec-vercel', component: ReactDeplVercelComponent },
 
-//laravel
+// ---------------------------------laravel-----------------------------
 { path: 'c-est-quoi-laravel', component: LaravelIntroComponent },
 { path: 'pre-requis-techniques', component: LaravelPrerequisComponent },
 { path: 'installation-et-decouverte', component: LaravelInstallationComponent },
@@ -333,7 +342,6 @@ export const routes: Routes = [
 { path: 'creation-des-modeles', component: LaravelModelsEloquentComponent },
 { path: 'creation-des-factorys-et-des-seeders', component: LaravelSeederFactotiesComponent },
 { path: 'manipuler-les-donnees-avec-eloquent', component: LaravelDonneesEloquentComponent},
-
 
 { path: 'routes-et-controleurs', component: LaravelRouteControllerComponent },
 { path: 'vues-et-blade', component: LaravelVuesComponent },
@@ -349,9 +357,9 @@ export const routes: Routes = [
 
 { path: 'optimisation', component: LaravelOptimisationComponent },
 { path: 'securite', component: LaravelSecuriteComponent },
-{ path: 'deploiement-laravel', component: LaravelDeployementComponent },
+{ path: 'laravel-sur-hebergeur', component: LaravelDeployementComponent },
 
-//node.js module
+// ------------------------------node.js module-------------------------
 
 { path: 'introduction-a-node.js', component: NodeIntroComponent },
 { path: 'le-javascript-cote-serveur', component: NodeCoteServeurComponent },
@@ -361,7 +369,7 @@ export const routes: Routes = [
 { path: 'interagir-avec-une-dbase', component: nodeDbaseComponent },
 { path: 'mini-api-avec-node.js-et-express', component: NodeApiComponent },
 
-//Wordpress
+// ----------------------------------Wordpress----------------------
 { path: 'c-est-quoi-wordpress', component: WordpressIntroComponent },
 { path: 'developpement-d-un-theme', component: WordpressDEvThemeComponent },
 { path: 'wordpress-et-api-rest', component: WordpressApiRestComponent },
@@ -386,13 +394,8 @@ export const routes: Routes = [
 { path: 'formation-complete', component: WordpressFormationCompleteComponent },
 
 
-  //deployement
-  { path: 'deployement-github-angular', component: AngularDeplGithubComponent },
-  { path: 'deployement-github-reactjs', component: ReactjsDeplGithubComponent },
-  { path: 'deployement-hebergeur-angular-api-rest', component: AngularDeplHebergeurComponent },
-  { path: 'deployement-hebergeur-reactjs-api-rest', component: ReactjsDeplHebergeurComponent },
-  { path: 'deployement-hebergeur-laravel', component: LaravelDeplHebergeurComponent },
-  { path: 'deployement-vps-api-node.js', component: DeplVpsApiNodejsComponent },
+  // ----------------------------deployement--------------------
+{ path: 'deployement-vps-api-node.js', component: DeplVpsApiNodejsComponent },
   { path: 'deployement-vps-laravel-nginx-apache', component: DeplVpsLaravelNginxApacheComponent },
   { path: 'deployement-vps-full-stack-sur-vps', component: DeplVpsFullstackComponent },
   { path: 'deployement-cloud-laravel-heroku', component: LaravelDeplCloudComponent },
@@ -401,7 +404,7 @@ export const routes: Routes = [
   { path: 'deployement-cloud-supabase', component: SurabaseDeplCloudComponent },
   { path: 'deployer-une-api-node.js-mongodb', component: DeplApiNodMongodbComponent },
 
-  //routes pour les pages d'accueil d'un cours
+  // --------------------routes pour les pages d'accueil d'un cours----------
   { path: 'angular', component: AngularAccueilComponent },
   { path: 'react.js', component: ReactComponent },
   { path: 'laravel', component: LaravelAccueilComponent },

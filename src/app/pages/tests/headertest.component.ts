@@ -12,7 +12,7 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
   <div class="container-fluid">
     <!-- Bouton pour le mode mobile -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler custom-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
@@ -25,11 +25,11 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
 
     <!-- Liens de navigation -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav w-100">
-        <!-- Menu Home à gauche -->
-        <li class="nav-item">
+      <ul class="navbar-nav w-100 d-flex flex-lg-row flex-column">
+        <!-- Home à gauche en mode bureau -->
+        <li class="nav-item me-auto">
           <a
-            class="nav-link"
+            class="nav-link py-2"
             [ngClass]="{ active: router.url === '/' }"
             routerLink="/"
           >
@@ -37,33 +37,37 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
           </a>
         </li>
 
-        <!-- Menus à droite -->
-        <li class="nav-item" *ngFor="let menu of mainMenus">
-          <a
-            class="nav-link"
-            [class.active]="menu === activeMenu"
-            (click)="selectMenu(menu); closeNavbar()"
-          >
-            {{ menu }}
-          </a>
-        </li>
+        <!-- Menus à droite en mode bureau | Affichage vertical en mobile -->
+        <ng-container *ngFor="let menu of mainMenus">
+          <li class="nav-item border-top border-secondary d-lg-none"></li>
+          <li class="nav-item">
+            <a
+              class="nav-link py-2"
+              [class.active]="menu === activeMenu"
+              (click)="selectMenu(menu); closeNavbar()"
+            >
+              {{ menu }}
+            </a>
+          </li>
+        </ng-container>
 
-        <!-- Connexion/ Déconnexion -->
+        <!-- Connexion / Déconnexion -->
+        <li class="nav-item border-top border-secondary d-lg-none"></li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link py-2"
             *ngIf="!isloggedIn()"
             [ngClass]="{ active: router.url === '/exemple-de-protection' }"
             routerLink="/exemple-de-protection"
-
           >
             Se connecter
           </a>
         </li>
 
+        <li class="nav-item border-top border-secondary d-lg-none"></li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link py-2"
             *ngIf="isloggedIn()"
             style="cursor: pointer"
             (click)="lougout(); closeNavbar()"
@@ -72,13 +76,13 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
           </a>
         </li>
 
+        <li class="nav-item border-top border-secondary d-lg-none"></li>
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link py-2"
             *ngIf="isloggedIn()"
             [ngClass]="{ active: router.url === '/dashboard' }"
             routerLink="/dashboard"
-
           >
             Dashboard
           </a>
@@ -90,8 +94,15 @@ import { removeActiveUser, selectIsLoggedIn } from '../../ngrx/data.slice';
 
 
 
+
   `,
   styles: `
+
+.custom-toggler .navbar-toggler-icon {
+  width: 20px;  /* Réduit la largeur */
+  height: 20px; /* Réduit la hauteur */
+}
+
   @media (min-width: 768px){
     nav{
     position: fixed;

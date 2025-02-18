@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   template: `
     <div class="body container pt-5">
-      <div class="row d-flex flex-wrap">
+      <div class="row d-flex flex-wrap pt-4">
         <div class="col-md-6 col-12 p-2">
           <div class="p-3 text-center">
             <img
@@ -24,8 +24,7 @@ import { RouterLink } from '@angular/router';
         </div>
         <div class="col-md-6 col-12 p-2">
           <iframe
-            class="w-100"
-            height="315"
+            class="w-100 frameVideo"
             src="https://www.youtube.com/embed/tO3g7JSH-Gk"
             title="YouTube video player"
             frameborder="0"
@@ -38,10 +37,15 @@ import { RouterLink } from '@angular/router';
     </div>
   `,
   styles: `
-@media (min-width: 768px){
-  .body{
-  height : calc(100vh - 103px);
+@media (min-width: 768px) {
+  .frameVideo {
+    height: 200px;
+  }
 }
+@media (min-width: 768px) {
+  .frameVideo {
+      height: 280px;
+    }
 }
 img {
    max-width: 80px;

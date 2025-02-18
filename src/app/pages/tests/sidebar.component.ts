@@ -124,6 +124,7 @@ export class SidebarComponent implements OnInit,OnDestroy{
       'Ngrx',
       'Rxjs',
       'Angulaire et api rest',
+      'Deploiment'
     ],
     Laravel: [
       'Introduction et Pré-requis',
@@ -131,6 +132,8 @@ export class SidebarComponent implements OnInit,OnDestroy{
       'Développement ',
       'Fonctionnalités Avancées',
       'Déploiement et Optimisation',
+      'Optimisation et Sécurité',
+      'Déploiement',
     ],
     'Node.js': ['Node.js'],
     'React.js': [
@@ -155,8 +158,6 @@ export class SidebarComponent implements OnInit,OnDestroy{
       'Formation Complete'
     ],
     Déploiement: [
-      'GitHub',
-      'Hébergeur partagé',
       'VPS',
       'Cloud Managé',
       'Cloud dédié',
@@ -242,7 +243,10 @@ export class SidebarComponent implements OnInit,OnDestroy{
         'Crud firebase',
         'Crud json',
       ],
+      'Deploiment':['Angular sur github', 'Angular sur hébergeur']
     },
+
+
     'React.js': {
       'Introduction à React.js': [
         "Qu'est-ce que React.js",
@@ -258,7 +262,7 @@ export class SidebarComponent implements OnInit,OnDestroy{
       'Context et gestion de l\'état': ['Introduction au Context API','Utilisation du Context pour gérer l\'état global'],
       'Hooks Avancés': ['useReducer','Custom Hooks','UseMemo et useCallback'],
       'Tests avec React':['Introduction aux tests en React','Tests unitaires et tests d\'intégration'],
-      'Déploiement':['Déploiement avec Netlify','Déploiement avec Vercel']
+      'Déploiement':['Réact sur Github','Réact sur Hébergeur','Réact avec Netlify','Réact avec Vercel']
     },
     Laravel: {
       'Introduction et Pré-requis': [
@@ -287,10 +291,12 @@ export class SidebarComponent implements OnInit,OnDestroy{
         'Les Task Scheduling',
         'Envoi Emails et notifications',
       ],
-      'Déploiement et Optimisation': [
+      'Optimisation et Sécurité': [
         'Optimisation',
         'Sécurité',
-        'Déploiement Laravel',
+      ],
+      'Déploiement': [
+        'Laravel sur Hebergeur',
       ],
     },
     'Node.js': {
@@ -340,12 +346,6 @@ export class SidebarComponent implements OnInit,OnDestroy{
       'Formation Complete':['Formation Complete']
     },
     Déploiement: {
-      GitHub: ['deployement github Reactjs', 'deployement github Angular'],
-      'Hébergeur partagé': [
-        'deployement hebergeur Angular API REST',
-        'deployement hebergeur Reactjs API REST',
-        'deployement hebergeur Laravel',
-      ],
       VPS: [
         'deployement vps API Node.js',
         'deployement vps Laravel Nginx-Apache',

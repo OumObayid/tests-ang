@@ -39,21 +39,10 @@ import { Component } from '@angular/core';
 ,
 
 styles: `
-@media (min-width: 768px){
-  .body{
-  height : calc(100vh - 103px);
-}
-}
-
 
  .btn {
    margin-top: 10px;
  }
    `,
-
-
-
-
-
 })
 export class DeployementAccueilComponent {}
